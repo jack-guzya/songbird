@@ -1,5 +1,8 @@
 import React from 'react';
-import Score from './Score/Score';
+
+// Components
+import TitleBlock from './TitleBlock/TitleBlock';
+import Navigation from './Navigation/Navigation';
 
 // Styles
 import './Header.scss';
@@ -7,12 +10,8 @@ import './Header.scss';
 function Header() {
   return (
     <div className="header">
-      <div className="header__title-block">
-        <div className="title-block__logo">
-          Songbird
-        </div>
-        <Score />
-      </div>
+      <TitleBlock />
+      <Navigation />
     </div>
   );
 }
