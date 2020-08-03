@@ -1,12 +1,16 @@
 // React
 import React from 'react';
 
-// Header
+// Components
 import Header from './Header/Header';
+import QuestionBlock from './QuestionBlock/QuestionBlock';
 
 function App() {
   return (
-    <Header />
+    <div className="songbird">
+      <Header />
+      <QuestionBlock />
+    </div>
   );
 }
 
