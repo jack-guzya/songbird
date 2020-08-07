@@ -5,6 +5,7 @@ import * as React from "react";
 import Header from './Header/Header';
 import QuestionBlock from './QuestionBlock/QuestionBlock';
 import AnswersList from './AnswersList/AnswersList'
+import Description from './Description/Description';
 
 const App:React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const App:React.FC = () => {
       <Header />
       <QuestionBlock />
       <AnswersList/>
+      <Description/>
     </div>
   );
 }
