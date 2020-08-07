@@ -6,6 +6,7 @@ import Header from './Header/Header';
 import QuestionBlock from './QuestionBlock/QuestionBlock';
 import AnswersList from './AnswersList/AnswersList'
 import Description from './Description/Description';
+import NextLevelButton from './NextLevelButton/NextLevelButton';
 
 const App:React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App:React.FC = () => {
       <QuestionBlock />
       <AnswersList/>
       <Description/>
+      <NextLevelButton/>
     </div>
   );
 }
