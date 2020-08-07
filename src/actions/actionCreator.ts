@@ -1,8 +1,13 @@
 import { number } from "prop-types";
 
-import { ADD_POINTS } from '../constants/actionTypes'
+import { ADD_POINTS, SWITCH_ANSWER_OPTIONS } from '../constants/actionTypes'
 
-export const addPointsToScore = (points: number) => ({
+export const addPointsToScore = (score: number) => ({
   type: ADD_POINTS,
-  score: points
+  score,
+})
+
+export const addAnswerOptions = (answerList: Array<object>) => ({
+  type: SWITCH_ANSWER_OPTIONS,
+  answerList,
 })

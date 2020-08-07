@@ -1,1 +1,2 @@
 export const ADD_POINTS = 'ADD_POINTS'
+export const SWITCH_ANSWER_OPTIONS = 'ADD_ANSWER_OPTIONS'
