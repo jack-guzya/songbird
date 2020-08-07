@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
-  entry: './index.jsx',
+  entry: './index.tsx',
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -33,7 +33,7 @@ module.exports = {
   ],
   devtool: 'module-source-map',
   resolve: {
-    extensions: ['.js', '.json', '.jsx', '.css', '.scss'],
+    extensions: ['.ts', '.tsx', '.js', '.json', '.jsx', '.css', '.scss'],
     alias: {
       styles: path.resolve(__dirname, 'src/style'),
     },
@@ -89,6 +89,19 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'],
+            },
+          },
+          'ts-loader',
+        ],
       },
     ],
   },

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 // Components
 import Avatar from './Avatar';
@@ -7,7 +7,7 @@ import BirdName from './BirdName';
 // Styles
 import './QuestionBlock.scss';
 
-function QuestionBlock() {
+const QuestionBlock = () => {
   return (
     <div className="question-block">
       <Avatar />
