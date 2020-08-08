@@ -12,7 +12,7 @@ type answerOption = {
   species: string,
 }
 
-class AnswersList extends React.Component<{answerOptions: answerOption[]}> {
+class AnswersList extends React.Component<{ answerOptions: answerOption[] }> {
   render() {
     const { answerOptions } = this.props;
 
@@ -20,7 +20,14 @@ class AnswersList extends React.Component<{answerOptions: answerOption[]}> {
       <div className="answers-list">
         <ul className="answers-list__list">
           {
-            answerOptions.map(({ name, id }: answerOption) => <li key={id}>{name}</li>)
+            answerOptions.map(
+              ({ name, id }: answerOption) => (
+                <li className="option" key={id}>
+                  <span className="indicator" />
+                  <p className="title">{name}</p>
+                </li>
+              )
+            )
           }
         </ul>
       </div>
