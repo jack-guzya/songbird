@@ -7,7 +7,7 @@ export const addPointsToScore = (score: number) => ({
   score,
 })
 
-export const addAnswerOptions = (answerList: Array<object>) => ({
+export const switchAnswerOptions = (answerList: Array<object>) => ({
   type: SWITCH_ANSWER_OPTIONS,
   answerList,
 })
