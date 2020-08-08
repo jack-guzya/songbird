@@ -1,10 +1,16 @@
 import * as React from 'react';
 
 // Redux
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 // Actions
-import { switchAnswerOptions } from '../../actions/actionCreator'
+import { switchAnswerOptions } from '../../actions/actionCreator';
+
+// Components
+import Option from './Option';
+
+// Style
+import './AnswersList.scss';
 
 type answerOption = {
   id: number,
@@ -13,6 +19,8 @@ type answerOption = {
 }
 
 class AnswersList extends React.Component<{ answerOptions: answerOption[] }> {
+  
+
   render() {
     const { answerOptions } = this.props;
 
@@ -22,10 +30,7 @@ class AnswersList extends React.Component<{ answerOptions: answerOption[] }> {
           {
             answerOptions.map(
               ({ name, id }: answerOption) => (
-                <li className="option" key={id}>
-                  <span className="indicator" />
-                  <p className="title">{name}</p>
-                </li>
+                <Option key={id} name={name}/>
               )
             )
           }

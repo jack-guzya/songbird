@@ -1,24 +1,14 @@
 import { SWITCH_ANSWER_OPTIONS } from '../constants/actionTypes'
-import birdsData from '../data/birdsData';
+import { birdsData, birdDataType } from '../data/birdsData';
 
 import shuffle from 'lodash.shuffle'
 
-type birdData = {
-  isSuccess?: boolean
-  id: number;
-  name: string;
-  species: string;
-  description: string;
-  image: string;
-  audio: string;
-}
-
 type action = {
   type: string,
-  answerList: birdData[],
+  answerList: birdDataType[],
 }
 
-const prepareData = (data: birdData[]): birdData[] => {
+const prepareData = (data: birdDataType[]): birdDataType[] => {
   let preparedData = shuffle(data);
   const FIRST_DATA = 0;
   preparedData[FIRST_DATA].isSuccess = true;
@@ -26,9 +16,9 @@ const prepareData = (data: birdData[]): birdData[] => {
   return shuffle(preparedData)
 }
 
-const DEFAULT_ANSWER_OPTIONS: birdData[] = prepareData(birdsData[0]);
+const DEFAULT_ANSWER_OPTIONS: birdDataType[] = prepareData(birdsData[0]);
 
-const answerOptions = (state = DEFAULT_ANSWER_OPTIONS, { type, answerList }: action): birdData[] => {
+const answerOptions = (state = DEFAULT_ANSWER_OPTIONS, { type, answerList }: action): birdDataType[] => {
   switch (type) {
     case SWITCH_ANSWER_OPTIONS:
       return prepareData(answerList);

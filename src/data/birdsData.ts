@@ -1,4 +1,14 @@
-const birdsData = [
+export type birdDataType = {
+  id: number;
+  name: string;
+  species?: string;
+  description?: string;
+  image?: string;
+  audio?: string;
+  isSuccess?: boolean
+}
+
+export const birdsData = [
   [
     {
       id: 1,
@@ -300,5 +310,3 @@ const birdsData = [
     }
   ]
 ];
-
-export default birdsData;

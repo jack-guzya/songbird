@@ -9,8 +9,8 @@ import DescriptionText from './DescriptionText';
 import './Description.scss'
 
 const Description = () => (
-  <div className="description-block">
-    <div className="description-block__image">
+  <div className="bird-description-block">
+    <div className="bird-description-block__image">
       <BirdImage/>
     </div>
     <BirdName/>

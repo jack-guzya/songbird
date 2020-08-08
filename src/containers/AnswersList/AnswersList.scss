@@ -1,0 +1,12 @@
+.answers-list {
+  border: 1px solid;
+
+  &__list {
+    .option {
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(117, 253, 117);
+      }
+    }
+  }
+}

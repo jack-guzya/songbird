@@ -5,7 +5,7 @@ import * as React from "react";
 import Header from './components/Header/Header';
 import QuestionBlock from './components/QuestionBlock/QuestionBlock';
 import AnswersList from './containers/AnswersList/AnswersList'
-import Description from './components/Description/Description';
+import Description from './containers/Description/Description';
 import NextLevelButton from './components/NextLevelButton/NextLevelButton';
 
 const App:React.FC = () => {
