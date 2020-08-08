@@ -1,7 +1,7 @@
-import { SWITCH_ANSWER_OPTIONS } from '../constants/actionTypes'
+import shuffle from 'lodash.shuffle';
+import { SWITCH_ANSWER_OPTIONS } from '../constants/actionTypes';
+// eslint-disable-next-line no-unused-vars
 import { birdsData, birdDataType } from '../data/birdsData';
-
-import shuffle from 'lodash.shuffle'
 
 type action = {
   type: string,
@@ -9,24 +9,25 @@ type action = {
 }
 
 const prepareData = (data: birdDataType[]): birdDataType[] => {
-  let preparedData = shuffle(data);
+  const preparedData = shuffle(data);
   const FIRST_DATA = 0;
   preparedData[FIRST_DATA].isSuccess = true;
 
-  return shuffle(preparedData)
-}
+  return shuffle(preparedData);
+};
 
 const DEFAULT_ANSWER_OPTIONS: birdDataType[] = prepareData(birdsData[0]);
 
-const answerOptions = (state = DEFAULT_ANSWER_OPTIONS, { type, answerList }: action): birdDataType[] => {
+const answerOptions = (
+  state = DEFAULT_ANSWER_OPTIONS, { type, answerList }: action,
+): birdDataType[] => {
   switch (type) {
     case SWITCH_ANSWER_OPTIONS:
       return prepareData(answerList);
 
     default:
-      console.log(state)
       return state;
   }
-}
+};
 
-export default answerOptions
+export default answerOptions;
