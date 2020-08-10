@@ -1,5 +1,10 @@
 import {
-  ADD_POINTS, SET_OPTIONS_LIST, SHOW_DESCRIPTION, SWITCH_CATEGORY, SET_DATA, SET_CATEGORY,
+  UPDATE_SCORE,
+  SET_OPTIONS_LIST,
+  SHOW_DESCRIPTION,
+  SWITCH_CATEGORY,
+  SET_DATA,
+  SET_CATEGORY,
 } from '../constants/actionTypes';
 
 export const setData = (data: object) => ({
@@ -8,7 +13,7 @@ export const setData = (data: object) => ({
 });
 
 export const addPointsToScore = (points: number) => ({
-  type: ADD_POINTS,
+  type: UPDATE_SCORE,
   points,
 });
 

@@ -16,8 +16,8 @@ type optionsListProps = {
 }
 
 const OptionsList = ({ list, handleClick }: optionsListProps) => (
-  <div className="answers-list">
-    <ul className="answers-list__list">
+  <div className="options-list">
+    <ul className="options-list__list">
       {
         list && list.map(
           ({ firstName, id }) => (

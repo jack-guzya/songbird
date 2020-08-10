@@ -33,6 +33,8 @@ type optionsProps = {
 }
 
 class Options extends Component<optionsProps> {
+  fails = 0
+
   componentDidMount() {
     const {
       optionsList, data, categories, setOptionsList,
@@ -51,7 +53,9 @@ class Options extends Component<optionsProps> {
     const id: number = +e.currentTarget.dataset.option;
 
     const description: elementDescriptionProps = this.getElementDescription(id, optionsList);
-
+    console.log(description.isSuccess);
+    this.fails += 1;
+    console.log(this.fails);
     showDescription(description);
   }
 

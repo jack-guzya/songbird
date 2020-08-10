@@ -7,6 +7,7 @@ import TitleBlock from './components/TitleBlock/TitleBlock';
 import QuestionBlock from './components/QuestionBlock/QuestionBlock';
 
 // Containers
+import Score from './containers/Score/Score';
 import Categories from './containers/Categories/Categories';
 import Options from './containers/Options/Options';
 import Description from './containers/Description/Description';
@@ -16,6 +17,7 @@ const App: React.FC = () => (
   <div className="songbird">
     <header className="header">
       <TitleBlock />
+      <Score />
       <Categories />
     </header>
     <QuestionBlock />

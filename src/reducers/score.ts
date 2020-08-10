@@ -1,4 +1,4 @@
-import { ADD_POINTS } from '../constants/actionTypes';
+import { UPDATE_SCORE } from '../constants/actionTypes';
 
 const DEFAULT_SCORE: number = 0;
 
@@ -9,7 +9,7 @@ type action = {
 
 const score = (state = DEFAULT_SCORE, { type, points }: action): number => {
   switch (type) {
-    case ADD_POINTS:
+    case UPDATE_SCORE:
       return points;
 
     default:
