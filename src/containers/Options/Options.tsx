@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable no-shadow */
 import React, { Component } from 'react';
 
@@ -5,11 +6,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Actions
-import { setOptionsList, showDescription } from '../../actions/actionCreator';
-
-// Birds data type
-// eslint-disable-next-line no-unused-vars
-// import { birdDataType } from '../../data/birdsData';
+import {
+  setOptionsList, showDescription, updateScore, setFailStatus, setSuccessStatus,
+} from '../../actions/actionCreator';
 
 // Components
 import OptionsList from '../../components/OptionsList/OptionsList';
@@ -23,17 +22,21 @@ type optionsProps = {
   categories: {
     current: number,
     list: Array<object> | null,
-  }
+  },
   data: {
     categories: Array<string>
     list: Array<[]>
-  }
+  },
+  status: boolean | null,
   showDescription: (description: object) => object,
   setOptionsList: (list: Array<object>) => void,
+  updateScore: (score: number) => object
+  setFailStatus: () => object
+  setSuccessStatus: () => object
 }
 
 class Options extends Component<optionsProps> {
-  fails = 0
+  score = 5
 
   componentDidMount() {
     const {
@@ -48,14 +51,30 @@ class Options extends Component<optionsProps> {
     data.find(({ id }) => dataId === id) || null
   )
 
+  handleResult = (isSuccess: boolean): void => {
+    const {
+      updateScore, setFailStatus, setSuccessStatus, status,
+    } = this.props;
+
+    if (status) { return; }
+
+    if (isSuccess) {
+      updateScore(this.score);
+      setSuccessStatus();
+      return;
+    }
+
+    setFailStatus();
+    this.score = this.score > 0 ? this.score - 1 : 0;
+  }
+
   handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
     const { optionsList, showDescription } = this.props;
     const id: number = +e.currentTarget.dataset.option;
-
     const description: elementDescriptionProps = this.getElementDescription(id, optionsList);
-    console.log(description.isSuccess);
-    this.fails += 1;
-    console.log(this.fails);
+    const { isSuccess } = description;
+
+    this.handleResult(!!isSuccess);
     showDescription(description);
   }
 
@@ -71,12 +90,17 @@ class Options extends Component<optionsProps> {
   }
 }
 
-const OptionsHOC = connect(({ optionsList, data, categories }: optionsProps) => (
-  {
-    optionsList,
-    data,
-    categories,
-  }
-), { setOptionsList, showDescription })(Options);
+const OptionsHOC = connect(({
+  optionsList, data, categories, status,
+}: optionsProps) => (
+    {
+      optionsList,
+      data,
+      categories,
+      status,
+    }
+  ), {
+  setOptionsList, showDescription, updateScore, setFailStatus, setSuccessStatus,
+})(Options);
 
 export default OptionsHOC;

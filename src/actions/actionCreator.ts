@@ -5,6 +5,8 @@ import {
   SWITCH_CATEGORY,
   SET_DATA,
   SET_CATEGORY,
+  SET_FAIL_STATUS,
+  SET_SUCCESS_STATUS,
 } from '../constants/actionTypes';
 
 export const setData = (data: object) => ({
@@ -12,7 +14,7 @@ export const setData = (data: object) => ({
   data,
 });
 
-export const addPointsToScore = (points: number) => ({
+export const updateScore = (points: number) => ({
   type: UPDATE_SCORE,
   points,
 });
@@ -34,4 +36,12 @@ export const switchCategory = () => ({
 export const setCategory = (category: object) => ({
   type: SET_CATEGORY,
   category,
+});
+
+export const setFailStatus = () => ({
+  type: SET_FAIL_STATUS,
+});
+
+export const setSuccessStatus = () => ({
+  type: SET_SUCCESS_STATUS,
 });
