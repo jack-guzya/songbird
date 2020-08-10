@@ -2,17 +2,24 @@
 import * as React from 'react';
 
 // Components
-import Header from './components/Header/Header';
+// import Header from './components/Header/Header';
+import TitleBlock from './components/TitleBlock/TitleBlock';
 import QuestionBlock from './components/QuestionBlock/QuestionBlock';
-import AnswersList from './containers/AnswersList/AnswersList';
+
+// Containers
+import Categories from './containers/Categories/Categories';
+import Options from './containers/Options/Options';
 import Description from './containers/Description/Description';
 import NextLevelButton from './components/NextLevelButton/NextLevelButton';
 
 const App: React.FC = () => (
   <div className="songbird">
-    <Header />
+    <header className="header">
+      <TitleBlock />
+      <Categories />
+    </header>
     <QuestionBlock />
-    <AnswersList />
+    <Options />
     <Description />
     <NextLevelButton />
   </div>

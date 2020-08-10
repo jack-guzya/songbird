@@ -1,14 +1,10 @@
-.header__navigation {
+.category-list {
   display: flex;
   justify-content: space-between;
 
   .active {
     background-color: red;
   }
-}
-
-.navigation__button {
-  cursor: pointer;
 }
 
 

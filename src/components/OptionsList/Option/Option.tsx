@@ -1,17 +1,12 @@
 import React from 'react';
 
-// Birds data type
-// eslint-disable-next-line no-unused-vars
-import { birdDataType } from '../../data/birdsData';
-
-type componentProps = {
+type optionProps = {
   name: string,
   data: number,
-  answerOptions: birdDataType[],
   handleClick: (e: React.MouseEvent<HTMLLIElement>) => void
 }
 
-const Option = ({ name, data, handleClick }: componentProps) => (
+const Option = ({ name, data, handleClick }: optionProps) => (
   <li
     className="option"
     data-option={data}

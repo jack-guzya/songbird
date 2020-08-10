@@ -1,20 +1,20 @@
-import { ADD_POINTS } from '../constants/actionTypes'
+import { ADD_POINTS } from '../constants/actionTypes';
 
 const DEFAULT_SCORE: number = 0;
 
 type action = {
   type: string,
-  score: number,
+  points: number,
 }
 
-const score = (state = DEFAULT_SCORE, { type, score }: action): number => {
+const score = (state = DEFAULT_SCORE, { type, points }: action): number => {
   switch (type) {
     case ADD_POINTS:
-      return score;
+      return points;
 
     default:
       return state;
   }
-}
+};
 
-export default score
+export default score;

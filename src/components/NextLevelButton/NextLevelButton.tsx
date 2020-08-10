@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 
 // Style
-import './NextLevelButton.scss'
+import './NextLevelButton.scss';
 
 const NextLevelButton = () => (
   <button className="next-level-btn">Next level</button>
-)
+);
 
-export default NextLevelButton
+export default NextLevelButton;

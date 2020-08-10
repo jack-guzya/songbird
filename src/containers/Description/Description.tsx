@@ -4,43 +4,37 @@ import React, { Component } from 'react';
 // Redux
 import { connect } from 'react-redux';
 
-// Actions and reducer
-import { showBirdDescription } from '../../actions/actionCreator';
-
 // Components
-import BirdDescription from '../../components/Description/Description';
-import DescriptionText from '../../components/Description/DescriptionText';
-
-// Data
 // eslint-disable-next-line no-unused-vars
-import { birdDataType } from '../../data/birdsData';
+import { ElementDescription, elementDescriptionProps } from '../../components/ElementDescription/ElementDescription';
+import DescriptionText from '../../components/ElementDescription/DescriptionText/DescriptionText';
 
-// Style
-import './Description.scss';
-
+type descriptionProps = {
+  description?: elementDescriptionProps | null
+}
 // eslint-disable-next-line react/prefer-stateless-function
-class Description extends Component<{ birdDescription: birdDataType | null }> {
+class Description extends Component<descriptionProps> {
   render() {
-    const { birdDescription } = this.props;
+    const { description } = this.props;
 
     return (
-      <div className="description-block">
-        {birdDescription
-          ? (
-            <BirdDescription
-              name={birdDescription.name}
-              species={birdDescription.species}
-              image={birdDescription.image}
-              description={birdDescription.description}
-            />
-          ) : <DescriptionText />}
-      </div>
+      description
+        ? (
+          <ElementDescription
+            firstName={description.firstName}
+            secondName={description.secondName}
+            image={description.image}
+            description={description.description}
+          />
+        )
+        : <DescriptionText />
     );
   }
 }
 
-const DescriptionHOC = connect(({ birdDescription }: { birdDescription: birdDataType | null }) => ({
-  birdDescription,
-}), { showBirdDescription })(Description);
+const DescriptionHOC = connect(({ description }: descriptionProps) => ({
+  description,
+}))(Description);
 
+// export default Description;
 export default DescriptionHOC;

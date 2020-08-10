@@ -1,19 +1,19 @@
-import * as React from 'react';
+import React from 'react';
 
 // Components
-import Avatar from './Avatar';
-import BirdName from './BirdName';
+import ElementName from '../../components/ElementName/ElementName';
+import ElementImage from '../../components/ElementImage/ElementImage';
 
 // Styles
 import './QuestionBlock.scss';
 
-const QuestionBlock = () => {
-  return (
-    <div className="question-block">
-      <Avatar />
-      <BirdName />
+const QuestionBlock = () => (
+  <div className="question-block">
+    <div className="question-block__image">
+      <ElementImage />
     </div>
-  );
-}
+    <ElementName />
+  </div>
+);
 
 export default QuestionBlock;
