@@ -1,18 +1,18 @@
-import { SET_SUCCESS_STATUS, SET_FAIL_STATUS } from '../constants/actionTypes';
+// Constants
+import { SET_STATUS } from '../actions/constants';
+// Types
+import { ActionType, StatusType } from '../actions/types';
+
+type Action = ActionType & { status: StatusType }
 
 const DEFAULT_STATUS: null = null;
 
-type action = {
-  type: string,
-}
-
-const status = (state = DEFAULT_STATUS, { type }: action) => {
+const status = (
+  state = DEFAULT_STATUS, { type, status }: Action,
+): StatusType => {
   switch (type) {
-    case SET_FAIL_STATUS:
-      return false;
-
-    case SET_SUCCESS_STATUS:
-      return true;
+    case SET_STATUS:
+      return status;
 
     default:
       return state;

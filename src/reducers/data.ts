@@ -1,21 +1,16 @@
-// import shuffle from 'lodash.shuffle';
-import { SET_DATA } from '../constants/actionTypes';
+// Constants
+import { SET_DATA } from '../actions/constants';
+// Types
+import { DataType } from '../data/types';
+import { ActionType } from '../actions/types';
 
-// type category = {
-//   firstName: string,
-//   isActive: boolean,
-// }
+type Action = ActionType & DataType
 
-// type categoryState = {
-//   current: number,
-//   list: category[]
-// }
-
-const DEFAULT_DATA: object = {};
+const DEFAULT_DATA: null = null;
 
 const dataReducer = (
-  state = DEFAULT_DATA, { type, data }: { type: string, data: object },
-) => {
+  state = DEFAULT_DATA, { type, ...data }: Action,
+): DataType => {
   switch (type) {
     case SET_DATA:
       return data;

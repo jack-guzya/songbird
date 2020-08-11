@@ -1,7 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
+// Types
+import { ScoreType } from './types';
 
 type ScoreProps = {
-  score: number,
+  score: ScoreType
 }
 
 const Score = ({ score }: ScoreProps) => (

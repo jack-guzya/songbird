@@ -1,20 +1,23 @@
-import { UPDATE_SCORE } from '../constants/actionTypes';
+// Constants
+import { UPDATE_SCORE } from '../actions/constants';
+// Types
+import { ActionType } from '../actions/types';
+import { ScoreType } from '../components/Score/types';
+
+type Action = ActionType & { score: ScoreType }
 
 const DEFAULT_SCORE: number = 0;
 
-type action = {
-  type: string,
-  points: number,
-}
-
-const score = (state = DEFAULT_SCORE, { type, points }: action): number => {
+const scoreReducer = (
+  state = DEFAULT_SCORE, { type, score }: Action,
+): ScoreType => {
   switch (type) {
     case UPDATE_SCORE:
-      return points;
+      return score;
 
     default:
       return state;
   }
 };
 
-export default score;
+export default scoreReducer;

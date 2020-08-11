@@ -1,24 +1,18 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
-
 // Components
 import CategoryElement from './CategoryElement/CategoryElement';
-
+// Type
+import { CategoryListType } from './types';
 // Styles
-import './CategoryList';
+import './CategoryList.scss';
 
-type categoriesProps = {
-  categoryList: Array<{
-    name: string,
-    isActive: boolean,
-  }>
-}
-
-const CategoryList = ({ categoryList }: categoriesProps | null) => (
+const CategoryList = ({ list, current }: CategoryListType | null) => (
   <div className="category-list">
-    {categoryList && categoryList.map((categoryElement) => (
+    {list && list.map((name, index) => (
       <CategoryElement
-        name={categoryElement.name}
-        isActive={categoryElement.isActive}
+        name={name}
+        isActive={current === index}
       />
     ))}
   </div>

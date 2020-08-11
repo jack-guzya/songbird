@@ -1,48 +1,44 @@
 // import shuffle from 'lodash.shuffle';
-import { SWITCH_CATEGORY, SET_CATEGORY } from '../constants/actionTypes';
+// Constants
+import { SWITCH_CATEGORY, SET_CATEGORIES } from '../actions/constants';
+// Types
+import { CategoryListType } from '../components/CategoryList/types';
+import { ActionType } from '../actions/types';
 
-type category = {
-  firstName: string,
-  isActive: boolean,
-}
+// const switchCategory = (state: categoryStateType): categoryStateType => {
+//   const newState: categoryStateType = state;
 
-type categoryState = {
-  current: number,
-  list: category[]
-}
+//   newState.current = (newState.current < newState.list.length - 1)
+//     ? newState.current + 1 : newState.current;
 
-const DEFAULT_CATEGORIES: categoryState = {
+//   newState.list = newState.list.map((item: categoryElementType, index): categoryElementType => {
+//     const category = item;
+//     category.isActive = (index === newState.current);
+
+//     return category;
+//   });
+
+//   return newState;
+// };
+
+// ========================= reducer ================================
+
+type Action = ActionType & CategoryListType
+
+const DEFAULT_CATEGORIES: CategoryListType = {
   current: 0,
   list: null,
 };
 
-const switchCategory = (state: categoryState): categoryState => {
-  const newState: categoryState = state;
-
-  newState.current = newState.current < newState.list.length - 1
-    ? newState.current + 1 : newState.current;
-
-  newState.list = newState.list.map((item: category, index): category => {
-    const category = item;
-    category.isActive = (index === newState.current);
-
-    return category;
-  });
-
-  return newState;
-};
-
-// ========================= reducer ================================
-
 const categories = (
-  state = DEFAULT_CATEGORIES, { type, category }: { type: string, category: object },
-) => {
+  state = DEFAULT_CATEGORIES, { type, current, list }: Action,
+): CategoryListType => {
   switch (type) {
     case SWITCH_CATEGORY:
-      return switchCategory(state);
+      return { ...state, current };
 
-    case SET_CATEGORY:
-      return category;
+    case SET_CATEGORIES:
+      return { current, list };
 
     default:
       return state;

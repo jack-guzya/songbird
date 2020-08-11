@@ -1,11 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 
-type categoryElementProps = {
-  name: string,
-  isActive: boolean,
-}
+// Types
+import { CategoryElementType } from '../types';
 
-const CategoryElement = ({ name, isActive }: categoryElementProps) => {
+const CategoryElement = ({ name, isActive }: CategoryElementType) => {
   const elementClass: string = 'categories__element';
 
   return (

@@ -1,6 +1,5 @@
 // Data
 import birds from './birds';
-
 // Constants
 import { BIRDS } from './constants';
 

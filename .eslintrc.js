@@ -25,6 +25,8 @@ module.exports = {
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
+    'no-unused-vars': 'off',
+    'no-shadow': 'off',
     'react/jsx-indent': [0, 2, { checkAttributes: true, indentLogicalExpressions: true }],
   },
 };

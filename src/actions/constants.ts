@@ -1,0 +1,8 @@
+export const UPDATE_SCORE = 'UPDATE_SCORE';
+export const SET_ELEMENTS_LIST = 'SET_ELEMENT_LIST';
+export const SHOW_DESCRIPTION = 'SHOW_DESCRIPTION';
+export const SWITCH_CATEGORY = 'SWITCH_CATEGORY';
+export const SET_CATEGORIES = 'SET_CATEGORIES';
+export const SET_DATA = 'SET_DATA';
+
+export const SET_STATUS = 'SET_STATUS';

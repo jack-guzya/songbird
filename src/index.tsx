@@ -1,14 +1,11 @@
 // React
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
-
 // App
 import App from './App';
-
 // Styles
 import './styles/main.scss';
 

@@ -1,11 +1,9 @@
-import * as React from 'react';
+/* eslint-disable no-unused-vars */
+import React from 'react';
+// Types
+import { ElementNameType } from './types';
 
-type ElementNameProps = {
-  firstName?: string,
-  secondName?: string,
-}
-
-const ElementName = ({ firstName = '******', secondName = '' }: ElementNameProps) => (
+const ElementName = ({ firstName = '******', secondName }: ElementNameType) => (
   <div className="question-block__element-name">
     <h2>{firstName}</h2>
     <h3>{secondName}</h3>

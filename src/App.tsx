@@ -1,16 +1,13 @@
 // React
-import * as React from 'react';
-
+import React from 'react';
 // Components
-// import Header from './components/Header/Header';
 import TitleBlock from './components/TitleBlock/TitleBlock';
 import QuestionBlock from './components/QuestionBlock/QuestionBlock';
-
 // Containers
 import Score from './containers/Score/Score';
-import Categories from './containers/Categories/Categories';
-import Options from './containers/Options/Options';
-import Description from './containers/Description/Description';
+import Categories from './containers/CategoryList/Categories';
+import Options from './containers/ElementList/ElementList';
+import Description from './containers/ElementDescription/Description';
 import NextLevelButton from './components/NextLevelButton/NextLevelButton';
 
 const App: React.FC = () => (

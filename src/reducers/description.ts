@@ -1,17 +1,17 @@
-import { SHOW_DESCRIPTION } from '../constants/actionTypes';
+// Constants
+import { SHOW_DESCRIPTION } from '../actions/constants';
 
 // Types
-// eslint-disable-next-line no-unused-vars
-import { elementDescriptionProps } from '../components/ElementDescription/ElementDescription';
-
-type action = {
-  type: string,
-  description: elementDescriptionProps,
-}
+import { ElementDescriptionType } from '../components/ElementDescription/types';
+import { ActionType } from '../actions/types';
 
 const DEFAULT_STATE: null = null;
 
-const birdDescription = (state = DEFAULT_STATE, { type, description }: action) => {
+type Action = ActionType & ElementDescriptionType
+
+const descriptionReducer = (
+  state = DEFAULT_STATE, { type, ...description }: Action,
+): ElementDescriptionType => {
   switch (type) {
     case SHOW_DESCRIPTION:
       return description;
@@ -21,4 +21,4 @@ const birdDescription = (state = DEFAULT_STATE, { type, description }: action) =
   }
 };
 
-export default birdDescription;
+export default descriptionReducer;
