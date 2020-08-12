@@ -6,21 +6,33 @@ import { connect } from 'react-redux';
 import ElementDescription from '../../components/ElementDescription/ElementDescription';
 import ElementText from '../../components/ElementText/ElementText';
 // Types
-import { ElementDescriptionType } from '../../components/ElementDescription/types';
+import { ElementsListType } from '../../components/ElementsList/types';
+import { CurrentDescriptionType } from '../../actions/types';
 
-const Description = ({ ...description }: ElementDescriptionType) => (
-  description
-    ? (
-      <ElementDescription
-        firstName={description.firstName}
-        secondName={description.secondName}
-        image={description.image}
-        description={description.description}
-      />
-    )
-    : <ElementText />
-);
+type DescriptionProps = {
+  currentDescription: CurrentDescriptionType
+  elementsList: ElementsListType
+}
 
-export default connect(({ description }: ElementDescriptionType) => ({
-  description,
+const Description = ({ currentDescription, elementsList }: DescriptionProps) => {
+  if (currentDescription === null) {
+    return <ElementText />;
+  }
+
+  const {
+    firstName, secondName, image, description,
+  } = elementsList[currentDescription];
+  return (
+    <ElementDescription
+      firstName={firstName}
+      secondName={secondName}
+      image={image}
+      description={description}
+    />
+  );
+};
+
+export default connect(({ currentDescription, elementsList }: DescriptionProps) => ({
+  currentDescription,
+  elementsList,
 }))(Description);

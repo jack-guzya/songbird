@@ -13,19 +13,30 @@ import {
 import ElementsListComponent from '../../components/ElementsList/ElementsList';
 import checkListData from './CheckListData';
 // Types
-import { ElementsListType, HandleClickType } from '../../components/ElementsList/types';
+import { ElementsListType, HandleClickType, CurrentElementType } from '../../components/ElementsList/types';
 import { DataType } from '../../data/types';
 import { CategoryListType } from '../../components/CategoryList/types';
 import { StatusType } from '../../actions/types';
 import { ElementIdType, ElementDescriptionType } from '../../components/ElementDescription/types';
 import { ScoreType } from '../../components/Score/types';
 
+// type ElementsListProps = {
+//   elementsList: ElementsListType,
+//   categories: CategoryListType,
+//   data: DataType
+//   status: StatusType
+//   showDescription: (description: ElementDescriptionType) => object,
+//   setElementsList: (list: ElementsListType) => object,
+//   updateScore: (score: ScoreType) => object
+//   setStatus: (status: StatusType) => object
+// }
+
 type ElementsListProps = {
   elementsList: ElementsListType,
   categories: CategoryListType,
   data: DataType
   status: StatusType
-  showDescription: (description: ElementDescriptionType) => object,
+  showDescription: (current: CurrentElementType) => object,
   setElementsList: (list: ElementsListType) => object,
   updateScore: (score: ScoreType) => object
   setStatus: (status: StatusType) => object
@@ -57,15 +68,15 @@ class ElementsList extends Component<ElementsListProps> {
   //   this.score = this.score > 0 ? this.score - 1 : 0;
   // }
 
-  // handleClick: HandleClickType = (e) => {
-  //   const { elementsList, showDescription } = this.props;
-  //   const id = +e.currentTarget.dataset.option;
-  //   const description = this.getElementDescription(id, elementsList);
-  //   const { isSuccess } = description;
+  handleClick: HandleClickType = (e) => {
+    const { elementsList, showDescription } = this.props;
+    const id = +e.currentTarget.dataset.option;
+    // const description = this.getElementDescription(id, elementsList);
+    // const { isSuccess } = description;
 
-  //   this.handleResult(!!isSuccess);
-  //   showDescription(description);
-  // }
+    // this.handleResult(!!isSuccess);
+    showDescription(id);
+  }
 
   render() {
     const { elementsList } = this.props;
@@ -73,7 +84,7 @@ class ElementsList extends Component<ElementsListProps> {
     return (
       <ElementsListComponent
         list={elementsList}
-      // handleClick={this.handleClick}
+        handleClick={this.handleClick}
       />
     );
   }

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 // Components
 import ElementImage from '../ElementImage/ElementImage';
@@ -18,7 +17,7 @@ const ElementDescription = ({
         <ElementImage image={image} altText={firstName} />
       </div>
       <ElementName firstName={firstName} secondName={secondName} />
-      <ElementText text={description} />
+      <ElementText description={description} />
     </div>
 );
 

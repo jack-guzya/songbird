@@ -8,9 +8,9 @@ import {
   SET_STATUS,
 } from './constants';
 // Types
-import { ActionType, StatusType } from './types';
+import { ActionType, StatusType, CurrentDescriptionType } from './types';
 import { ScoreType } from '../components/Score/types';
-import { ElementsListType } from '../components/ElementsList/types';
+import { ElementsListType, CurrentElementType } from '../components/ElementsList/types';
 import { ElementDescriptionType } from '../components/ElementDescription/types';
 import { CategoryListType, CurrentCategoryType } from '../components/CategoryList/types';
 import { DataType } from '../data/types';
@@ -20,7 +20,7 @@ export const setData = (data: DataType): ActionType & DataType => ({
   ...data,
 });
 
-export const updateScore = (score: ScoreType): ActionType & {score: ScoreType} => ({
+export const updateScore = (score: ScoreType): ActionType & { score: ScoreType } => ({
   type: UPDATE_SCORE,
   score,
 });
@@ -32,11 +32,18 @@ export const setElementsList = (
   list,
 });
 
+// export const showDescription = (
+//   description: ElementDescriptionType,
+// ): ActionType & ElementDescriptionType => ({
+//   type: SHOW_DESCRIPTION,
+//   ...description,
+// });
+
 export const showDescription = (
-  description: ElementDescriptionType,
-): ActionType & ElementDescriptionType => ({
+  currentDescription: CurrentElementType,
+): ActionType & { currentDescription: CurrentDescriptionType } => ({
   type: SHOW_DESCRIPTION,
-  ...description,
+  currentDescription,
 });
 
 export const switchCategory = (

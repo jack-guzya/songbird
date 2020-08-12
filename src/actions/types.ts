@@ -6,4 +6,6 @@ export type ActionType = {
   type: string,
 }
 
+export type CurrentDescriptionType = number | null
+
 export type StatusType = boolean | null

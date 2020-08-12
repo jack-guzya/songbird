@@ -1,20 +1,22 @@
 /* eslint-disable no-unused-vars */
 import { ElementNameType } from '../ElementName/types';
-import { ElementIdType } from '../ElementDescription/types';
+import { ElementDescriptionType, ElementIdType } from '../ElementDescription/types';
 
 export type HandleClickType = (e: React.MouseEvent<HTMLLIElement>) => void
 
 export type ElementIsSuccessType = boolean
 
-export type ElementOfListType = ElementNameType & {
-  id?: ElementIdType
+export type CurrentElementType = number | null
+
+export type ElementOfListType = ElementDescriptionType & {
   isSuccess?: ElementIsSuccessType
+  id?: ElementIdType
 }
 
 export type ElementsListType = Array<ElementOfListType>
 
 export type ElementsListPropsType = {
-  list: Array<ElementOfListType>
+  list: ElementsListType
   handleClick?: HandleClickType
 }
 

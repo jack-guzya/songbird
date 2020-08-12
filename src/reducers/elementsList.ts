@@ -3,10 +3,10 @@ import shuffle from 'lodash.shuffle';
 // Constants
 import { SET_ELEMENTS_LIST } from '../actions/constants';
 // Types
-import { ElementsListType } from '../components/ElementsList/types';
+import { ElementsListType, ElementOfListType } from '../components/ElementsList/types';
 import { ActionType } from '../actions/types';
 
-const prepareData = (list: ElementsListType): ElementsListType => {
+const shuffleData = (list: Array<ElementOfListType>): Array<ElementOfListType> => {
   const preparedData = shuffle(list);
   const FIRST_DATA = 0;
   preparedData[FIRST_DATA].isSuccess = true;
@@ -14,7 +14,9 @@ const prepareData = (list: ElementsListType): ElementsListType => {
   return shuffle(preparedData);
 };
 
-type Action = ActionType & {list: ElementsListType}
+type Action = ActionType & {
+  list: ElementsListType
+}
 
 const DEFAULT_ELEMENTS_LIST: null = null;
 

@@ -4,14 +4,14 @@ import { combineReducers } from 'redux';
 import score from './score';
 import status from './status';
 import elementsList from './elementsList';
-import description from './description';
+import currentDescription from './description';
 import categories from './categories';
 import data from './data';
 
 const rootReducer = combineReducers({
   score,
   elementsList,
-  description,
+  currentDescription,
   categories,
   data,
   status,

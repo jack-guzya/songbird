@@ -12,10 +12,10 @@ const ElementsList = ({ list, handleClick }: ElementsListPropsType) => (
     <ul className="options-list__list">
       {
         list && list.map(
-          ({ firstName, id }) => (
+          ({ firstName, id }, index) => (
             <ElementOfList
               key={id}
-              id={id}
+              id={index}
               firstName={firstName}
               handleClick={handleClick}
             />
