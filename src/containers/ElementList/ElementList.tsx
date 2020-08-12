@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prefer-stateless-function */
 /* eslint-disable indent */
 // React
 import React, { Component } from 'react';
@@ -9,6 +11,7 @@ import {
 } from '../../actions/actionCreator';
 // Components
 import ElementsListComponent from '../../components/ElementsList/ElementsList';
+import checkListData from './CheckListData';
 // Types
 import { ElementsListType, HandleClickType } from '../../components/ElementsList/types';
 import { DataType } from '../../data/types';
@@ -30,16 +33,6 @@ type ElementsListProps = {
 
 class ElementsList extends Component<ElementsListProps> {
   score = 5
-
-  componentDidMount() {
-    const {
-      elementsList, data, categories, setElementsList,
-    } = this.props;
-    if (elementsList) { return; }
-
-    const currentList = data.list[categories.current];
-    setElementsList(currentList);
-  }
 
   // getElementDescription = (
   //   dataId: ElementIdType, list: ElementsListType,
@@ -80,11 +73,13 @@ class ElementsList extends Component<ElementsListProps> {
     return (
       <ElementsListComponent
         list={elementsList}
-        // handleClick={this.handleClick}
+      // handleClick={this.handleClick}
       />
     );
   }
 }
+
+const ElementListWithData = checkListData(ElementsList);
 
 export default connect(({
   elementsList, data, categories, status,
@@ -97,4 +92,4 @@ export default connect(({
     }
   ), {
   setElementsList, showDescription, updateScore, setStatus,
-})(ElementsList);
+})(ElementListWithData);
