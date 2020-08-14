@@ -35,6 +35,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@types/lodash.shuffle": "^4.2.6",
     "@types/react": "^16.9.44",
+    "@types/react-audio-player": "^0.11.0",
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9",
     "@typescript-eslint/eslint-plugin": "^3.8.0",
@@ -70,6 +71,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-h5-audio-player": "^3.3.0",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5"
   }

@@ -3,6 +3,7 @@ import React from 'react';
 // Components
 import ElementName from '../../components/ElementName/ElementName';
 import ElementImage from '../../components/ElementImage/ElementImage';
+import AudioPlayer from '../AudioPlayer/AudioPlayer';
 // Types
 import { ElementImageType } from '../ElementImage/types';
 import { ElementNameType } from '../ElementName/types';
@@ -15,6 +16,7 @@ const QuestionBlock = ({ image, firstName }: ElementNameType & ElementImageType)
     <div className="question-block__image">
       <ElementImage image={image} />
     </div>
+    <AudioPlayer />
     <ElementName firstName={firstName} />
   </div>
 );
