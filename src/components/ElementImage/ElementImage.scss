@@ -1,4 +1,8 @@
 .element-image {
-  width: 100%;
-  background-color: #ffffff;
+  width: 200px;
+
+  &__image {
+    width: 100%;
+    background-color: #ffffff;
+  }
 }

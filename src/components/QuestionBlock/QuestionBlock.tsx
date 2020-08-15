@@ -5,18 +5,18 @@ import ElementName from '../../components/ElementName/ElementName';
 import ElementImage from '../../components/ElementImage/ElementImage';
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
 // Types
-import { ElementImageType } from '../ElementImage/types';
-import { ElementNameType } from '../ElementName/types';
+import { IElementImage } from '../ElementImage/types';
+import { IElementName } from '../ElementName/types';
 
 // Styles
 import './QuestionBlock.scss';
 
-const QuestionBlock = ({ image, firstName }: ElementNameType & ElementImageType) => (
+const QuestionBlock = ({ image, firstName }: IElementName & IElementImage) => (
   <div className="question-block">
     <div className="question-block__image">
-      <ElementImage image={image} />
+      <ElementImage image={image} altText={firstName} />
     </div>
-    <AudioPlayer />
+    <AudioPlayer src={null} />
     <ElementName firstName={firstName} />
   </div>
 );

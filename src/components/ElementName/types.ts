@@ -1,4 +1,4 @@
-export type ElementNameType = {
+export interface IElementName {
   firstName?: string,
   secondName?: string,
 }

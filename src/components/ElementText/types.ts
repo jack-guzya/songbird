@@ -1,3 +1,3 @@
-export type ElementTextType = {
+export interface IElementText {
   description?: string
 }

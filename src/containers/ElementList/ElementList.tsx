@@ -15,9 +15,9 @@ import checkListData from './CheckListData';
 // Types
 import { ElementsListType, HandleClickType, CurrentElementType } from '../../components/ElementsList/types';
 import { DataType } from '../../data/types';
-import { CategoryListType } from '../../components/CategoryList/types';
+import { ICategoryList } from '../../components/CategoryList/types';
 import { StatusType } from '../../actions/types';
-import { ElementIdType, ElementDescriptionType } from '../../components/ElementDescription/types';
+import { ElementIdType, ElementDescriptionType } from '../ElementDescription/types';
 import { ScoreType } from '../../components/Score/types';
 
 // type ElementsListProps = {
@@ -33,7 +33,7 @@ import { ScoreType } from '../../components/Score/types';
 
 type ElementsListProps = {
   elementsList: ElementsListType,
-  categories: CategoryListType,
+  categories: ICategoryList,
   data: DataType
   status: StatusType
   showDescription: (current: CurrentElementType) => object,

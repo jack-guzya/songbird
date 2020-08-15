@@ -1,13 +1,17 @@
+/* eslint-disable indent */
 // React
-import React from 'react';
+import React, { Fragment } from 'react';
 // Components
 import TitleBlock from './components/TitleBlock/TitleBlock';
 import QuestionBlock from './components/QuestionBlock/QuestionBlock';
+import ElementName from './components/ElementName/ElementName';
+import ElementText from './components/ElementText/ElementText';
+import ElementImage from './components/ElementImage/ElementImage';
 // Containers
 import Score from './containers/Score/Score';
 import Categories from './containers/CategoryList/Categories';
 import Options from './containers/ElementList/ElementList';
-import Description from './containers/ElementDescription/Description';
+import Description from './containers/ElementDescription/ElementDescription';
 import NextLevelButton from './components/NextLevelButton/NextLevelButton';
 
 const App: React.FC = () => (
@@ -19,7 +23,17 @@ const App: React.FC = () => (
     </header>
     <QuestionBlock />
     <Options />
-    <Description />
+    <Description>
+      {({
+        firstName, secondName, image, description,
+      }) => (
+          <>
+            <ElementName firstName={firstName} secondName={secondName} />
+            <ElementImage image={image} altText={firstName} />
+            <ElementText description={description} />
+          </>
+        )}
+    </Description>
     <NextLevelButton />
   </div>
 );

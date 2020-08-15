@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 // Types
 import { ElementsListType } from '../../components/ElementsList/types';
 import { DataType } from '../../data/types';
-import { CategoryListType } from '../../components/CategoryList/types';
+import { ICategoryList } from '../../components/CategoryList/types';
 
 type checkListDataProps = {
   elementsList: ElementsListType,
-  categories: CategoryListType,
+  categories: ICategoryList,
   data: DataType
   setElementsList: (list: ElementsListType) => object,
 }

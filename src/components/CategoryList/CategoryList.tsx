@@ -1,13 +1,12 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 // Components
 import CategoryElement from './CategoryElement/CategoryElement';
 // Type
-import { CategoryListType } from './types';
+import { ICategoryList } from './types';
 // Styles
 import './CategoryList.scss';
 
-const CategoryList = ({ list, current }: CategoryListType | null) => (
+const CategoryList: React.FC<ICategoryList> = ({ list, current }) => (
   <div className="category-list">
     {list && list.map((name, index) => (
       <CategoryElement

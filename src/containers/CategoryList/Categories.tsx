@@ -13,13 +13,13 @@ import { setCategories } from '../../actions/actionCreator';
 import CategoryList from '../../components/CategoryList/CategoryList';
 
 // Types
-import { CategoryListType } from '../../components/CategoryList/types';
+import { ICategoryList } from '../../components/CategoryList/types';
 import { DataType } from '../../data/types';
 
 type CategoriesPropsType = {
-  categories: CategoryListType
+  categories: ICategoryList
   data: DataType
-  setCategories: (category: CategoryListType) => any
+  setCategories: (category: ICategoryList) => any
 }
 
 class Categories extends React.Component<CategoriesPropsType> {

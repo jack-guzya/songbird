@@ -1,15 +1,15 @@
 // Constants
 import { UPDATE_SCORE } from '../actions/constants';
 // Types
-import { ActionType } from '../actions/types';
+import { Action } from '../actions/types';
 import { ScoreType } from '../components/Score/types';
 
-type Action = ActionType & { score: ScoreType }
+// type Action = ActionType & { score: ScoreType }
 
 const DEFAULT_SCORE: number = 0;
 
 const scoreReducer = (
-  state = DEFAULT_SCORE, { type, score }: Action,
+  state = DEFAULT_SCORE, { type, score }: Action<{ score: ScoreType }>,
 ): ScoreType => {
   switch (type) {
     case UPDATE_SCORE:

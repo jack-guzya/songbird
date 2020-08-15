@@ -2,8 +2,8 @@
 // Constants
 import { SWITCH_CATEGORY, SET_CATEGORIES } from '../actions/constants';
 // Types
-import { CategoryListType } from '../components/CategoryList/types';
-import { ActionType } from '../actions/types';
+import { ICategoryList } from '../components/CategoryList/types';
+import { Action } from '../actions/types';
 
 // const switchCategory = (state: categoryStateType): categoryStateType => {
 //   const newState: categoryStateType = state;
@@ -23,16 +23,16 @@ import { ActionType } from '../actions/types';
 
 // ========================= reducer ================================
 
-type Action = ActionType & CategoryListType
+// type Action = ActionType & ICategoryList
 
-const DEFAULT_CATEGORIES: CategoryListType = {
+const DEFAULT_CATEGORIES: ICategoryList = {
   current: 0,
   list: null,
 };
 
 const categories = (
-  state = DEFAULT_CATEGORIES, { type, current, list }: Action,
-): CategoryListType => {
+  state = DEFAULT_CATEGORIES, { type, current, list }: Action<ICategoryList>,
+): ICategoryList => {
   switch (type) {
     case SWITCH_CATEGORY:
       return { ...state, current };

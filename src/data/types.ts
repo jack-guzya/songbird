@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 // Types
-import { ElementNameType } from '../components/ElementName/types';
-import { ElementImageType } from '../components/ElementImage/types';
-import { ElementTextType } from '../components/ElementText/types';
+import { IElementName } from '../components/ElementName/types';
+import { IElementImage } from '../components/ElementImage/types';
+import { IElementText } from '../components/ElementText/types';
 
-export type ListType = ElementImageType & ElementNameType & ElementTextType & {
+export type ListType = IElementImage & IElementName & IElementText & {
   id?: number,
   audio?: string
 }

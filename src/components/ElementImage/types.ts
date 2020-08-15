@@ -1,4 +1,3 @@
-export type ElementImageType = {
+export interface IElementImage {
   image?: string,
-  altText?: string,
 }

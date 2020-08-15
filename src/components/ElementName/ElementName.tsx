@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 // Types
-import { ElementNameType } from './types';
+import { IElementName } from './types';
 
-const ElementName = ({ firstName = '******', secondName }: ElementNameType) => (
+const ElementName: React.FC<IElementName> = ({ firstName = '******', secondName }) => (
   <div className="question-block__element-name">
     <h2>{firstName}</h2>
     <h3>{secondName}</h3>

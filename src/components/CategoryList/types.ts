@@ -1,11 +1,5 @@
-export type CategoryElementType = {
-  name: string
-  isActive: boolean
-}
-
 export type CurrentCategoryType = number
-
-export type CategoryListType = {
+export interface ICategoryList {
   current: CurrentCategoryType
   list: Array<string>
 }

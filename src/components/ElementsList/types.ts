@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { ElementNameType } from '../ElementName/types';
-import { ElementDescriptionType, ElementIdType } from '../ElementDescription/types';
+import { IElementName } from '../ElementName/types';
+import { ElementDescriptionType, ElementIdType } from '../../containers/ElementDescription/types';
 
 export type HandleClickType = (e: React.MouseEvent<HTMLLIElement>) => void
 

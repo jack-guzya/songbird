@@ -1,11 +1,9 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-
 // Types
-import { CategoryElementType } from '../types';
+import { ICategoryElement } from './types';
 
-const CategoryElement = ({ name, isActive }: CategoryElementType) => {
-  const elementClass: string = 'categories__element';
+const CategoryElement: React.FC<ICategoryElement> = ({ name, isActive }) => {
+  const elementClass = 'categories__element';
 
   return (
     <div

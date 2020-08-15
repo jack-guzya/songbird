@@ -3,14 +3,13 @@ import { SHOW_DESCRIPTION } from '../actions/constants';
 
 // Types
 import { CurrentElementType } from '../components/ElementsList/types';
-import { ActionType } from '../actions/types';
+import { Action } from '../actions/types';
 
 const DEFAULT_STATE: null = null;
 
-type Action = ActionType & { currentDescription: CurrentElementType }
-
 const currentDescription = (
-  state = DEFAULT_STATE, { type, currentDescription }: Action,
+  state = DEFAULT_STATE,
+  { type, currentDescription }: Action<{ currentDescription: CurrentElementType }>,
 ): CurrentElementType => {
   switch (type) {
     case SHOW_DESCRIPTION:

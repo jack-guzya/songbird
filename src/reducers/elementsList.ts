@@ -4,7 +4,7 @@ import shuffle from 'lodash.shuffle';
 import { SET_ELEMENTS_LIST } from '../actions/constants';
 // Types
 import { ElementsListType, ElementOfListType } from '../components/ElementsList/types';
-import { ActionType } from '../actions/types';
+import { Action } from '../actions/types';
 
 const shuffleData = (list: Array<ElementOfListType>): Array<ElementOfListType> => {
   const preparedData = shuffle(list);
@@ -14,14 +14,15 @@ const shuffleData = (list: Array<ElementOfListType>): Array<ElementOfListType> =
   return shuffle(preparedData);
 };
 
-type Action = ActionType & {
-  list: ElementsListType
-}
+// type Action = ActionType & {
+//   list: ElementsListType
+// }
 
 const DEFAULT_ELEMENTS_LIST: null = null;
 
 const elementsList = (
-  state = DEFAULT_ELEMENTS_LIST, { type, list }: Action,
+  state = DEFAULT_ELEMENTS_LIST,
+  { type, list }: Action<{ list: ElementsListType }>,
 ): ElementsListType => {
   switch (type) {
     case SET_ELEMENTS_LIST:
