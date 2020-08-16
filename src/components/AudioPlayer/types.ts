@@ -1,3 +1,3 @@
 export interface IAudioPlayer {
-  src: string
+  src?: string
 }

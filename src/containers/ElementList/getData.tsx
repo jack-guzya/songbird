@@ -1,19 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { Component } from 'react';
 // Types
-import { ElementsListType } from './types';
-import { DataType } from '../../data/types';
-import { ICategoryList } from '../CategoryList/types';
+import { IElementsList } from './types';
 
-type checkListDataProps = {
-  elementsList: ElementsListType,
-  categories: ICategoryList,
-  data: DataType
-  setElementsList: (list: ElementsListType) => object,
-}
-
-const getData = (View: React.ComponentClass) => (
-  class extends Component<checkListDataProps> {
+const getData = (View: React.ComponentClass): React.ComponentClass => (
+  class extends Component<IElementsList> {
     componentDidMount() {
       const {
         elementsList, data, categories, setElementsList,

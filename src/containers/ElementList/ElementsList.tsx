@@ -14,6 +14,8 @@ import ElementOfList from '../../components/ElementOfList/ElementOfList';
 import getData from './getData';
 // Types
 import { IElementsList, HandleClickType } from './types';
+// Style
+import './ElementsList.scss';
 
 class ElementsList extends Component<IElementsList> {
   handleClick: HandleClickType = (e) => {
