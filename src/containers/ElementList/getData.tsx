@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { Component } from 'react';
 // Types
-import { ElementsListType } from '../../components/ElementsList/types';
+import { ElementsListType } from './types';
 import { DataType } from '../../data/types';
-import { ICategoryList } from '../../components/CategoryList/types';
+import { ICategoryList } from '../CategoryList/types';
 
 type checkListDataProps = {
   elementsList: ElementsListType,
@@ -12,7 +12,7 @@ type checkListDataProps = {
   setElementsList: (list: ElementsListType) => object,
 }
 
-const checkListData = (View: React.ComponentClass) => (
+const getData = (View: React.ComponentClass) => (
   class extends Component<checkListDataProps> {
     componentDidMount() {
       const {
@@ -32,4 +32,4 @@ const checkListData = (View: React.ComponentClass) => (
   }
 );
 
-export default checkListData;
+export default getData;

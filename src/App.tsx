@@ -9,7 +9,7 @@ import ElementText from './components/ElementText/ElementText';
 import ElementImage from './components/ElementImage/ElementImage';
 // Containers
 import Score from './containers/Score/Score';
-import Categories from './containers/CategoryList/Categories';
+import Categories from './containers/CategoryList/CategoryList';
 import Options from './containers/ElementList/ElementList';
 import Description from './containers/ElementDescription/ElementDescription';
 import NextLevelButton from './components/NextLevelButton/NextLevelButton';

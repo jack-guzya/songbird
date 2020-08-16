@@ -2,7 +2,7 @@
 // Constants
 import { SWITCH_CATEGORY, SET_CATEGORIES } from '../actions/constants';
 // Types
-import { ICategoryList } from '../components/CategoryList/types';
+import { ICategoryList } from '../containers/CategoryList/types';
 import { Action } from '../actions/types';
 
 // const switchCategory = (state: categoryStateType): categoryStateType => {

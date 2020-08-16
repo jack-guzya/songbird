@@ -12,9 +12,9 @@ import {
   ActionType, StatusType, CurrentDescriptionType, Action,
 } from './types';
 import { ScoreType } from '../components/Score/types';
-import { ElementsListType, CurrentElementType } from '../components/ElementsList/types';
+import { ElementsListType, CurrentElementType } from '../containers/ElementList/types';
 import { ElementDescriptionType } from '../containers/ElementDescription/types';
-import { ICategoryList, CurrentCategoryType } from '../components/CategoryList/types';
+import { ICategoryList, CurrentCategoryType } from '../containers/CategoryList/types';
 import { DataType } from '../data/types';
 
 export const setData = (data: DataType): Action<DataType> => ({

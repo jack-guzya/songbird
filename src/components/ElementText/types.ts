@@ -1,3 +1,3 @@
 export interface IElementText {
-  description?: string
+  description: string
 }
