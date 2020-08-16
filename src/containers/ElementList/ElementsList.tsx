@@ -5,28 +5,43 @@
 import React, { Component } from 'react';
 // Redux
 import { connect } from 'react-redux';
+// Libs
+import shuffle from 'lodash.shuffle';
 // Actions
 import {
-  setElementsList, showDescription, updateScore, setStatus,
+  setElementsList, showDescription,
 } from '../../actions/actionCreator';
 // Components
 import ElementOfList from '../../components/ElementOfList/ElementOfList';
-import getData from './getData';
 // Types
 import { IElementsList, HandleClickType } from './types';
 // Style
 import './ElementsList.scss';
 
 class ElementsList extends Component<IElementsList> {
+  componentDidMount() {
+    this.checkList();
+  }
+
   handleClick: HandleClickType = (e) => {
     const { showDescription } = this.props;
     const id = +e.currentTarget.dataset.element;
     showDescription(id);
   }
 
-  render() {
+  checkList = () => {
+    const {
+      elementsList, data, categories, setElementsList,
+    } = this.props;
+    if (elementsList) { return; }
+
+    const currentList = data.list[categories.current];
+    setElementsList(shuffle(currentList));
+  }
+
+  renderList = () => {
     const { elementsList } = this.props;
-    const list = elementsList && elementsList.map(
+    return elementsList && elementsList.map(
       ({ firstName }, index) => (
         <li
           data-element={index}
@@ -39,18 +54,18 @@ class ElementsList extends Component<IElementsList> {
         </li>
       ),
     );
+  }
 
+  render() {
     return (
       <div className="element-list">
         <ul className="element-list__list">
-          {list}
+          {this.renderList()}
         </ul>
       </div>
     );
   }
 }
-
-const ElementListWithData = getData(ElementsList);
 
 export default connect(({
   elementsList, data, categories,
@@ -62,4 +77,4 @@ export default connect(({
     }
   ), {
   setElementsList, showDescription,
-})(ElementListWithData);
+})(ElementsList);

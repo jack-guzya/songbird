@@ -5,20 +5,25 @@
 import React from 'react';
 // Redux
 import { connect } from 'react-redux';
-// Components
-import DefaultText from './DefaultText';
 // Types
 import { IElementDescription } from './types';
 // Style
 import './ElementDescription.scss';
 
 class ElementDescription extends React.Component<IElementDescription> {
+  renderDefaultText = () => (
+    <div>
+      <h3>Послушайте аудиозапись</h3>
+      <p>Выберите один из вариантов ответа</p>
+    </div>
+  )
+
   render() {
     const { currentDescription, elementsList } = this.props;
     return (
       <div className="element-description-block">
         {currentDescription === null
-          ? <DefaultText />
+          ? this.renderDefaultText()
           : this.props.children(elementsList[currentDescription])}
       </div>
     );
