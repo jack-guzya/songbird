@@ -14,6 +14,10 @@ const configureStore = (preloadedStore: object) => (
   )
 );
 
-const store = configureStore({ data: rootData.BIRDS });
+const preloadedStore = {
+  data: rootData.BIRDS,
+};
+
+const store = configureStore(preloadedStore);
 
 export default store;

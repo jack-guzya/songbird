@@ -1,30 +1,20 @@
+/* eslint-disable react/prefer-stateless-function */
 // React
 import React from 'react';
 // Redux
 import { connect } from 'react-redux';
-// Actions
-import { setCategories } from '../../actions/actionCreator';
 // Components
 import CategoryElement from '../../components/CategoryElement/CategoryElement';
 // Types
 import { ICategoryList } from './types';
-import { DataType } from '../../data/types';
 // Styles
 import './CategoryList.scss';
 
-type CategoriesPropsType = {
+interface ICategoriesProps {
   categories: ICategoryList
-  data: DataType
-  setCategories: (category: ICategoryList) => any
 }
 
-class CategoryList extends React.Component<CategoriesPropsType> {
-  componentDidMount() {
-    const { categories, data, setCategories } = this.props;
-    if (categories.list) { return; }
-    setCategories({ current: 0, list: data.categories });
-  }
-
+class CategoryList extends React.Component<ICategoriesProps> {
   render() {
     const { categories } = this.props;
     const { list, current } = categories;
@@ -33,6 +23,7 @@ class CategoryList extends React.Component<CategoriesPropsType> {
       <div className="category-list">
         {list && list.map((name, index) => (
           <CategoryElement
+            key={name}
             name={name}
             isActive={current === index}
           />
@@ -42,7 +33,6 @@ class CategoryList extends React.Component<CategoriesPropsType> {
   }
 }
 
-export default connect(({ categories, data }: CategoriesPropsType) => ({
+export default connect(({ categories }: ICategoriesProps) => ({
   categories,
-  data,
-}), { setCategories })(CategoryList);
+}))(CategoryList);

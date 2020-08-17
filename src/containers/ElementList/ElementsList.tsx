@@ -19,36 +19,23 @@ import { IElementsList, HandleClickType } from './types';
 import './ElementsList.scss';
 
 class ElementsList extends Component<IElementsList> {
-  componentDidMount() {
-    this.checkList();
-  }
-
   handleClick: HandleClickType = (e) => {
     const { showDescription } = this.props;
     const id = +e.currentTarget.dataset.element;
     showDescription(id);
   }
 
-  checkList = () => {
-    const {
-      elementsList, data, categories, setElementsList,
-    } = this.props;
-    if (elementsList) { return; }
-
-    const currentList = data.list[categories.current];
-    setElementsList(shuffle(currentList));
-  }
-
   renderList = () => {
     const { elementsList } = this.props;
+    console.log('RENDER LIST', elementsList);
     return elementsList && elementsList.map(
       ({ firstName }, index) => (
         <li
+          key={firstName}
           data-element={index}
           onClick={this.handleClick}
         >
           <ElementOfList
-            key={firstName}
             firstName={firstName}
           />
         </li>
@@ -67,14 +54,8 @@ class ElementsList extends Component<IElementsList> {
   }
 }
 
-export default connect(({
-  elementsList, data, categories,
-}: any) => (
-    {
-      elementsList,
-      data,
-      categories,
-    }
-  ), {
-  setElementsList, showDescription,
-})(ElementsList);
+export default connect(({ elementsList }: any) => (
+  {
+    elementsList,
+  }
+), { showDescription })(ElementsList);

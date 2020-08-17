@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-
 // Reducers
 import score from './score';
 import status from './status';
