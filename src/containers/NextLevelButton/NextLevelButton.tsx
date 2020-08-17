@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 // Types
 import { INextLevelButton } from './types';
 // Services
-import LevelManager from '../../services/LevelsManager';
+import Level from '../../domains/Level';
 // Style
 import './NextLevelButton.scss';
 
 class NextLevelButton extends Component<INextLevelButton> {
-  levelManager = new LevelManager();
+  level = new Level();
 
   handleClick = () => {
-    this.levelManager.nextLevel();
+    this.level.nextLevel();
   }
 
   render() {

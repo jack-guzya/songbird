@@ -2,7 +2,7 @@
 // React
 import React from 'react';
 // Services
-import LevelManager from './services/LevelsManager';
+import Level from './domains/Level';
 // Components
 import TitleBlock from './components/TitleBlock/TitleBlock';
 import ElementName from './components/ElementName/ElementName';
@@ -20,8 +20,8 @@ import AudioPlayer from './components/AudioPlayer/AudioPlayer';
 
 class App extends React.Component {
   componentDidMount() {
-    const levelManager = new LevelManager();
-    levelManager.startGame();
+    const level = new Level();
+    level.startGame();
   }
 
   render() {

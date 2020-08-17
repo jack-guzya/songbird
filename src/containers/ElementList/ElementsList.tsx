@@ -5,12 +5,8 @@
 import React, { Component } from 'react';
 // Redux
 import { connect } from 'react-redux';
-// Libs
-import shuffle from 'lodash.shuffle';
 // Actions
-import {
-  setElementsList, showDescription,
-} from '../../actions/actionCreator';
+import { showDescription } from '../../actions/actionCreator';
 // Components
 import ElementOfList from '../../components/ElementOfList/ElementOfList';
 // Types
