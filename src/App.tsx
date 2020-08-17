@@ -37,14 +37,14 @@ class App extends React.Component {
           )}
         </Header>
         <QuestionBlock>
-          {() => (
-            <>
-              <ElementImage image="assets/bird-default-img.png" altText="default-img" />
-              <ElementName firstName="******" />
-              <AudioPlayer />
-            </>
-
-          )}
+          {(data) => data
+            && (
+              <>
+                <ElementImage image={data.image} altText={data.firstName} />
+                <ElementName firstName={data.firstName} />
+                <AudioPlayer audio={data.audio} />
+              </>
+            )}
         </QuestionBlock>
         <ElementsList />
         <ElementDescription>

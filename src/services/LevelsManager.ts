@@ -8,6 +8,7 @@ import {
   setElementsList,
   showDescription,
   setCategories,
+  setQuestion,
 } from '../actions/actionCreator';
 
 class LevelsManager {
@@ -25,7 +26,12 @@ class LevelsManager {
     const categories = { current: 0, list: data.categories };
     store.dispatch(setElementsList(preparedList));
     store.dispatch(setCategories(categories));
+    store.dispatch(setQuestion({ current: 1, data: preparedList[1] }));
   }
+
+  // setQuestion = () => {
+
+  // }
 }
 
 export default LevelsManager;

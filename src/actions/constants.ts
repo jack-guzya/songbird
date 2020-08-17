@@ -4,5 +4,5 @@ export const SHOW_DESCRIPTION = 'SHOW_DESCRIPTION';
 export const SWITCH_CATEGORY = 'SWITCH_CATEGORY';
 export const SET_CATEGORIES = 'SET_CATEGORIES';
 export const SET_DATA = 'SET_DATA';
-
 export const SET_STATUS = 'SET_STATUS';
+export const SET_QUESTION = 'SET_QUESTION';

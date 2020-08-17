@@ -5,9 +5,9 @@ import './AudioPlayer.scss';
 // Types
 import { IAudioPlayer } from './types';
 
-const AudioPlayer: React.FC<IAudioPlayer> = ({ src }) => (
+const AudioPlayer: React.FC<IAudioPlayer> = ({ audio }) => (
   <ReactAudioPlayer
-    src={src}
+    src={audio}
     showJumpControls={false}
     customAdditionalControls={[]}
   />

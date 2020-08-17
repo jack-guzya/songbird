@@ -6,15 +6,14 @@ import {
   SET_DATA,
   SET_CATEGORIES,
   SET_STATUS,
+  SET_QUESTION,
 } from './constants';
 // Types
-import {
-  ActionType, StatusType, CurrentDescriptionType, Action,
-} from './types';
+import { StatusType, CurrentDescriptionType, Action } from './types';
 import { ScoreType } from '../components/Score/types';
 import { ElementsListType, CurrentElementType } from '../containers/ElementList/types';
-import { ElementDescriptionType } from '../containers/ElementDescription/types';
 import { ICategoryList, CurrentCategoryType } from '../containers/CategoryList/types';
+import { IQuestionState } from '../containers/QuestionBlock/types';
 import { DataType } from '../data/types';
 
 export const setData = (data: DataType): Action<DataType> => ({
@@ -31,13 +30,6 @@ export const setElementsList = (list: ElementsListType): Action<{ list: Elements
   type: SET_ELEMENTS_LIST,
   list,
 });
-
-// export const showDescription = (
-//   description: ElementDescriptionType,
-// ): ActionType & ElementDescriptionType => ({
-//   type: SHOW_DESCRIPTION,
-//   ...description,
-// });
 
 export const showDescription = (
   currentDescription: CurrentElementType,
@@ -61,4 +53,9 @@ export const setCategories = (categories: ICategoryList): Action<ICategoryList> 
 export const setStatus = (status: StatusType): Action<{ status: StatusType }> => ({
   type: SET_STATUS,
   status,
+});
+
+export const setQuestion = (question: IQuestionState): Action<IQuestionState> => ({
+  type: SET_QUESTION,
+  ...question,
 });

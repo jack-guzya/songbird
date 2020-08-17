@@ -1,6 +1,5 @@
 // Constants
 import { SHOW_DESCRIPTION } from '../actions/constants';
-
 // Types
 import { CurrentElementType } from '../containers/ElementList/types';
 import { Action } from '../actions/types';
@@ -19,19 +18,5 @@ const currentDescription = (
       return state;
   }
 };
-
-// type Action = ActionType & ElementDescriptionType
-
-// const descriptionReducer = (
-//   state = DEFAULT_STATE, { type, ...description }: Action,
-// ): ElementDescriptionType => {
-//   switch (type) {
-//     case SHOW_DESCRIPTION:
-//       return description;
-
-//     default:
-//       return state;
-//   }
-// };
 
 export default currentDescription;

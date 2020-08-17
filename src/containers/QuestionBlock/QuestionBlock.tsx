@@ -1,6 +1,8 @@
 /* eslint-disable react/prefer-stateless-function */
 // React
 import React from 'react';
+// Redux
+import { connect } from 'react-redux';
 // Types
 import { IQuestionBlock } from './types';
 // Style
@@ -8,13 +10,15 @@ import './QuestionBlock.scss';
 
 class QuestionBlock extends React.Component<IQuestionBlock> {
   render() {
-    const { children } = this.props;
+    const { children, question } = this.props;
     return (
       <div className="question-block">
-        {children()}
+        {question && children(question.data)}
       </div>
     );
   }
 }
 
-export default QuestionBlock;
+export default connect(({ question }: any) => ({
+  question,
+}))(QuestionBlock);
