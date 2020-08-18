@@ -40,8 +40,8 @@ class App extends React.Component {
           {(data) => data
             && (
               <>
-                <ElementImage image={data.image} altText={data.firstName} />
-                <ElementName firstName={data.firstName} />
+                <ElementImage image={data.image} altText={data.firstName} show={data.show} />
+                <ElementName firstName={data.firstName} show={data.show} />
                 <AudioPlayer audio={data.audio} />
               </>
             )}
@@ -49,11 +49,12 @@ class App extends React.Component {
         <ElementsList />
         <ElementDescription>
           {({
-            firstName, secondName, image, description,
+            firstName, secondName, image, description, audio,
           }) => (
               <>
                 <ElementName firstName={firstName} secondName={secondName} />
                 <ElementImage image={image} altText={firstName} />
+                <AudioPlayer audio={audio} />
                 <ElementText description={description} />
               </>
             )}

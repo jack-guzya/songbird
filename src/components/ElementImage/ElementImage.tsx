@@ -4,11 +4,20 @@ import { IElementImage } from './types';
 // Styles
 import './ElementImage.scss';
 
-// const DEFAULT_URL = 'assets/bird-default-img.png';
+const DEFAULT_URL = 'assets/bird-default-img.png';
 
-const ElementImage: React.FC<IElementImage & {altText: string}> = ({ altText, image }) => (
+interface IElementImageProps extends IElementImage {
+  altText: string
+  show?: boolean
+}
+
+const ElementImage: React.FC<IElementImageProps> = ({ altText, image, show = true }) => (
   <div className="element-image">
-    <img className="element-image__image" src={image} alt={altText} />
+    <img
+      className="element-image__image"
+      src={show ? image : DEFAULT_URL}
+      alt={altText}
+    />
   </div>
 );
 

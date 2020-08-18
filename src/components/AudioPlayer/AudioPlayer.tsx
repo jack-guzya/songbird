@@ -10,6 +10,7 @@ const AudioPlayer: React.FC<IAudioPlayer> = ({ audio }) => (
     src={audio}
     showJumpControls={false}
     customAdditionalControls={[]}
+    autoPlayAfterSrcChange={false}
   />
 );
 
