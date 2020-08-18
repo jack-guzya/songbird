@@ -6,14 +6,13 @@ import { connect } from 'react-redux';
 // Components
 import CategoryElement from '../../components/CategoryElement/CategoryElement';
 // Types
-import { ICategoryList } from './types';
+import { ICategories } from '../../modules/categories/types';
 // Styles
 import './CategoryList.scss';
 
 interface ICategoriesProps {
-  categories: ICategoryList
+  categories: ICategories
 }
-
 class CategoryList extends React.Component<ICategoriesProps> {
   render() {
     const { categories } = this.props;

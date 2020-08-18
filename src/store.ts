@@ -1,6 +1,7 @@
 // Redux
 import { createStore, compose } from 'redux';
-import rootReducer from './reducers/index';
+// Modules
+import { rootReducer } from './modules/index';
 // Data
 import rootData from './data/index';
 

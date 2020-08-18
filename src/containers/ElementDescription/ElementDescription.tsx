@@ -19,18 +19,19 @@ class ElementDescription extends React.Component<IElementDescription> {
   )
 
   render() {
-    const { currentDescription, elementsList } = this.props;
+    const { elementsList } = this.props;
+    const { selected, list } = elementsList;
     return (
       <div className="element-description-block">
-        {currentDescription === null
+        {selected === null
           ? this.renderDefaultText()
-          : this.props.children(elementsList[currentDescription])}
+          : this.props.children(list[selected])}
       </div>
     );
   }
 }
 
-export default connect(({ currentDescription, elementsList }: IElementDescription) => ({
-  currentDescription,
+export default connect(({ elementsList }: IElementDescription) => ({
+  // currentDescription,
   elementsList,
 }))(ElementDescription);

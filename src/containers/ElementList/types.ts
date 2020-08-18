@@ -1,11 +1,7 @@
-import { IElementOfList } from '../../components/ElementOfList/types';
-
-export type CurrentElementType = number | null
-
-export type ElementsListType = Array<IElementOfList> | null
+import { IElementsList, SelectedType } from '../../modules/elementsList/types';
 
 export type HandleClickType = (e: React.MouseEvent<HTMLElement>) => void
-export interface IElementsList {
-  elementsList: ElementsListType,
-  showDescription?: (current: CurrentElementType) => object,
+export interface IElementsListProps {
+  elementsList: IElementsList,
+  showDescription?: (selected: SelectedType) => object,
 }

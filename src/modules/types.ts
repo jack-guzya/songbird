@@ -1,7 +1,5 @@
 export type ActionType = string
 
-export type CurrentDescriptionType = number | null
-
 export type StatusType = boolean | null
 
 export type Argument<T> = {

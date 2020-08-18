@@ -5,16 +5,16 @@ import { connect } from 'react-redux';
 // Components
 import ScoreComponent from '../../components/Score/Score';
 // Types
-import { ScoreType } from '../../components/Score/types';
+import { Score as ScoreType } from '../../modules/score/types';
 
-type ScoreProps = {
+interface IScoreProps {
   score: ScoreType,
 }
 
-const Score = ({ score }: ScoreProps) => (
+const Score: React.FC<IScoreProps> = ({ score }: IScoreProps) => (
   <ScoreComponent score={score} />
 );
 
-export default connect((({ score }: ScoreProps) => ({
+export default connect((({ score }: IScoreProps) => ({
   score,
 })))(Score);

@@ -6,15 +6,15 @@ import React, { Component } from 'react';
 // Redux
 import { connect } from 'react-redux';
 // Actions
-import { showDescription } from '../../actions/actionCreator';
+import { showDescription } from '../../modules/elementsList/elementsList';
 // Components
 import ElementOfList from '../../components/ElementOfList/ElementOfList';
 // Types
-import { IElementsList, HandleClickType } from './types';
+import { IElementsListProps, HandleClickType } from './types';
 // Style
 import './ElementsList.scss';
 
-class ElementsList extends Component<IElementsList> {
+class ElementsList extends Component<IElementsListProps> {
   handleClick: HandleClickType = (e) => {
     const { showDescription } = this.props;
     const id = +e.currentTarget.dataset.element;
@@ -23,8 +23,9 @@ class ElementsList extends Component<IElementsList> {
 
   renderList = () => {
     const { elementsList } = this.props;
+    const { list } = elementsList;
     console.log('RENDER LIST', elementsList);
-    return elementsList && elementsList.map(
+    return list && list.map(
       ({ firstName }, index) => (
         <li
           className="list__item"

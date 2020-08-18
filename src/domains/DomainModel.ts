@@ -1,9 +1,9 @@
 // Store
 import store from '../store';
 // Types
-import { Action } from '../actions/types';
+import { Action } from '../modules/types';
 // Actions
-import * as actionCreator from '../actions/actionCreator';
+import { actions } from '../modules/index';
 
 type ActionType = (state: any) => Action<any>
 
@@ -17,7 +17,7 @@ interface IDomainModel {
 
 abstract class DomainModel implements IDomainModel {
   actions = {
-    ...actionCreator,
+    ...actions,
   }
 
   getState = () => store.getState()
