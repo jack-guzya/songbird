@@ -19,7 +19,7 @@ export const score = (
 ): Score => {
   switch (type) {
     case UPDATE_SCORE:
-      return score;
+      return state + score;
 
     default:
       return state;

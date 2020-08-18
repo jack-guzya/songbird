@@ -33,6 +33,7 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@types/lodash.random": "^3.2.6",
     "@types/lodash.shuffle": "^4.2.6",
     "@types/react": "^16.9.44",
     "@types/react-audio-player": "^0.11.0",
@@ -67,6 +68,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "lodash.random": "^3.2.0",
     "lodash.shuffle": "^4.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

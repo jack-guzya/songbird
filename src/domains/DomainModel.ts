@@ -1,3 +1,6 @@
+// Lodash
+import shuffle from 'lodash.shuffle';
+import random from 'lodash.random';
 // Store
 import store from '../store';
 // Types
@@ -6,23 +9,18 @@ import { Action } from '../modules/types';
 import { actions } from '../modules/index';
 
 type ActionType = (state: any) => Action<any>
-
-interface IDomainModel {
-  actions: {
-    [action: string]: ActionType
-  }
-  sendAction: (action: ActionType) => (args: any) => void
-  getState: () => object
-}
-
-abstract class DomainModel implements IDomainModel {
-  actions = {
+class DomainModel {
+  protected actions = {
     ...actions,
   }
 
-  getState = () => store.getState()
+  protected getState = () => store.getState()
 
-  sendAction = (action: ActionType) => (args: any) => store.dispatch(action(args));
+  protected sendAction = (action: ActionType) => (args: any) => store.dispatch(action(args));
+
+  protected shuffle = (data: Array<any>) => shuffle(data)
+
+  protected random = (upper: number = 5) => random(upper)
 }
 
 export default DomainModel;

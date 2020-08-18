@@ -5,6 +5,7 @@ import { question, setQuestion } from './question/question';
 import { categories, setCategories, switchCategory } from './categories/categories';
 import { score, updateScore } from './score/score';
 import { data, setData } from './data/data';
+import { status, setStatus } from './status/status';
 
 export const rootReducer = combineReducers({
   elementsList,
@@ -12,6 +13,7 @@ export const rootReducer = combineReducers({
   categories,
   score,
   data,
+  status,
 });
 
 export const actions = {
@@ -22,6 +24,7 @@ export const actions = {
   switchCategory,
   updateScore,
   setData,
+  setStatus,
 };
 
 export default rootReducer;

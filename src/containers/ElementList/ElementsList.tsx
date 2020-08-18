@@ -11,14 +11,20 @@ import { showDescription } from '../../modules/elementsList/elementsList';
 import ElementOfList from '../../components/ElementOfList/ElementOfList';
 // Types
 import { IElementsListProps, HandleClickType } from './types';
+// Domains
+import List from '../../domains/List';
 // Style
 import './ElementsList.scss';
 
 class ElementsList extends Component<IElementsListProps> {
+  list = new List();
+
   handleClick: HandleClickType = (e) => {
     const { showDescription } = this.props;
     const id = +e.currentTarget.dataset.element;
     showDescription(id);
+    this.list.handleSelection();
+    // console.log(this.question.check())
   }
 
   renderList = () => {
