@@ -2,7 +2,7 @@
   border: 1px solid;
 
   &__list {
-    .option {
+    .list__item {
       &:hover {
         cursor: pointer;
         background-color: rgb(117, 253, 117);

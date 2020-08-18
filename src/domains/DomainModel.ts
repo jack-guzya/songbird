@@ -15,7 +15,7 @@ interface IDomainModel {
   getState: () => object
 }
 
-class DomainModel implements IDomainModel {
+abstract class DomainModel implements IDomainModel {
   actions = {
     ...actionCreator,
   }

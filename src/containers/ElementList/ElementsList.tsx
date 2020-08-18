@@ -27,6 +27,7 @@ class ElementsList extends Component<IElementsList> {
     return elementsList && elementsList.map(
       ({ firstName }, index) => (
         <li
+          className="list__item"
           key={firstName}
           data-element={index}
           onClick={this.handleClick}
