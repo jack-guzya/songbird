@@ -32,6 +32,5 @@ class ElementDescription extends React.Component<IElementDescription> {
 }
 
 export default connect(({ elementsList }: IElementDescription) => ({
-  // currentDescription,
   elementsList,
 }))(ElementDescription);

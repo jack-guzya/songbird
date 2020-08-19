@@ -4,7 +4,15 @@ import { IElementText } from '../../components/ElementText/types';
 
 export type SelectedType = number | null
 
-export interface IElementOfList extends IElementImage, IElementName, IElementText {}
+export type Status = boolean | null
+export interface ElementStatus {
+  status: Status
+  id: number
+}
+
+export interface IElementOfList extends IElementImage, IElementName, IElementText {
+  status: Status
+}
 
 export interface IElementsList {
   list: Array<IElementOfList> | null,

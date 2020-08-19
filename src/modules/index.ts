@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 // Modules
-import { elementsList, setElementsList, showDescription } from './elementsList/elementsList';
+import {
+  elementsList, setElementsList, setSelection, setElementStatus,
+} from './elementsList/elementsList';
 import { question, setQuestion } from './question/question';
 import { categories, setCategories, switchCategory } from './categories/categories';
 import { score, updateScore } from './score/score';
@@ -18,7 +20,8 @@ export const rootReducer = combineReducers({
 
 export const actions = {
   setElementsList,
-  showDescription,
+  setSelection,
+  setElementStatus,
   setQuestion,
   setCategories,
   switchCategory,

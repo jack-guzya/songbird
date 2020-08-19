@@ -1,3 +1,4 @@
+/* eslint-disable react/state-in-constructor */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable indent */
@@ -6,25 +7,24 @@ import React, { Component } from 'react';
 // Redux
 import { connect } from 'react-redux';
 // Actions
-import { showDescription } from '../../modules/elementsList/elementsList';
+import { setSelection } from '../../modules/elementsList/elementsList';
 // Components
 import ElementOfList from '../../components/ElementOfList/ElementOfList';
 // Types
 import { IElementsListProps, HandleClickType } from './types';
 // Domains
-import List from '../../domains/List';
+import Level from '../../domains/Level';
 // Style
 import './ElementsList.scss';
 
 class ElementsList extends Component<IElementsListProps> {
-  list = new List();
+  level = new Level();
 
   handleClick: HandleClickType = (e) => {
-    const { showDescription } = this.props;
+    const { setSelection } = this.props;
     const id = +e.currentTarget.dataset.element;
-    showDescription(id);
-    this.list.handleSelection();
-    // console.log(this.question.check())
+    setSelection(id);
+    this.level.handleSelection();
   }
 
   renderList = () => {
@@ -32,7 +32,7 @@ class ElementsList extends Component<IElementsListProps> {
     const { list } = elementsList;
     console.log('RENDER LIST', elementsList);
     return list && list.map(
-      ({ firstName }, index) => (
+      ({ firstName, status }, index) => (
         <li
           className="list__item"
           key={firstName}
@@ -41,6 +41,7 @@ class ElementsList extends Component<IElementsListProps> {
         >
           <ElementOfList
             firstName={firstName}
+            isSuccess={status}
           />
         </li>
       ),
@@ -62,4 +63,4 @@ export default connect(({ elementsList }: any) => (
   {
     elementsList,
   }
-), { showDescription })(ElementsList);
+), { setSelection })(ElementsList);
