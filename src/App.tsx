@@ -15,7 +15,7 @@ import Categories from './containers/CategoryList/CategoryList';
 import QuestionBlock from './containers/QuestionBlock/QuestionBlock';
 import ElementsList from './containers/ElementList/ElementsList';
 import ElementDescription from './containers/ElementDescription/ElementDescription';
-import NextLevelButton from './containers/NextLevelButton/NextLevelButton';
+import ControlBlock from './containers/ControlBlock/ControlBlock';
 import AudioPlayer from './components/AudioPlayer/AudioPlayer';
 
 class App extends React.Component {
@@ -59,7 +59,7 @@ class App extends React.Component {
               </>
             )}
         </ElementDescription>
-        <NextLevelButton />
+        <ControlBlock />
       </div>
     );
   }

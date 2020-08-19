@@ -4,6 +4,7 @@ import { Action } from '../types';
 
 // Constants
 export const SET_STATUS = 'SET_STATUS';
+export const FINISH_STATUS = 'FINISH';
 
 // Actions
 export const setStatus = (status: Status): Action<{ status: Status }> => ({

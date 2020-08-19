@@ -8,7 +8,7 @@ const DEFAULT_URL = 'assets/bird-default-img.png';
 
 interface IElementImageProps extends IElementImage {
   altText: string
-  show?: boolean
+  show?: boolean | string
 }
 
 const ElementImage: React.FC<IElementImageProps> = ({ altText, image, show = true }) => (

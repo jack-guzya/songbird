@@ -5,7 +5,7 @@ import { IElementName } from './types';
 const HIDE_NAME = '******';
 
 interface IElementNameProps extends IElementName {
-  show?: boolean
+  show?: boolean | string
 }
 
 const ElementName: React.FC<IElementNameProps> = ({ firstName, secondName, show = true }) => (

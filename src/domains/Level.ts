@@ -1,10 +1,12 @@
 import DomainModel from './DomainModel';
+// Constants
+import { FINISH_STATUS } from '../modules/status/status';
 
 const DEFAULT_SCORE = 5;
 class Level extends DomainModel {
   private score = DEFAULT_SCORE;
 
-  private check = () => {
+  private checkSelection = () => {
     const { question, elementsList } = this.getState();
     return question.current === elementsList.selected;
   }
@@ -15,9 +17,14 @@ class Level extends DomainModel {
     this.score = this.score > 0 ? (this.score - points) : this.score;
   };
 
+  private get isFinish() {
+    const { categories } = this.getState();
+    return (categories.current === categories.list.length - 1);
+  }
+
   private handleSuccessSelection = () => {
     const { elementsList } = this.getState();
-    this.sendAction(this.actions.setStatus)(true);
+    this.sendAction(this.actions.setStatus)(this.isFinish ? FINISH_STATUS : true);
     this.sendAction(this.actions.updateScore)(this.score);
     this.sendAction(this.actions.setElementStatus)({
       id: elementsList.selected, status: true,
@@ -35,17 +42,17 @@ class Level extends DomainModel {
     this.addPenaltyPoints();
   }
 
-  handleSelection = (): boolean | null => {
+  handleSelection = (): void => {
     const { status } = this.getState();
-    if (status) { return null; }
+    if (status) { return; }
 
-    if (this.check()) {
+    if (this.checkSelection()) {
       this.handleSuccessSelection();
-      return true;
+      return; // true;
     }
 
     this.handleFailSelection();
-    return false;
+    // return false;
   }
 
   nextLevel = () => {

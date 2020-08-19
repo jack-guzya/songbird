@@ -1,1 +1,1 @@
-export type Status = boolean | null;
+export type Status = boolean | 'FINISH' | null;
