@@ -24,21 +24,21 @@ class Level extends DomainModel {
 
   private handleSuccessSelection = () => {
     const { elementsList } = this.getState();
-    this.sendAction(this.actions.setStatus)(this.isFinish ? FINISH_STATUS : true);
-    this.sendAction(this.actions.updateScore)(this.score);
-    this.sendAction(this.actions.setElementStatus)({
+    this.sendAction(this.actions.setStatus(this.isFinish ? FINISH_STATUS : true));
+    this.sendAction(this.actions.updateScore(this.score));
+    this.sendAction(this.actions.setElementStatus({
       id: elementsList.selected, status: true,
-    });
+    }));
     this.resetScore();
   }
 
   private handleFailSelection = () => {
     const { elementsList } = this.getState();
-    this.sendAction(this.actions.setStatus)(false);
-    this.sendAction(this.actions.setElementStatus)({
+    this.sendAction(this.actions.setStatus(false));
+    this.sendAction(this.actions.setElementStatus({
       id: elementsList.selected,
       status: false,
-    });
+    }));
     this.addPenaltyPoints();
   }
 
@@ -57,9 +57,9 @@ class Level extends DomainModel {
 
   nextLevel = () => {
     const { categories } = this.getState();
-    this.sendAction(this.actions.switchCategory)(categories.current + 1);
-    this.sendAction(this.actions.setSelection)(null);
-    this.sendAction(this.actions.setStatus)(null);
+    this.sendAction(this.actions.switchCategory(categories.current + 1));
+    this.sendAction(this.actions.setSelection(null));
+    this.sendAction(this.actions.setStatus(null));
     this.setLevel(categories.current + 1);
   }
 }

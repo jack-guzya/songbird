@@ -17,7 +17,9 @@ export const setSelection = (
   selected,
 });
 
-export const setElementsList = (list: IElementOfList): Action<{ list: IElementOfList }> => ({
+export const setElementsList = (
+  list: Array<IElementOfList>,
+): Action<{ list: Array<IElementOfList> }> => ({
   type: SET_ELEMENTS_LIST,
   list,
 });

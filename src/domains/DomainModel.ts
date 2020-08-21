@@ -14,9 +14,9 @@ class DomainModel {
     ...actions,
   }
 
-  protected getState = () => store.getState()
+  getState = () => store.getState()
 
-  protected sendAction = (action: ActionType) => (args: any) => store.dispatch(action(args));
+  protected sendAction = (action: Action<{ [key: string]: any }>) => store.dispatch(action);
 
   protected shuffle = (data: Array<any>) => shuffle(data)
 
@@ -31,10 +31,10 @@ class DomainModel {
     );
     const questionId = this.random();
 
-    this.sendAction(this.actions.setElementsList)(preparedList);
-    this.sendAction(this.actions.setQuestion)(
+    this.sendAction(this.actions.setElementsList(preparedList));
+    this.sendAction(this.actions.setQuestion(
       { current: questionId, data: preparedList[questionId] },
-    );
+    ));
   }
 }
 

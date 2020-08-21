@@ -1,5 +1,5 @@
 export interface IButton {
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onClick: () => void
   disabled?: boolean
   className: string
 }

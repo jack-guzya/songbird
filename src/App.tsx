@@ -17,6 +17,7 @@ import ElementsList from './containers/ElementList/ElementsList';
 import ElementDescription from './containers/ElementDescription/ElementDescription';
 import ControlBlock from './containers/ControlBlock/ControlBlock';
 import AudioPlayer from './components/AudioPlayer/AudioPlayer';
+import ModalBlock from './containers/ModalBlock/ModalBlock';
 
 class App extends React.Component {
   componentDidMount() {
@@ -60,6 +61,7 @@ class App extends React.Component {
             )}
         </ElementDescription>
         <ControlBlock />
+        <ModalBlock />
       </div>
     );
   }

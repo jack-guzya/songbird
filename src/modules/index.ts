@@ -8,6 +8,7 @@ import { categories, setCategories, switchCategory } from './categories/categori
 import { score, updateScore } from './score/score';
 import { data, setData } from './data/data';
 import { status, setStatus } from './status/status';
+import { modalMode, setModalMode } from './modal/modal';
 
 export const rootReducer = combineReducers({
   elementsList,
@@ -16,6 +17,7 @@ export const rootReducer = combineReducers({
   score,
   data,
   status,
+  modalMode,
 });
 
 export const actions = {
@@ -28,6 +30,7 @@ export const actions = {
   updateScore,
   setData,
   setStatus,
+  setModalMode,
 };
 
 export default rootReducer;
