@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 // Redux
 import { connect } from 'react-redux';
 // Components
-import NextLevelBtn from '../../components/Buttons/NextLevel/NextLevelBtn';
-import FinishBtn from '../../components/Buttons/Finish/FinishBtn';
+import Button from '../../components/Button/Button';
 // Types
 import { IControlBlock } from './types';
 import { Status } from '../../modules/status/type';
@@ -24,14 +23,20 @@ class ControlBlock extends Component<IControlBlock> {
   renderButton = (status: Status) => (
     status === FINISH_STATUS
       ? (
-        <FinishBtn
+        <Button
+          className="finish-btn"
           onClick={this.handleClick}
-        />
+        >
+          Finish
+        </Button>
       ) : (
-        <NextLevelBtn
+        <Button
+          className="next-level-btn"
           onClick={this.handleClick}
           disabled={status !== true}
-        />
+        >
+          Next Level
+        </Button>
       )
   )
 
