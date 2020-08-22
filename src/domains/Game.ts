@@ -12,7 +12,8 @@ class Game extends DomainModel {
     const categories = { current: 0, list: data.categories };
     this.sendAction(this.actions.setCategories(categories));
     this.sendAction(this.actions.setSelection(null));
-    this.sendAction(this.actions.setStatus(null));
+    this.sendAction(this.actions.setGameStatus('game'));
+    this.sendAction(this.actions.setLevelStatus(null));
     this.sendAction(this.actions.updateScore(0));
     this.setLevel(0);
   }

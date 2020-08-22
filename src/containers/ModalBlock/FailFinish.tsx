@@ -1,8 +1,8 @@
 // React
 import React from 'react';
 // Components
-import Modal from '../../components/Modal/Modal';
-import Button from '../../components/Button/Button';
+import Modal from '../../components/Modal';
+import Button from '../../components/Button';
 // types
 import { IFailFinish } from './types';
 

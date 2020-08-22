@@ -1,23 +1,22 @@
-/* eslint-disable indent */
 // React
 import React from 'react';
 // Services
 import Game from './domains/Game';
 // Components
-import TitleBlock from './components/TitleBlock/TitleBlock';
-import ElementName from './components/ElementName/ElementName';
-import ElementText from './components/ElementText/ElementText';
-import ElementImage from './components/ElementImage/ElementImage';
+import TitleBlock from './components/TitleBlock';
+import ElementName from './components/ElementName';
+import ElementText from './components/ElementText';
+import ElementImage from './components/ElementImage';
 // Containers
-import Header from './containers/Header/Header';
-import Score from './containers/Score/Score';
-import Categories from './containers/CategoryList/CategoryList';
-import QuestionBlock from './containers/QuestionBlock/QuestionBlock';
-import ElementsList from './containers/ElementList/ElementsList';
-import ElementDescription from './containers/ElementDescription/ElementDescription';
-import ControlBlock from './containers/ControlBlock/ControlBlock';
-import AudioPlayer from './components/AudioPlayer/AudioPlayer';
-import ModalBlock from './containers/ModalBlock/ModalBlock';
+import Header from './containers/Header';
+import Score from './containers/Score';
+import Categories from './containers/CategoryList';
+import QuestionBlock from './containers/QuestionBlock';
+import ElementsList from './containers/ElementList';
+import ElementDescription from './containers/ElementDescription';
+import ControlBlock from './containers/ControlBlock';
+import AudioPlayer from './components/AudioPlayer';
+import ModalBlock from './containers/ModalBlock';
 
 class App extends React.Component {
   componentDidMount() {
@@ -29,13 +28,9 @@ class App extends React.Component {
     return (
       <div className="songbird">
         <Header>
-          {() => (
-            <>
-              <TitleBlock />
-              <Score />
-              <Categories />
-            </>
-          )}
+          <TitleBlock title="SongBird" />
+          <Score />
+          <Categories />
         </Header>
         <QuestionBlock>
           {(data) => data
@@ -52,13 +47,13 @@ class App extends React.Component {
           {({
             firstName, secondName, image, description, audio,
           }) => (
-              <>
-                <ElementName firstName={firstName} secondName={secondName} />
-                <ElementImage image={image} altText={firstName} />
-                <AudioPlayer audio={audio} />
-                <ElementText description={description} />
-              </>
-            )}
+            <>
+              <ElementName firstName={firstName} secondName={secondName} show />
+              <ElementImage image={image} altText={firstName} show />
+              <AudioPlayer audio={audio} />
+              <ElementText description={description} />
+            </>
+          )}
         </ElementDescription>
         <ControlBlock />
         <ModalBlock />

@@ -1,9 +1,7 @@
 import { ReactNode } from 'react';
-import { IQuestion, IData } from '../../modules/question/types';
-import { Status } from '../../modules/status/type';
+import { IData } from '../../modules/question/types';
+import { LevelStatus } from '../../modules/levelStatus';
 
 export interface IQuestionBlock {
-  question: IQuestion
-  status: Status
-  children: ({ show, ...data }: IData & { show: Status }) => ReactNode
+  children: ({ show, ...data }: IData & { show: LevelStatus }) => ReactNode
 }

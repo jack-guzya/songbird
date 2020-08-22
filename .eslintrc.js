@@ -28,6 +28,5 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-shadow': 'off',
     'react/prop-types': 'off',
-    'react/jsx-indent': [0, 2, { checkAttributes: true, indentLogicalExpressions: true }],
   },
 };

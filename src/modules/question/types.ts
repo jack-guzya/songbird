@@ -1,6 +1,6 @@
-import { IElementImage } from '../../components/ElementImage/types';
-import { IElementName } from '../../components/ElementName/types';
-import { IAudioPlayer } from '../../components/AudioPlayer/types';
+import { IElementImage } from '../../components/ElementImage';
+import { IElementName } from '../../components/ElementName';
+import { IAudioPlayer } from '../../components/AudioPlayer';
 
 export interface IData extends IElementImage, IElementName, IAudioPlayer { }
 

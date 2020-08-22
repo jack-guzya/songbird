@@ -8,7 +8,6 @@ import { Action } from '../modules/types';
 // Actions
 import { actions } from '../modules/index';
 
-type ActionType = (state: any) => Action<any>
 class DomainModel {
   protected actions = {
     ...actions,
@@ -16,9 +15,9 @@ class DomainModel {
 
   getState = () => store.getState()
 
-  protected sendAction = (action: Action<{ [key: string]: any }>) => store.dispatch(action);
+  protected sendAction = <T>(action: Action<T>) => store.dispatch(action);
 
-  protected shuffle = (data: Array<any>) => shuffle(data)
+  protected shuffle = <T>(data: Array<T>) => shuffle(data)
 
   protected random = (upper: number = 5) => random(upper)
 
@@ -33,7 +32,10 @@ class DomainModel {
 
     this.sendAction(this.actions.setElementsList(preparedList));
     this.sendAction(this.actions.setQuestion(
-      { current: questionId, data: preparedList[questionId] },
+      {
+        current: questionId,
+        data: preparedList[questionId],
+      },
     ));
   }
 }

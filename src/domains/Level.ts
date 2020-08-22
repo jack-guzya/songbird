@@ -1,6 +1,4 @@
 import DomainModel from './DomainModel';
-// Constants
-import { FINISH_STATUS } from '../modules/status/status';
 
 const DEFAULT_SCORE = 5;
 class Level extends DomainModel {
@@ -24,7 +22,10 @@ class Level extends DomainModel {
 
   private handleSuccessSelection = () => {
     const { elementsList } = this.getState();
-    this.sendAction(this.actions.setStatus(this.isFinish ? FINISH_STATUS : true));
+    if (this.isFinish) {
+      this.sendAction(this.actions.setGameStatus('finish'));
+    }
+    this.sendAction(this.actions.setLevelStatus(true));
     this.sendAction(this.actions.updateScore(this.score));
     this.sendAction(this.actions.setElementStatus({
       id: elementsList.selected, status: true,
@@ -34,7 +35,7 @@ class Level extends DomainModel {
 
   private handleFailSelection = () => {
     const { elementsList } = this.getState();
-    this.sendAction(this.actions.setStatus(false));
+    this.sendAction(this.actions.setLevelStatus(false));
     this.sendAction(this.actions.setElementStatus({
       id: elementsList.selected,
       status: false,
@@ -43,23 +44,22 @@ class Level extends DomainModel {
   }
 
   handleSelection = (): void => {
-    const { status } = this.getState();
-    if (status) { return; }
+    const { levelStatus } = this.getState();
+    if (levelStatus) { return; }
 
     if (this.checkSelection()) {
       this.handleSuccessSelection();
-      return; // true;
+      return;
     }
 
     this.handleFailSelection();
-    // return false;
   }
 
   nextLevel = () => {
     const { categories } = this.getState();
     this.sendAction(this.actions.switchCategory(categories.current + 1));
     this.sendAction(this.actions.setSelection(null));
-    this.sendAction(this.actions.setStatus(null));
+    this.sendAction(this.actions.setLevelStatus(null));
     this.setLevel(categories.current + 1);
   }
 }

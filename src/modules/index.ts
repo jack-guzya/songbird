@@ -1,14 +1,17 @@
 import { combineReducers } from 'redux';
 // Modules
 import {
-  elementsList, setElementsList, setSelection, setElementStatus,
-} from './elementsList/elementsList';
-import { question, setQuestion } from './question/question';
-import { categories, setCategories, switchCategory } from './categories/categories';
-import { score, updateScore } from './score/score';
-import { data, setData } from './data/data';
-import { status, setStatus } from './status/status';
-import { modalMode, setModalMode } from './modal/modal';
+  elementsList, setElementsList, setSelection, setElementStatus, getElementsList,
+} from './elementsList';
+import { question, setQuestion, getQuestion } from './question';
+import {
+  categories, setCategories, switchCategory, getCategories,
+} from './categories';
+import { score, updateScore, getScore } from './score';
+import { data, setData } from './data';
+import { levelStatus, setLevelStatus, getLevelStatus } from './levelStatus';
+import { gameStatus, setGameStatus, getGameStatus } from './gameStatus';
+import { modalMode, setModalMode, getModalMode } from './modal';
 
 export const rootReducer = combineReducers({
   elementsList,
@@ -16,7 +19,8 @@ export const rootReducer = combineReducers({
   categories,
   score,
   data,
-  status,
+  levelStatus,
+  gameStatus,
   modalMode,
 });
 
@@ -29,8 +33,19 @@ export const actions = {
   switchCategory,
   updateScore,
   setData,
-  setStatus,
+  setLevelStatus,
+  setGameStatus,
   setModalMode,
+};
+
+export const selectors = {
+  getCategories,
+  getLevelStatus,
+  getGameStatus,
+  getElementsList,
+  getModalMode,
+  getQuestion,
+  getScore,
 };
 
 export default rootReducer;

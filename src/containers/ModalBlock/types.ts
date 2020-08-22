@@ -1,5 +1,5 @@
-import { Mode } from '../../modules/modal/types';
-import { Score } from '../../modules/score/types';
+import { Mode } from '../../modules/modal';
+import { Score } from '../../components/Score';
 
 export interface IModalBlock {
   modalMode: Mode

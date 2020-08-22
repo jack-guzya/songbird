@@ -1,5 +1,7 @@
-import { Status } from '../../modules/status/type';
+import { LevelStatus } from '../../modules/levelStatus';
+import { GameStatus } from '../../modules/gameStatus';
 
 export interface IControlBlock {
-  status: Status
+  levelStatus: LevelStatus
+  gameStatus: GameStatus
 }
