@@ -2,31 +2,26 @@
 import React from 'react';
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
-// Modules
-import { actions, selectors } from '../../modules';
+import { getElementsList } from '../../redux/reducers/level/actions';
+import { handleSelection } from '../../redux/thunks/level';
 // Components
 import ElementOfList from '../../components/ElementOfList';
 // Types
 import { HandleClickType } from './types';
-// Domains
-import Level from '../../domains/Level';
 // Style
 import './style.scss';
 
-const level = new Level();
-
 const ElementsList: React.FC = () => {
-  const { list } = useSelector(selectors.getElementsList);
+  const elementsList = useSelector(getElementsList);
 
   const dispatch = useDispatch();
 
   const handleClick: HandleClickType = (e) => {
     const id = +e.currentTarget.dataset.element;
-    dispatch(actions.setSelection(id));
-    level.handleSelection();
+    dispatch(handleSelection(id));
   };
 
-  const renderList = () => list && list.map(
+  const renderList = () => elementsList && elementsList.map(
     ({ firstName, status }, index) => (
       <li
         className="list__item"

@@ -1,5 +1,5 @@
-import { LevelStatus } from '../../modules/levelStatus';
-import { GameStatus } from '../../modules/gameStatus';
+import { LevelStatus } from '../../redux/levelStatus-backup/types';
+import { GameStatus } from '../../redux/gameStatus-backup/types';
 
 export interface IControlBlock {
   levelStatus: LevelStatus

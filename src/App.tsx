@@ -1,7 +1,14 @@
+/* eslint-disable react/prefer-stateless-function */
 // React
-import React from 'react';
-// Services
-import Game from './domains/Game';
+import React, { useEffect } from 'react';
+// // Services
+// import Game from './domains/Game';
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { startGame } from './redux/thunks/game';
+import { getGameStatus } from './redux/reducers/game/actions';
+// import { startGame, setLevel } from './redux/thunks/game';
+
 // Components
 import TitleBlock from './components/TitleBlock';
 import ElementName from './components/ElementName';
@@ -18,48 +25,56 @@ import ControlBlock from './containers/ControlBlock';
 import AudioPlayer from './components/AudioPlayer';
 import ModalBlock from './containers/ModalBlock';
 
-class App extends React.Component {
-  componentDidMount() {
-    const game = new Game();
-    game.startGame();
-  }
+// eslint-disable-next-line arrow-body-style
+const App: React.FC = () => {
+  const gameStatus = useSelector(getGameStatus);
+  const dispatch = useDispatch();
 
-  render() {
-    return (
-      <div className="songbird">
-        <Header>
-          <TitleBlock title="SongBird" />
-          <Score />
-          <Categories />
-        </Header>
-        <QuestionBlock>
-          {(data) => data
-            && (
-              <>
-                <ElementImage image={data.image} altText={data.firstName} show={data.show} />
-                <ElementName firstName={data.firstName} show={data.show} />
-                <AudioPlayer audio={data.audio} />
-              </>
-            )}
-        </QuestionBlock>
-        <ElementsList />
-        <ElementDescription>
-          {({
-            firstName, secondName, image, description, audio,
-          }) => (
-            <>
-              <ElementName firstName={firstName} secondName={secondName} show />
-              <ElementImage image={image} altText={firstName} show />
-              <AudioPlayer audio={audio} />
-              <ElementText description={description} />
-            </>
-          )}
-        </ElementDescription>
-        <ControlBlock />
-        <ModalBlock />
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    if (gameStatus === null) {
+      dispatch(startGame());
+    }
+  });
+
+  return (
+    <div className="songbird">
+      <Header>
+        <TitleBlock title="SongBird" />
+        <Score />
+        <Categories />
+      </Header>
+      <QuestionBlock>
+        {(data) => data
+        && (
+          <>
+            <ElementImage image={data.image} altText={data.firstName} show={data.show} />
+            <ElementName firstName={data.firstName} show={data.show} />
+            <AudioPlayer audio={data.audio} />
+          </>
+        )}
+      </QuestionBlock>
+      <ElementsList />
+      <ElementDescription>
+        {({
+          firstName, secondName, image, description, audio,
+        }) => (
+          <>
+            <ElementName firstName={firstName} secondName={secondName} show />
+            <ElementImage image={image} altText={firstName} show />
+            <AudioPlayer audio={audio} />
+            <ElementText description={description} />
+          </>
+        )}
+      </ElementDescription>
+      <ControlBlock />
+      <ModalBlock />
+    </div>
+  );
+};
+
+// componentDidMount() {
+//   const game = new Game();
+//   game.startGame();
+// }
 
 export default App;

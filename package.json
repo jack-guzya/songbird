@@ -75,6 +75,7 @@
     "react-dom": "^16.13.1",
     "react-h5-audio-player": "^3.3.0",
     "react-redux": "^7.2.1",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   }
 }

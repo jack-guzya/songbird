@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 // Components
 import ScoreComponent from '../../components/Score';
 // Modules
-import { selectors } from '../../modules';
+import { getScore } from '../../redux/reducers/game/actions';
 
 const Score: React.FC = () => {
-  const score = useSelector(selectors.getScore);
+  const score = useSelector(getScore);
 
   return (
     <div className="score">

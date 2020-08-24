@@ -2,15 +2,16 @@
 import React from 'react';
 // Redux
 import { useSelector } from 'react-redux';
+import { getCategoriesList, getCategoryIndex } from '../../redux/reducers/game/actions';
 // Components
 import CategoryElement from '../../components/CategoryElement';
-// Modules
-import { getCategories } from '../../modules/categories';
 // Styles
 import './style.scss';
 
 const CategoryList: React.FC = () => {
-  const { list, current } = useSelector(getCategories);
+  const list = useSelector(getCategoriesList);
+  const categoryIndex = useSelector(getCategoryIndex);
+  console.log(categoryIndex);
 
   return (
     <div className="category-list">
@@ -18,7 +19,7 @@ const CategoryList: React.FC = () => {
         <CategoryElement
           key={name}
           name={name}
-          isActive={current === index}
+          isActive={categoryIndex === index}
         />
       ))}
     </div>

@@ -1,4 +1,4 @@
-import { Mode } from '../../modules/modal';
+import { Mode } from '../../redux/reducers/modal/types';
 import { Score } from '../../components/Score';
 
 export interface IModalBlock {

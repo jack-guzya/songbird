@@ -2,8 +2,7 @@
 import React from 'react';
 // Redux
 import { useSelector } from 'react-redux';
-// Modules
-import { selectors } from '../../modules';
+import { getElementsList, getIndexOfSelect } from '../../redux/reducers/level/actions';
 // Types
 import { IElementDescription } from './types';
 // Style
@@ -17,13 +16,14 @@ const renderDefaultText = () => (
 );
 
 const ElementDescription: React.FC<IElementDescription> = ({ children }) => {
-  const { selected, list } = useSelector(selectors.getElementsList);
+  const elementsList = useSelector(getElementsList);
+  const indexOfSelect = useSelector(getIndexOfSelect);
 
   return (
     <div className="element-description-block">
-      {selected === null
+      {indexOfSelect === null
         ? renderDefaultText()
-        : children(list[selected])}
+        : children(elementsList[indexOfSelect])}
     </div>
   );
 };
