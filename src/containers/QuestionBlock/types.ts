@@ -1,7 +1,11 @@
 import { ReactNode } from 'react';
-import { IData } from '../../redux/question-backup/types';
-import { LevelStatus } from '../../redux/levelStatus-backup/types';
+import { TIndex } from '../../redux/reducers/level/types';
 
-export interface IQuestionBlock {
-  children: ({ show, ...data }: IData & { show: LevelStatus }) => ReactNode
+interface IChildrenArgs<T> {
+  data: T
+  show: boolean
+  indexOfQuestion: TIndex
+}
+export interface IQuestionBlock<T> {
+  children: ({ show, data, indexOfQuestion }: IChildrenArgs<T>) => ReactNode
 }

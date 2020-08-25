@@ -1,6 +1,5 @@
-// React
+// React / Redux
 import React from 'react';
-// Redux
 import { useSelector } from 'react-redux';
 import { getCategoriesList, getCategoryIndex } from '../../redux/reducers/game/actions';
 // Components
@@ -11,7 +10,6 @@ import './style.scss';
 const CategoryList: React.FC = () => {
   const list = useSelector(getCategoriesList);
   const categoryIndex = useSelector(getCategoryIndex);
-  console.log(categoryIndex);
 
   return (
     <div className="category-list">

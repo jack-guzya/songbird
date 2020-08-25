@@ -4,12 +4,12 @@ import React from 'react';
 import './style.scss';
 
 export interface IElementImage {
-  image?: string,
+  image: string,
 }
 
 interface IElementImageProps extends IElementImage {
   altText: string
-  show: boolean | string
+  show: boolean
 }
 
 const DEFAULT_URL = 'assets/bird-default-img.png';

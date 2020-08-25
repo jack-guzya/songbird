@@ -1,7 +1,7 @@
-import { LevelStatus } from '../../redux/levelStatus-backup/types';
-import { GameStatus } from '../../redux/gameStatus-backup/types';
+import { TLevelStatus } from '../../redux/reducers/level/types';
+import { TGameStatus } from '../../redux/reducers/game/types';
 
 export interface IControlBlock {
-  levelStatus: LevelStatus
-  gameStatus: GameStatus
+  levelStatus: TLevelStatus
+  gameStatus: TGameStatus
 }

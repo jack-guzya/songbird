@@ -1,6 +1,5 @@
-// React
+// React / Redux
 import React from 'react';
-// Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { getElementsList } from '../../redux/reducers/level/actions';
 import { handleSelection } from '../../redux/thunks/level';
@@ -13,7 +12,6 @@ import './style.scss';
 
 const ElementsList: React.FC = () => {
   const elementsList = useSelector(getElementsList);
-
   const dispatch = useDispatch();
 
   const handleClick: HandleClickType = (e) => {
@@ -22,7 +20,7 @@ const ElementsList: React.FC = () => {
   };
 
   const renderList = () => elementsList && elementsList.map(
-    ({ firstName, status }, index) => (
+    ({ firstName }, index) => (
       <li
         className="list__item"
         key={firstName}
@@ -31,7 +29,7 @@ const ElementsList: React.FC = () => {
       >
         <ElementOfList
           name={firstName}
-          isSuccess={status}
+          index={index}
         />
       </li>
     ),

@@ -1,5 +1,4 @@
 import { Mode } from '../../redux/reducers/modal/types';
-import { Score } from '../../components/Score';
 
 export interface IModalBlock {
   modalMode: Mode
@@ -7,7 +6,7 @@ export interface IModalBlock {
 }
 
 export interface IFailFinish {
-  score: Score
-  maxScore: Score
+  score: number
+  maxScore: number
   onClick: () => void
 }

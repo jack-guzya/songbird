@@ -1,8 +1,8 @@
-import { IState, IndexType } from '../../redux/level-backup/types';
+import { TList, TIndex } from '../../redux/reducers/level/types';
 
 export type HandleClickType = (e: React.MouseEvent<HTMLElement>) => void
 
-export interface IElementsListProps {
-  elementsList: IState,
-  setSelection?: (selected: IndexType) => object,
+export interface IElementsListProps<T> {
+  elementsList: TList<T>,
+  setSelection?: (selected: TIndex) => object,
 }

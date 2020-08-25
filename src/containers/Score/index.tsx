@@ -1,6 +1,5 @@
-// React
+// React / Redux
 import React from 'react';
-// Redux
 import { useSelector } from 'react-redux';
 // Components
 import ScoreComponent from '../../components/Score';

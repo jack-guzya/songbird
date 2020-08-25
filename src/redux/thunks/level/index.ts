@@ -80,7 +80,7 @@ export const handleSelection = (indexOfSelection: levelReducer.types.TIndex) => 
 };
 
 export const nextLevel = () => (
-  dispatch: Dispatch<Action>, getState: () => AppStateType,
+  dispatch:Dispatch<Action>, getState: () => AppStateType,
 ) => {
   const { game, data } = getState();
   dispatch(gameReducer.actions.switchCategory());

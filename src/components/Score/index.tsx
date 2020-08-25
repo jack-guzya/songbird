@@ -1,12 +1,10 @@
 import React from 'react';
 
-export type Score = number
-
-interface ScoreProps {
-  score: Score
+interface IScoreProps {
+  score: number
 }
 
-const Score = ({ score }: ScoreProps) => (
+const Score = ({ score }: IScoreProps) => (
   <p className="score__title">
     Score:
     <span className="score__value">

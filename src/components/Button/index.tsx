@@ -1,3 +1,5 @@
+// Libs
+import classNames from 'classnames';
 // React
 import React from 'react';
 // Styles
@@ -11,15 +13,19 @@ export interface IButton {
 
 const Button: React.FC<IButton> = ({
   className, disabled, onClick, children,
-}) => (
-  <button
-    className={`btn ${className}`}
-    type="button"
-    onClick={onClick}
-    disabled={disabled}
-  >
-    {children}
-  </button>
-);
+}) => {
+  const classes = classNames('btn', className);
+
+  return (
+    <button
+      className={classes}
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {children}
+    </button>
+  );
+};
 
 export default Button;

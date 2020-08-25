@@ -3,7 +3,7 @@ import * as types from './types';
 import { AppStateType } from '../..';
 
 // Actions
-export const setElementsList = (elementsList: types.TList): types.Action => ({
+export const setElementsList = <T>(elementsList: types.TList<T>): types.Action<T> => ({
   type: types.SET_ELEMENTS_LIST,
   payload: {
     elementsList,
@@ -64,7 +64,7 @@ export const resetLevelScore = (): types.Action => ({
   type: types.RESET_LEVEL_SCORE,
 });
 
-export const setLevel = (elementsList: types.TList): types.Action => ({
+export const setLevel = <T>(elementsList: types.TList<T>): types.Action<T> => ({
   type: types.SET_LEVEL,
   payload: {
     elementsList,
@@ -73,6 +73,11 @@ export const setLevel = (elementsList: types.TList): types.Action => ({
 
 // Selectors
 export const getElementsList = (state: AppStateType) => state.level.elementsList;
+
+export const getElementStatus = (index: types.TIndex = 0) => (state: AppStateType) => (
+  state.level.elementsList[index].status
+);
+
 export const getLevelStatus = (state: AppStateType) => state.level.levelStatus;
 export const getIndexOfSelect = (state: AppStateType) => state.level.indexOfSelect;
 export const getIndexOfQuestion = (state: AppStateType) => state.level.indexOfQuestion;

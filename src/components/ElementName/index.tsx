@@ -1,12 +1,12 @@
 import React from 'react';
 
 export interface IElementName {
-  firstName?: string,
+  firstName: string,
   secondName?: string,
 }
 
 interface IElementNameProps extends IElementName {
-  show: boolean | string
+  show: boolean
 }
 
 const HIDE_NAME = '******';

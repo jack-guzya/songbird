@@ -2,7 +2,7 @@
 import * as types from './types';
 
 import {
-  updateElementStatus, setLevel, setSuccessStatus, setFailStatus,
+  updateElementStatus, setLevel, setSuccessStatus, setFailStatus, prepareElementsList,
 } from './utils';
 
 // Reducer
@@ -14,12 +14,12 @@ const DEFAULT_LEVEL_STATE: types.IState = {
   levelScore: null,
 };
 
-export const level = (state = DEFAULT_LEVEL_STATE, action: types.Action): types.IState => {
+export const level = <T>(state = DEFAULT_LEVEL_STATE, action: types.Action<T>): types.IState<T> => {
   const DEFAULT_LEVEL_SCORE = 5;
 
   switch (action.type) {
     case types.SET_ELEMENTS_LIST:
-      return { ...state, elementsList: action.payload.elementsList };
+      return { ...state, elementsList: prepareElementsList(action.payload.elementsList) };
 
     case types.SET_INDEX_OF_SELECT:
       return { ...state, indexOfSelect: action.payload.indexOfSelect };

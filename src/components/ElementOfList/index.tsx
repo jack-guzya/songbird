@@ -1,29 +1,32 @@
-// React
+// Libs
+import classNames from 'classnames';
+// React / Redux
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { getElementStatus } from '../../redux/reducers/level/actions';
 // Styles
 import './style.scss';
 
 export interface IElementOfList {
   name: string
-  isSuccess: boolean | null
+  index: number
 }
 
-const getClass = (status: boolean | null, defaultClass: string): string => {
-  switch (status) {
-    case true:
-      return `${defaultClass} success`;
-    case false:
-      return `${defaultClass} fail`;
-    default:
-      return defaultClass;
-  }
-};
+const ElementOfList: React.FC<IElementOfList> = ({ name, index }) => {
+  const status = useSelector(getElementStatus(index));
 
-const ElementOfList: React.FC<IElementOfList> = ({ name, isSuccess }) => (
-  <div className="element-of-list">
-    <div className={getClass(isSuccess, 'indicator')} />
-    <p className="title">{name}</p>
-  </div>
-);
+  const classes = classNames(
+    'indicator',
+    { success: status === true },
+    { fail: status === false },
+  );
+
+  return (
+    <div className="element-of-list">
+      <div className={classes} />
+      <p className="title">{name}</p>
+    </div>
+  );
+};
 
 export default ElementOfList;

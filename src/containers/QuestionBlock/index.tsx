@@ -1,25 +1,26 @@
-// React
+// React / Redux
 import React from 'react';
-// Redux
 import { useSelector } from 'react-redux';
-// Modules
-import { getElementsList, getLevelStatus, getIndexOfQuestion } from '../../redux/reducers/level/actions';
+import {
+  getElementsList, getLevelStatus, getIndexOfQuestion,
+} from '../../redux/reducers/level/actions';
 // Types
 import { IQuestionBlock } from './types';
 // Style
 import './style.scss';
 
-const QuestionBlock: React.FC<IQuestionBlock> = ({ children }) => {
+type TElementsList = ReturnType<typeof getElementsList>
+
+const QuestionBlock: React.FC<IQuestionBlock<TElementsList>> = ({ children }) => {
   const elementsList = useSelector(getElementsList);
   const levelStatus = useSelector(getLevelStatus);
   const indexOfQuestion = useSelector(getIndexOfQuestion);
 
-  console.log(elementsList);
   return (
     <div className="question-block">
       {
         indexOfQuestion !== null
-        && children({ ...elementsList[indexOfQuestion], show: levelStatus })
+        && children({ data: elementsList, show: levelStatus, indexOfQuestion })
       }
     </div>
   );

@@ -1,14 +1,8 @@
-/* eslint-disable react/prefer-stateless-function */
-// React
+// React / Redux
 import React, { useEffect } from 'react';
-// // Services
-// import Game from './domains/Game';
-// Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { startGame } from './redux/thunks/game';
 import { getGameStatus } from './redux/reducers/game/actions';
-// import { startGame, setLevel } from './redux/thunks/game';
-
 // Components
 import TitleBlock from './components/TitleBlock';
 import ElementName from './components/ElementName';
@@ -25,7 +19,6 @@ import ControlBlock from './containers/ControlBlock';
 import AudioPlayer from './components/AudioPlayer';
 import ModalBlock from './containers/ModalBlock';
 
-// eslint-disable-next-line arrow-body-style
 const App: React.FC = () => {
   const gameStatus = useSelector(getGameStatus);
   const dispatch = useDispatch();
@@ -44,25 +37,38 @@ const App: React.FC = () => {
         <Categories />
       </Header>
       <QuestionBlock>
-        {(data) => data
-        && (
-          <>
-            <ElementImage image={data.image} altText={data.firstName} show={data.show} />
-            <ElementName firstName={data.firstName} show={data.show} />
-            <AudioPlayer audio={data.audio} />
-          </>
-        )}
+        {({ data, indexOfQuestion, show }) => data
+          && (
+            <>
+              <ElementImage
+                image={data[indexOfQuestion].image}
+                altText={data[indexOfQuestion].firstName}
+                show={show}
+              />
+              <ElementName
+                firstName={data[indexOfQuestion].firstName}
+                show={show}
+              />
+              <AudioPlayer audio={data[indexOfQuestion].audio} />
+            </>
+          )}
       </QuestionBlock>
       <ElementsList />
       <ElementDescription>
-        {({
-          firstName, secondName, image, description, audio,
-        }) => (
+        {({ data, indexOfSelection }) => (
           <>
-            <ElementName firstName={firstName} secondName={secondName} show />
-            <ElementImage image={image} altText={firstName} show />
-            <AudioPlayer audio={audio} />
-            <ElementText description={description} />
+            <ElementName
+              firstName={data[indexOfSelection].firstName}
+              secondName={data[indexOfSelection].secondName}
+              show
+            />
+            <ElementImage
+              image={data[indexOfSelection].image}
+              altText={data[indexOfSelection].firstName}
+              show
+            />
+            <AudioPlayer audio={data[indexOfSelection].audio} />
+            <ElementText description={data[indexOfSelection].description} />
           </>
         )}
       </ElementDescription>
@@ -71,10 +77,5 @@ const App: React.FC = () => {
     </div>
   );
 };
-
-// componentDidMount() {
-//   const game = new Game();
-//   game.startGame();
-// }
 
 export default App;

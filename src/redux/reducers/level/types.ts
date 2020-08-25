@@ -10,40 +10,25 @@ export const ADD_FAIL_POINTS = 'ADD_FAIL_POINTS';
 export const RESET_LEVEL_SCORE = 'RESET_LEVEL_SCORE';
 export const SET_LEVEL = 'SET_LEVEL';
 
-export type TIndex = number
+export type TIndex = number | null
 export type TElementStatus = boolean
-
-// export interface ElementStatus {
-//   status: Status
-//   id: number
-// }
-
-// export interface IElementOfList {
-//   firstName?: string
-//   secondName?: string,
-//   description?: string,
-//   image?: string,
-//   audio?: string
-//   status?: Status
-// }
-
-export type TList = Array<{
-  [key: string]: any
-}>;
-
 export type TLevelStatus = boolean;
+export type TList<T> = Array<T>;
 
-interface IElementsList {
+export interface IElementStatus {
+  status: TElementStatus
+}
+
+interface IElementsList<T> {
   type: typeof SET_ELEMENTS_LIST
   payload: {
-    elementsList: TList
+    elementsList: TList<T>
   }
 }
 
-interface IElementStatus {
+interface ISetElementStatus {
   type: typeof SET_ELEMENT_STATUS
-  payload: {
-    status: TElementStatus
+  payload: IElementStatus & {
     index: TIndex
   }
 }
@@ -80,10 +65,10 @@ interface IResetLevelScore {
   type: typeof RESET_LEVEL_SCORE
 }
 
-interface ISetLevel {
+interface ISetLevel<T> {
   type: typeof SET_LEVEL
   payload: {
-    elementsList: TList
+    elementsList: TList<T>
   }
 }
 
@@ -101,21 +86,21 @@ interface ISetSuccessStatus {
   }
 }
 
-export interface IState {
-  elementsList: TList
+export interface IState<T = null> {
+  elementsList: TList<T & IElementStatus> | null
   indexOfSelect: TIndex | null
   indexOfQuestion: TIndex | null
   levelStatus: TLevelStatus | null
   levelScore: number
 }
 
-export type Action = IElementsList
+export type Action<T = null> = IElementsList<T>
   | IQuestionIndex
   | ISetIndexOfSelect
-  | IElementStatus
+  | ISetElementStatus
   | ISetLevelStatus
   | IAddFailPoints
   | IResetLevelScore
-  | ISetLevel
+  | ISetLevel<T>
   | ISetFailStatus
   | ISetSuccessStatus

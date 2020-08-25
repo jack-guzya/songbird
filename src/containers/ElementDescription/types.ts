@@ -1,7 +1,10 @@
 import { ReactNode } from 'react';
-import { IElementOfList } from '../../redux/level-backup/types';
-import { IAudioPlayer } from '../../components/AudioPlayer';
+import { TIndex } from '../../redux/reducers/level/types';
 
-export interface IElementDescription {
-  children: ({ ...props }: IElementOfList & IAudioPlayer) => ReactNode
+interface IChildrenArgs<T> {
+  data: T
+  indexOfSelection: TIndex
+}
+export interface IElementDescription<T> {
+  children: ({ data, indexOfSelection }: IChildrenArgs<T>) => ReactNode
 }

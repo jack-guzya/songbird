@@ -1,10 +1,7 @@
-// React
+// React / Redux
 import React from 'react';
-// Redux
 import { useDispatch, useSelector } from 'react-redux';
-// Modules
 import { getModalMode, setModalMode } from '../../redux/reducers/modal/actions';
-// Thunk
 import { startGame } from '../../redux/thunks/game';
 // Components
 import FailFinish from './FailFinish';

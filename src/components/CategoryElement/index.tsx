@@ -1,3 +1,6 @@
+// Libs
+import classNames from 'classnames';
+// React
 import React from 'react';
 
 export interface ICategoryElement {
@@ -6,10 +9,13 @@ export interface ICategoryElement {
 }
 
 const CategoryElement: React.FC<ICategoryElement> = ({ name, isActive }) => {
-  const elementClass = 'categories__element';
+  const classes = classNames(
+    'categories__element',
+    { active: isActive },
+  );
 
   return (
-    <div className={isActive ? `${elementClass} active` : elementClass}>
+    <div className={classes}>
       {name}
     </div>
   );

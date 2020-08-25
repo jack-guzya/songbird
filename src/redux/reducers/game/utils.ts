@@ -1,5 +1,4 @@
 import { IState, ICategories } from './types';
-import { AppStateType } from '../..';
 
 export const switchCategory = (prevState: IState): IState => {
   const nextState = prevState;
