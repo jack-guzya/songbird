@@ -1,15 +1,14 @@
 // React
-import React from 'react';
+import React, { ReactNode } from 'react';
 // Helpers
 import Portal from '../../helpers/Portal';
 // Styles
 import './style.scss';
 
 export interface IModal {
-  isOpen: boolean
-  title?: any,
-  body?: any,
-  footer?: any
+  title?: ReactNode,
+  body?: ReactNode,
+  footer?: ReactNode
 }
 
 const Modal: React.FC<IModal> = ({ title, body, footer }) => (

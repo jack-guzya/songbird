@@ -20,9 +20,16 @@ export const finishGame = () => (
   dispatch: Dispatch<Action>, getState: () => AppStateType,
 ) => {
   const { game, data } = getState();
+  const modalData: modalReducer.types.IState = {
+    mode: 'failFinish',
+    data: {
+      score: game.score,
+      maxScore: maxScore(data),
+    },
+  };
 
   if (game.score < maxScore(data)) {
-    dispatch(modalReducer.actions.setModalMode('failFinish'));
+    dispatch(modalReducer.actions.setModalData(modalData));
     return;
   }
 

@@ -1,28 +1,34 @@
 // React / Redux
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getModalMode, setModalMode } from '../../redux/reducers/modal/actions';
+import { setModalMode, getModalData } from '../../redux/reducers/modal/actions';
 import { startGame } from '../../redux/thunks/game';
 // Components
 import FailFinish from './FailFinish';
+import SuccessFinish from './SuccessFinish';
 
 const ModalBlock: React.FC = () => {
-  const modalMode = useSelector(getModalMode);
+  const modalData = useSelector(getModalData);
   const dispatch = useDispatch();
-
-  // const { score } = game.getState();
 
   const repeatGame = () => {
     dispatch(startGame());
     dispatch(setModalMode(null));
   };
 
-  switch (modalMode) {
+  switch (modalData.mode) {
     case 'failFinish':
       return (
         <FailFinish
-          score={0}
-          maxScore={0}
+          score={modalData.data.score}
+          maxScore={modalData.data.maxScore}
+          onClick={repeatGame}
+        />
+      );
+
+    case 'successFinish':
+      return (
+        <SuccessFinish
           onClick={repeatGame}
         />
       );

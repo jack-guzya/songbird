@@ -4,24 +4,18 @@ import React from 'react';
 import Modal from '../../components/Modal';
 import Button from '../../components/Button';
 
-export interface IFailFinish {
-  score: number
-  maxScore: number
+interface IProps {
   onClick: () => void
 }
 
-const FailFinish: React.FC<IFailFinish> = ({ score, maxScore, onClick }) => {
+const SuccessFinish: React.FC<IProps> = ({ onClick }) => {
   const title = (
-    <h1>Результат</h1>
+    <h1>Поздравляем!</h1>
   );
 
   const body = (
     <p>
-      Вы набрали
-      <span>{score}</span>
-      из
-      <span>{maxScore}</span>
-      возможных
+      Теперь вы знаете, кто кудахтает у вас за окном. Мои категориеские поздравления
     </p>
   );
 
@@ -30,7 +24,7 @@ const FailFinish: React.FC<IFailFinish> = ({ score, maxScore, onClick }) => {
       className="repeat-game-btn"
       onClick={onClick}
     >
-      Попробовать еще раз
+      Начать заново
     </Button>
   );
 
@@ -43,4 +37,4 @@ const FailFinish: React.FC<IFailFinish> = ({ score, maxScore, onClick }) => {
   );
 };
 
-export default FailFinish;
+export default SuccessFinish;
