@@ -3,7 +3,7 @@ import classNames from 'classnames';
 // React / Redux
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getElementStatus } from '../../redux/reducers/level/actions';
+import { getElementStatus } from '../../redux/level/actions';
 // Styles
 import './style.scss';
 

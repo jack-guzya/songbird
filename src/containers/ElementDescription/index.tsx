@@ -1,7 +1,7 @@
 // React / Redux
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getElementsList, getIndexOfSelect } from '../../redux/reducers/level/actions';
+import { getElementsList, getIndexOfSelect } from '../../redux/level/actions';
 // Types
 import { IElementDescription } from './types';
 // Style

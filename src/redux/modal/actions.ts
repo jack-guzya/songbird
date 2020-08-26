@@ -1,8 +1,8 @@
 // Types
 import {
-  Action, SET_MODAL_MODE, Mode, IModalData, SET_MODAL_DATA, IState,
+  Action, SET_MODAL_MODE, Mode, SET_MODAL_DATA, IState,
 } from './types';
-import { AppStateType } from '../..';
+import { AppStateType } from '..';
 
 // Actions
 export const setModalMode = (mode: Mode): Action => ({

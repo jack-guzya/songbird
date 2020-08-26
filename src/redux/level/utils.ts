@@ -1,5 +1,4 @@
 // Libs
-import random from 'lodash.random';
 import shuffle from 'lodash.shuffle';
 // Types
 import * as types from './types';
@@ -21,35 +20,22 @@ export const prepareElementsList = <T>(
   return shuffle(preparedList);
 };
 
-export const setLevel = <T>(
-  elementsList: types.TList<T>, defaultLevelScore: number,
-): types.IState<T> => ({
-    elementsList: prepareElementsList(elementsList),
-    indexOfSelect: null,
-    indexOfQuestion: random(0, elementsList.length - 1),
-    levelStatus: null,
-    levelScore: defaultLevelScore,
-  });
-
 export const setFailStatus = <T>(
   prevState: types.IState<T>, indexOfSelect: types.TIndex,
 ): types.IState<T> => {
   const nextState = prevState;
   nextState.elementsList[indexOfSelect].status = false;
-  nextState.indexOfSelect = indexOfSelect;
-  nextState.levelStatus = false;
-  nextState.levelScore -= 1;
+  nextState.levelStatus = 'fail';
 
   return nextState;
 };
 
 export const setSuccessStatus = <T>(
-  prevState: types.IState<T>, indexOfSelect: types.TIndex, defaultLevelScore: number,
+  prevState: types.IState<T>, indexOfSelect: types.TIndex,
 ): types.IState<T> => {
   const nextState = prevState;
   nextState.elementsList[indexOfSelect].status = true;
-  nextState.levelStatus = true;
-  nextState.levelScore = defaultLevelScore;
+  nextState.levelStatus = 'success';
 
   return nextState;
 };

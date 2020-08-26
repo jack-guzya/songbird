@@ -4,15 +4,17 @@ export const SET_CATEGORIES = 'SET_CATEGORIES';
 export const SET_GAME_STATUS = 'SET_GAME_STATUS';
 export const UPDATE_SCORE = 'UPDATE_SCORE';
 export const SET_SCORE = 'SET_SCORE';
+export const ADD_FAIL_POINTS = 'ADD_FAIL_POINTS';
 export const START_GAME = 'START_GAME';
 
 export type TCategoryIndex = number
-export type TGameStatus = 'game' | 'finish';
+export type TGameStatus = 'game' | 'finish' | 'nextLevel'
 export type TScore = number;
+export type TCategories = Array<string>
 
 export interface ICategories {
   categoryIndex: TCategoryIndex
-  list: Array<string>
+  list: TCategories
 }
 
 interface ISwitchCategory {
@@ -22,7 +24,7 @@ interface ISwitchCategory {
 interface ISetCategories {
   type: typeof SET_CATEGORIES
   payload: {
-    categories: ICategories
+    categories: TCategories
   }
 }
 
@@ -35,11 +37,14 @@ interface ISetGameStatus {
 
 interface IUpdateScore {
   type: typeof UPDATE_SCORE
-  payload: {
-    score: TScore
-  }
 }
 
+interface IAddFailPoints {
+  type: typeof ADD_FAIL_POINTS
+  payload: {
+    failPoints: number
+  }
+}
 interface ISetScore {
   type: typeof SET_SCORE
   payload: {
@@ -50,7 +55,7 @@ interface ISetScore {
 interface IStartGame {
   type: typeof START_GAME
   payload: {
-    categories: ICategories
+    maxLevelScore: TScore
   }
 }
 
@@ -58,11 +63,15 @@ export interface IState {
   categories: ICategories
   status: TGameStatus
   score: TScore
+  levelScore: TScore
+  maxLevelScore: TScore
+  maxScore: TScore
 }
 
 export type Action = ISwitchCategory
   | ISetCategories
   | ISetGameStatus
   | ISetScore
+  | IAddFailPoints
   | IUpdateScore
   | IStartGame

@@ -1,6 +1,6 @@
 // Types
 import * as types from './types';
-import { AppStateType } from '../..';
+import { AppStateType } from '..';
 
 // Actions
 export const setElementsList = <T>(elementsList: types.TList<T>): types.Action<T> => ({
@@ -53,21 +53,10 @@ export const setSuccessStatus = (indexOfSelect: types.TIndex): types.Action => (
   },
 });
 
-export const addFailPoints = (): types.Action => ({
-  type: types.ADD_FAIL_POINTS,
+export const setLevelData = <T>(data: types.IState<T>): types.Action<T> => ({
+  type: types.SET_LEVEL_DATA,
   payload: {
-    failPoints: -1,
-  },
-});
-
-export const resetLevelScore = (): types.Action => ({
-  type: types.RESET_LEVEL_SCORE,
-});
-
-export const setLevel = <T>(elementsList: types.TList<T>): types.Action<T> => ({
-  type: types.SET_LEVEL,
-  payload: {
-    elementsList,
+    data,
   },
 });
 

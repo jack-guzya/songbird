@@ -1,4 +1,4 @@
-import { TList, TIndex } from '../../redux/reducers/level/types';
+import { TList, TIndex } from '../../redux/level/types';
 
 export type HandleClickType = (e: React.MouseEvent<HTMLElement>) => void
 

@@ -1,18 +1,16 @@
 // Types
 import * as types from './types';
-import { AppStateType } from '../..';
+import { AppStateType } from '..';
 
 // Actions
 export const switchCategory = (): types.Action => ({
   type: types.SWITCH_CATEGORY,
 });
 
-export const setCategories = (data: types.ICategories): types.Action => ({
+export const setCategories = (categories: types.TCategories): types.Action => ({
   type: types.SET_CATEGORIES,
   payload: {
-    categories: {
-      ...data,
-    },
+    categories,
   },
 });
 
@@ -23,10 +21,14 @@ export const setGameStatus = (status: types.TGameStatus): types.Action => ({
   },
 });
 
-export const updateScore = (score: types.TScore): types.Action => ({
+export const updateScore = (): types.Action => ({
   type: types.UPDATE_SCORE,
+});
+
+export const addFailPoints = (): types.Action => ({
+  type: types.ADD_FAIL_POINTS,
   payload: {
-    score,
+    failPoints: -1,
   },
 });
 
@@ -37,12 +39,10 @@ export const setScore = (score: types.TScore): types.Action => ({
   },
 });
 
-export const startGame = (data: types.ICategories): types.Action => ({
+export const startGame = (maxLevelScore: types.TScore = 5): types.Action => ({
   type: types.START_GAME,
   payload: {
-    categories: {
-      ...data,
-    },
+    maxLevelScore,
   },
 });
 

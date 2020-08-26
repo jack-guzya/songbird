@@ -8,11 +8,11 @@ export const SET_FAIL_STATUS = 'SET_FAIL_STATUS';
 export const SET_SUCCESS_STATUS = 'SET_SUCCESS_STATUS';
 export const ADD_FAIL_POINTS = 'ADD_FAIL_POINTS';
 export const RESET_LEVEL_SCORE = 'RESET_LEVEL_SCORE';
-export const SET_LEVEL = 'SET_LEVEL';
+export const SET_LEVEL_DATA = 'SET_LEVEL_DATA';
 
 export type TIndex = number | null
 export type TElementStatus = boolean
-export type TLevelStatus = boolean;
+export type TLevelStatus = 'fail' | 'success';
 export type TList<T> = Array<T>;
 
 export interface IElementStatus {
@@ -54,21 +54,10 @@ interface ISetLevelStatus {
   }
 }
 
-interface IAddFailPoints {
-  type: typeof ADD_FAIL_POINTS
+interface ISetLevelData<T> {
+  type: typeof SET_LEVEL_DATA
   payload: {
-    failPoints: number
-  }
-}
-
-interface IResetLevelScore {
-  type: typeof RESET_LEVEL_SCORE
-}
-
-interface ISetLevel<T> {
-  type: typeof SET_LEVEL
-  payload: {
-    elementsList: TList<T>
+    data: IState<T>
   }
 }
 
@@ -91,7 +80,6 @@ export interface IState<T = null> {
   indexOfSelect: TIndex | null
   indexOfQuestion: TIndex | null
   levelStatus: TLevelStatus | null
-  levelScore: number
 }
 
 export type Action<T = null> = IElementsList<T>
@@ -99,8 +87,6 @@ export type Action<T = null> = IElementsList<T>
   | ISetIndexOfSelect
   | ISetElementStatus
   | ISetLevelStatus
-  | IAddFailPoints
-  | IResetLevelScore
-  | ISetLevel<T>
+  | ISetLevelData<T>
   | ISetFailStatus
   | ISetSuccessStatus

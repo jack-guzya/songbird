@@ -1,6 +1,6 @@
 // Types
 import * as types from './types';
-import { switchCategory as switchCategoryUtil, startGame } from './utils';
+import { switchCategory as switchCategoryUtil, startGame, updateScore } from './utils';
 
 // Reducer
 const DEFAULT_STATE: types.IState = {
@@ -10,6 +10,9 @@ const DEFAULT_STATE: types.IState = {
   },
   status: null,
   score: 0,
+  levelScore: null,
+  maxLevelScore: null,
+  maxScore: null,
 };
 
 export const game = (
@@ -20,19 +23,28 @@ export const game = (
       return switchCategoryUtil(state);
 
     case types.SET_CATEGORIES:
-      return { ...state, categories: action.payload.categories };
+      return {
+        ...state,
+        categories: {
+          categoryIndex: 0,
+          list: action.payload.categories,
+        },
+      };
 
     case types.SET_GAME_STATUS:
       return { ...state, status: action.payload.status };
 
     case types.UPDATE_SCORE:
-      return { ...state, score: state.score + action.payload.score };
+      return updateScore(state);
+
+    case types.ADD_FAIL_POINTS:
+      return { ...state, levelScore: state.levelScore + action.payload.failPoints };
 
     case types.SET_SCORE:
       return { ...state, score: action.payload.score };
 
     case types.START_GAME:
-      return startGame(state, action.payload.categories);
+      return startGame(state, action.payload.maxLevelScore);
 
     default:
       return state;

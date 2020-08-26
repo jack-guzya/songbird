@@ -1,8 +1,8 @@
 // React / Redux
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getElementsList } from '../../redux/reducers/level/actions';
-import { handleSelection } from '../../redux/thunks/level';
+import * as level from '../../redux/level';
+import * as game from '../../redux/game';
 // Components
 import ElementOfList from '../../components/ElementOfList';
 // Types
@@ -11,12 +11,13 @@ import { HandleClickType } from './types';
 import './style.scss';
 
 const ElementsList: React.FC = () => {
-  const elementsList = useSelector(getElementsList);
+  const elementsList = useSelector(level.actions.getElementsList);
   const dispatch = useDispatch();
 
   const handleClick: HandleClickType = (e) => {
     const id = +e.currentTarget.dataset.element;
-    dispatch(handleSelection(id));
+    dispatch(level.thunks.handleSelection({ indexOfSelection: id }));
+    dispatch(game.thunks.updateGameData());
   };
 
   const renderList = () => elementsList && elementsList.map(

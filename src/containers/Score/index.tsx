@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 // Components
 import ScoreComponent from '../../components/Score';
 // Modules
-import { getScore } from '../../redux/reducers/game/actions';
+import { getScore } from '../../redux/game/actions';
 
 const Score: React.FC = () => {
   const score = useSelector(getScore);

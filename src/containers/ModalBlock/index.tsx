@@ -1,19 +1,21 @@
 // React / Redux
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setModalMode, getModalData } from '../../redux/reducers/modal/actions';
-import { startGame } from '../../redux/thunks/game';
+import * as level from '../../redux/level';
+import * as game from '../../redux/game';
+import * as modal from '../../redux/modal';
 // Components
 import FailFinish from './FailFinish';
 import SuccessFinish from './SuccessFinish';
 
 const ModalBlock: React.FC = () => {
-  const modalData = useSelector(getModalData);
+  const modalData = useSelector(modal.actions.getModalData);
   const dispatch = useDispatch();
 
   const repeatGame = () => {
-    dispatch(startGame());
-    dispatch(setModalMode(null));
+    dispatch(game.thunks.startGame());
+    dispatch(level.thunks.updateLevelData());
+    dispatch(modal.actions.setModalMode(null));
   };
 
   switch (modalData.mode) {

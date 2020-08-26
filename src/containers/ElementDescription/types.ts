@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { TIndex } from '../../redux/reducers/level/types';
+import { TIndex } from '../../redux/level/types';
 
 interface IChildrenArgs<T> {
   data: T

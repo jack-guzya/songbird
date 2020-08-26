@@ -1,28 +1,29 @@
 // React / Redux
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getGameStatus } from '../../redux/reducers/game/actions';
-import { getLevelStatus } from '../../redux/reducers/level/actions';
-import { nextLevel } from '../../redux/thunks/level';
-import { finishGame } from '../../redux/thunks/game';
+import * as level from '../../redux/level';
+import * as game from '../../redux/game';
+import * as modal from '../../redux/modal';
 // Components
 import Button from '../../components/Button';
 // Style
 import './style.scss';
 
 const ControlBlock: React.FC = () => {
-  const levelStatus = useSelector(getLevelStatus);
-  const gameStatus = useSelector(getGameStatus);
+  const levelStatus = useSelector(level.actions.getLevelStatus);
+  const gameStatus = useSelector(game.actions.getGameStatus);
   const dispatch = useDispatch();
 
   const isFinish = gameStatus === 'finish';
 
   const handleClick = () => {
     if (isFinish) {
-      dispatch(finishGame());
+      dispatch(modal.thunks.setFinish());
       return;
     }
-    dispatch(nextLevel());
+    dispatch(game.actions.switchCategory());
+    dispatch(game.actions.setGameStatus('game'));
+    dispatch(level.thunks.updateLevelData());
   };
 
   return (
