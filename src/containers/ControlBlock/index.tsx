@@ -10,8 +10,8 @@ import Button from '../../components/Button';
 import './style.scss';
 
 const ControlBlock: React.FC = () => {
-  const levelStatus = useSelector(level.actions.getLevelStatus);
-  const gameStatus = useSelector(game.actions.getGameStatus);
+  const levelStatus = useSelector(level.selectors.getLevelStatus);
+  const gameStatus = useSelector(game.selectors.getGameStatus);
   const dispatch = useDispatch();
 
   const isFinish = gameStatus === 'finish';

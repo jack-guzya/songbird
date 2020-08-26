@@ -1,10 +1,9 @@
 // React / Redux
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { getScore } from '../../redux/game/selectors';
 // Components
 import ScoreComponent from '../../components/Score';
-// Modules
-import { getScore } from '../../redux/game/actions';
 
 const Score: React.FC = () => {
   const score = useSelector(getScore);

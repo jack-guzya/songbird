@@ -9,7 +9,7 @@ import FailFinish from './FailFinish';
 import SuccessFinish from './SuccessFinish';
 
 const ModalBlock: React.FC = () => {
-  const modalData = useSelector(modal.actions.getModalData);
+  const modalData = useSelector(modal.selectors.getModalData);
   const dispatch = useDispatch();
 
   const repeatGame = () => {

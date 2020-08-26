@@ -1,7 +1,7 @@
 // React / Redux
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getCategoriesList, getCategoryIndex } from '../../redux/game/actions';
+import { getCategoriesList, getCategoryIndex } from '../../redux/game/selectors';
 // Components
 import CategoryElement from '../../components/CategoryElement';
 // Styles

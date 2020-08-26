@@ -2,9 +2,9 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 // Modules
-import rootReducer from './index';
+import rootReducer from '.';
 // Data
-import rootData from '../data/index';
+import rootData from '../data';
 
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

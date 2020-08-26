@@ -11,7 +11,7 @@ import { HandleClickType } from './types';
 import './style.scss';
 
 const ElementsList: React.FC = () => {
-  const elementsList = useSelector(level.actions.getElementsList);
+  const elementsList = useSelector(level.selectors.getElementsList);
   const dispatch = useDispatch();
 
   const handleClick: HandleClickType = (e) => {

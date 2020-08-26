@@ -1,24 +1,16 @@
 // Types
-import {
-  Action, SET_MODAL_MODE, Mode, SET_MODAL_DATA, IState,
-} from './types';
-import { AppStateType } from '..';
+import * as types from './types';
 
-// Actions
-export const setModalMode = (mode: Mode): Action => ({
-  type: SET_MODAL_MODE,
+export const setModalMode = (mode: types.Mode): types.Action => ({
+  type: types.SET_MODAL_MODE,
   payload: {
     mode,
   },
 });
 
-export const setModalData = (data: IState): Action => ({
-  type: SET_MODAL_DATA,
+export const setModalData = (data: types.IState): types.Action => ({
+  type: types.SET_MODAL_DATA,
   payload: {
     ...data,
   },
 });
-
-// Selectors
-export const getModalMode = (state: AppStateType) => state.modal.mode;
-export const getModalData = (state: AppStateType) => state.modal;

@@ -1,8 +1,7 @@
 // React / Redux
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { startGame } from './redux/game/thunks';
-import { getGameStatus } from './redux/game/actions';
+import * as game from './redux/game';
 import { updateLevelData } from './redux/level/thunks';
 // Components
 import TitleBlock from './components/TitleBlock';
@@ -21,12 +20,12 @@ import AudioPlayer from './components/AudioPlayer';
 import ModalBlock from './containers/ModalBlock';
 
 const App: React.FC = () => {
-  const gameStatus = useSelector(getGameStatus);
+  const gameStatus = useSelector(game.selectors.getGameStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (gameStatus === null) {
-      dispatch(startGame());
+      dispatch(game.thunks.startGame());
       dispatch(updateLevelData());
     }
   });
