@@ -9,9 +9,9 @@ const Score: React.FC = () => {
   const score = useSelector(getScore);
 
   return (
-    <div className="score">
+    <>
       <ScoreComponent score={score} />
-    </div>
+    </>
   );
 };
 

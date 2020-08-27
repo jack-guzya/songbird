@@ -26,7 +26,6 @@ const ElementsList: React.FC = () => {
         className="list-group-item list-group-item-action"
         key={firstName}
         data-element={index}
-        // data-toggle="list"
         onClick={handleClick}
       >
         <ElementOfList

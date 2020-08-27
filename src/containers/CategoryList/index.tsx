@@ -18,6 +18,7 @@ const CategoryList: React.FC = () => {
           key={name}
           name={name}
           isActive={categoryIndex === index}
+          isCompleted={categoryIndex > index}
         />
       ))}
     </>

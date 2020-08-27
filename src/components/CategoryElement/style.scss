@@ -1,3 +1,18 @@
-.category-element.active {
-  background-color: red;
+.category-element {
+  text-align: center;
+
+  &.current {
+    transition-duration: 1s;
+    border: 1px solid #00a2ff;
+  }
+  &.completed {
+    transition-duration: 1s;
+    border: 1px solid #00ff22;
+  }
+
+  &.uncompleted {
+    transition-duration: 1s;
+    border: 1px solid #696969;
+    color: #696969;
+  }
 }
