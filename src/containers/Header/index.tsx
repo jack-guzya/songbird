@@ -8,9 +8,9 @@ export interface IHeader {
 }
 
 const Header: React.FC<IHeader> = ({ children }) => (
-  <div className="header">
+  <>
     {children}
-  </div>
+  </>
 );
 
 export default Header;

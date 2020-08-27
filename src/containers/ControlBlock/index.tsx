@@ -15,28 +15,35 @@ const ControlBlock: React.FC = () => {
   const dispatch = useDispatch();
 
   const isFinish = gameStatus === 'finish';
-
   const handleClick = () => {
-    if (isFinish) {
-      dispatch(modal.thunks.setFinish());
-      return;
-    }
+    if (isFinish) { return; }
+
     dispatch(game.actions.switchCategory());
     dispatch(game.actions.setGameStatus('game'));
     dispatch(level.thunks.updateLevelData());
   };
 
-  return (
-    <div className="control-block">
+  if (isFinish) {
+    dispatch(modal.thunks.setFinish());
+  }
+
+  return isFinish
+    ? (
       <Button
-        className={isFinish ? 'finish-btn' : ' next-level-btn'}
-        onClick={handleClick}
-        disabled={!levelStatus}
+        className="btn-success"
+        data-toggle="modal"
+        data-target="#modal"
       >
-        {isFinish ? 'Finish' : 'Next Level'}
+        Закончить игру
       </Button>
-    </div>
-  );
+    ) : (
+      <Button
+        onClick={handleClick}
+        disabled={levelStatus !== 'success'}
+      >
+        Следующий уровень
+      </Button>
+    );
 };
 
 export default ControlBlock;

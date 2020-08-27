@@ -1,4 +1,6 @@
 import React from 'react';
+// Style
+import './style.scss';
 
 interface IScoreProps {
   score: number

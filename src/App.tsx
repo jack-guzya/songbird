@@ -18,6 +18,8 @@ import ElementDescription from './containers/ElementDescription';
 import ControlBlock from './containers/ControlBlock';
 import AudioPlayer from './components/AudioPlayer';
 import ModalBlock from './containers/ModalBlock';
+// Style
+import './styles/layout/style.scss';
 
 const App: React.FC = () => {
   const gameStatus = useSelector(game.selectors.getGameStatus);
@@ -31,49 +33,83 @@ const App: React.FC = () => {
   });
 
   return (
-    <div className="songbird">
+    <div className="container">
       <Header>
-        <TitleBlock title="SongBird" />
-        <Score />
-        <Categories />
+        <div className="row">
+          <div className="col">
+            <TitleBlock title="SongBird" />
+          </div>
+          <div className="col">
+            <Score />
+          </div>
+        </div>
+        <div className="row ">
+          <div className="col">
+            <div className="list-group list-group-horizontal-md">
+              <Categories />
+            </div>
+          </div>
+        </div>
       </Header>
       <QuestionBlock>
         {({ data, indexOfQuestion, show }) => data
           && (
             <>
-              <ElementImage
-                image={data[indexOfQuestion].image}
-                altText={data[indexOfQuestion].firstName}
-                show={show}
-              />
-              <ElementName
-                firstName={data[indexOfQuestion].firstName}
-                show={show}
-              />
-              <AudioPlayer audio={data[indexOfQuestion].audio} />
+              <div className="row">
+                <div className="col-lg-3">
+                  <ElementImage
+                    image={data[indexOfQuestion].image}
+                    altText={data[indexOfQuestion].firstName}
+                    show={show}
+                  />
+                </div>
+                <div className="col">
+                  <ElementName
+                    firstName={data[indexOfQuestion].firstName}
+                    show={show}
+                  />
+                  <AudioPlayer audio={data[indexOfQuestion].audio} />
+                </div>
+              </div>
             </>
           )}
       </QuestionBlock>
-      <ElementsList />
-      <ElementDescription>
-        {({ data, indexOfSelection }) => (
-          <>
-            <ElementName
-              firstName={data[indexOfSelection].firstName}
-              secondName={data[indexOfSelection].secondName}
-              show
-            />
-            <ElementImage
-              image={data[indexOfSelection].image}
-              altText={data[indexOfSelection].firstName}
-              show
-            />
-            <AudioPlayer audio={data[indexOfSelection].audio} />
-            <ElementText description={data[indexOfSelection].description} />
-          </>
-        )}
-      </ElementDescription>
-      <ControlBlock />
+      <div className="row">
+        <div className="col-lg-6">
+          <ElementsList />
+        </div>
+        <div className="col">
+          <ElementDescription>
+            {({ data, indexOfSelection }) => (
+              <>
+                <div className="row">
+                  <div className="col-md-4 align-self-center">
+                    <ElementImage
+                      image={data[indexOfSelection].image}
+                      altText={data[indexOfSelection].firstName}
+                      show
+                    />
+                  </div>
+                  <div className="col">
+                    <ElementName
+                      firstName={data[indexOfSelection].firstName}
+                      secondName={data[indexOfSelection].secondName}
+                      show
+                    />
+                    <AudioPlayer audio={data[indexOfSelection].audio} />
+                  </div>
+                </div>
+                <div className="row element-text-block">
+                  <ElementText description={data[indexOfSelection].description} />
+                </div>
+              </>
+            )}
+          </ElementDescription>
+        </div>
+      </div>
+      <div className="row">
+        <ControlBlock />
+      </div>
       <ModalBlock />
     </div>
   );

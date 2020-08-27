@@ -21,11 +21,11 @@ const ElementDescription: React.FC<IElementDescription<TElementsList>> = ({ chil
   const indexOfSelection = useSelector(getIndexOfSelect);
 
   return (
-    <div className="element-description-block">
+    <>
       {indexOfSelection === null
         ? defaultText
         : children({ data: elementsList, indexOfSelection })}
-    </div>
+    </>
   );
 };
 

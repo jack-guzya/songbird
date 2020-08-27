@@ -1,8 +1,11 @@
-.element-image {
-  width: 200px;
-
-  &__image {
+.element-image-wrapper {
     width: 100%;
     background-color: #ffffff;
-  }
+    text-align: center;
+  
+    img {
+      // width: 100%;
+      max-width: 100%;
+      max-height: 200px;
+    }
 }

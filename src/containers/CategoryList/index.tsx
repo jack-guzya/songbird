@@ -12,7 +12,7 @@ const CategoryList: React.FC = () => {
   const categoryIndex = useSelector(getCategoryIndex);
 
   return (
-    <div className="category-list">
+    <>
       {list && list.map((name, index) => (
         <CategoryElement
           key={name}
@@ -20,7 +20,7 @@ const CategoryList: React.FC = () => {
           isActive={categoryIndex === index}
         />
       ))}
-    </div>
+    </>
   );
 };
 

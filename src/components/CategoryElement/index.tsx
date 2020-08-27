@@ -10,7 +10,7 @@ export interface ICategoryElement {
 
 const CategoryElement: React.FC<ICategoryElement> = ({ name, isActive }) => {
   const classes = classNames(
-    'categories__element',
+    'list-group-item flex-fill',
     { active: isActive },
   );
 

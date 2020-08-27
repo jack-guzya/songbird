@@ -12,17 +12,24 @@ export interface IModal {
 }
 
 const Modal: React.FC<IModal> = ({ title, body, footer }) => (
-  <Portal className="modal">
-    <div className="modal__overlay">
-      <div className="modal__window">
-        <div className="modal__header">
-          {title}
-        </div>
-        <div className="modal__body">
-          {body}
-        </div>
-        <div className="modal__footer">
-          {footer}
+  <Portal>
+    <div
+      className="modal fade"
+      id="modal"
+      tabIndex={-1}
+      role="dialog"
+    >
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content">
+          <div className="modal-header">
+            {title}
+          </div>
+          <div className="modal-body">
+            {body}
+          </div>
+          <div className="modal-footer">
+            {footer}
+          </div>
         </div>
       </div>
     </div>

@@ -23,9 +23,10 @@ const ElementsList: React.FC = () => {
   const renderList = () => elementsList && elementsList.map(
     ({ firstName }, index) => (
       <li
-        className="list__item"
+        className="list-group-item list-group-item-action"
         key={firstName}
         data-element={index}
+        // data-toggle="list"
         onClick={handleClick}
       >
         <ElementOfList
@@ -37,11 +38,11 @@ const ElementsList: React.FC = () => {
   );
 
   return (
-    <div className="element-list">
-      <ul className="element-list__list">
+    <>
+      <ul className="list-group list-group-flush">
         {renderList()}
       </ul>
-    </div>
+    </>
   );
 };
 

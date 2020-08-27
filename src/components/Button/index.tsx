@@ -6,15 +6,16 @@ import React from 'react';
 import './style.scss';
 
 export interface IButton {
-  onClick: () => void
-  className: string
+  onClick?: () => void
+  className?: string
   disabled?: boolean
+  [key: string]: any
 }
 
 const Button: React.FC<IButton> = ({
-  className, disabled, onClick, children,
+  className, disabled, onClick, children, ...props
 }) => {
-  const classes = classNames('btn', className);
+  const classes = classNames('btn btn-primary', className);
 
   return (
     <button
@@ -22,6 +23,8 @@ const Button: React.FC<IButton> = ({
       type="button"
       onClick={onClick}
       disabled={disabled}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
     >
       {children}
     </button>

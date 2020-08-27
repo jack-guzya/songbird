@@ -21,8 +21,9 @@ const SuccessFinish: React.FC<IProps> = ({ onClick }) => {
 
   const footer = (
     <Button
-      className="repeat-game-btn"
+      className="btn-primary"
       onClick={onClick}
+      data-dismiss="modal"
     >
       Начать заново
     </Button>

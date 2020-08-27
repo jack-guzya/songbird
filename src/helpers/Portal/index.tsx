@@ -2,11 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export interface IPortal {
-  className: string
-}
-
-class Portal extends React.Component<IPortal> {
+class Portal extends React.Component {
   element = document.createElement('div')
 
   componentDidMount() {
@@ -18,8 +14,7 @@ class Portal extends React.Component<IPortal> {
   }
 
   render() {
-    const { children, className } = this.props;
-    this.element.className = className;
+    const { children } = this.props;
 
     return (
       ReactDOM.createPortal(children, this.element)

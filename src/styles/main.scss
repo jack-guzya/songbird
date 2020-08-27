@@ -1,13 +1,14 @@
 @import './base/reset';
 @import './base/typography';
+@import '~bootstrap/scss/bootstrap';
 
 body {
   font-family: "Quicksand Regular", "sans-serif";
   font-size: 23px;
 }
 
-#root {
-  margin: 0 auto;
-  width: 90vw;
-  max-width: 1200px;
-}
+// #root {
+//   margin: 0 auto;
+//   width: 90vw;
+//   max-width: 1200px;
+// }

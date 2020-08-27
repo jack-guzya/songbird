@@ -1,12 +1,12 @@
-// React
+// React / Redux
 import React from 'react';
 import ReactDOM from 'react-dom';
-// Redux
 import { Provider } from 'react-redux';
 import store from './redux/store';
 // App
 import App from './App';
 // Styles
+import 'bootstrap';
 import './styles/main.scss';
 
 ReactDOM.render(

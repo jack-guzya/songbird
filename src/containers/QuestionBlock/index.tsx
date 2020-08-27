@@ -15,12 +15,12 @@ const QuestionBlock: React.FC<IQuestionBlock<TElementsList>> = ({ children }) =>
   const indexOfQuestion = useSelector(level.selectors.getIndexOfQuestion);
 
   return (
-    <div className="question-block">
+    <>
       {
         indexOfQuestion !== null
         && children({ data: elementsList, show: levelStatus === 'success', indexOfQuestion })
       }
-    </div>
+    </>
   );
 };
 
