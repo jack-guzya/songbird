@@ -10,13 +10,26 @@ interface IProps {
 
 const SuccessFinish: React.FC<IProps> = ({ onClick }) => {
   const title = (
-    <h1>Поздравляем!</h1>
+    <h1 className="modal-title">Депеша от Верховного Крылатого Совета </h1>
   );
 
   const body = (
-    <p>
-      Теперь вы знаете, кто кудахтает у вас за окном. Мои категориеские поздравления
-    </p>
+    <>
+      <img
+        className="modal-img"
+        src="assets/success-finish.jpg"
+        alt="birds"
+      />
+      <p className="modal-details">
+        Доносим до Вас наши категорические поздравления!
+        Ваши высокие показатели в лингвистических знаниях нас крайне удивили. Теперь вы знаете,
+        кто кудахтает у вас за окном...
+      </p>
+      <p className="modal-details">
+        Для получения вознаграждения отправьте SMS на номер 2020
+        с кодовым словом &quot;Курлык&quot;
+      </p>
+    </>
   );
 
   const footer = (
@@ -25,7 +38,9 @@ const SuccessFinish: React.FC<IProps> = ({ onClick }) => {
       onClick={onClick}
       data-dismiss="modal"
     >
-      Начать заново
+      Не хочу отправлять SMS
+      <br />
+      Дай еще сыграть!
     </Button>
   );
 

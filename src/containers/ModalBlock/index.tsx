@@ -7,6 +7,8 @@ import * as modal from '../../redux/modal';
 // Components
 import FailFinish from './FailFinish';
 import SuccessFinish from './SuccessFinish';
+// Style
+import './style.scss';
 
 const ModalBlock: React.FC = () => {
   const modalData = useSelector(modal.selectors.getModalData);

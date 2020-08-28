@@ -1,0 +1,16 @@
+@import '@import ~styles/base/variables.scss';
+
+.modal-img {
+  width: 100%;
+  border-bottom: 1px solid $lineColor;
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.modal-details {
+  text-align: center;
+  font-size: 0.8em;
+}
