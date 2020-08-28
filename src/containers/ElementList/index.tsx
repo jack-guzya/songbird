@@ -14,9 +14,15 @@ const ElementsList: React.FC = () => {
   const elementsList = useSelector(level.selectors.getElementsList);
   const dispatch = useDispatch();
 
+  const showDescription = (id: number) => {
+    dispatch(level.actions.setSelection(id));
+  };
+
   const handleClick: HandleClickType = (e) => {
     const id = +e.currentTarget.dataset.element;
+    showDescription(id);
     if (elementsList[id].status !== null) { return; }
+
     dispatch(level.thunks.handleSelection({ indexOfSelection: id }));
     dispatch(game.thunks.updateGameData());
   };

@@ -2,27 +2,42 @@ import random from 'lodash.random';
 import * as utils from './utils';
 import * as types from './types';
 import * as actions from './actions';
-
-import { TThunk } from '..';
+// Utils
+import SoundsPlayer from '../../utils/SoundPlayer';
+// Types
+import { TThunk, TDispatch } from '..';
 
 interface IThunkProps {
   indexOfSelection: types.TIndex
 }
 
-export const handleSelection: TThunk<IThunkProps> = ({ indexOfSelection }) => (
-  dispatch, getState,
-) => {
-  const { level } = getState();
-  dispatch(actions.setSelection(indexOfSelection));
+const soundsPlayer = new SoundsPlayer();
 
-  if (level.levelStatus === 'success') { return; }
-
-  if (indexOfSelection === level.indexOfQuestion) {
-    dispatch(actions.setSuccessStatus(indexOfSelection));
-  } else {
-    dispatch(actions.setFailStatus(indexOfSelection));
-  }
+const handleSuccess = (dispatch: TDispatch, id: number) => {
+  dispatch(actions.setSuccessStatus(id));
+  soundsPlayer.playSuccess();
 };
+
+const handleFail = (dispatch: TDispatch, id: number) => {
+  dispatch(actions.setFailStatus(id));
+  soundsPlayer.playFail();
+};
+
+export const handleSelection: TThunk<IThunkProps> = ({ indexOfSelection }) => (
+  (dispatch, getState) => {
+    const { level } = getState();
+
+    if (utils.isHandled(level, indexOfSelection)) {
+      return;
+    }
+
+    if (indexOfSelection === level.indexOfQuestion) {
+      handleSuccess(dispatch, indexOfSelection);
+    } else {
+      handleFail(dispatch, indexOfSelection);
+    }
+  }
+);
 
 export const updateLevelData: TThunk = () => (dispatch, getState) => {
   const { game, data } = getState();

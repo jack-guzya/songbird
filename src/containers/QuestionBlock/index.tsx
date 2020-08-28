@@ -30,7 +30,10 @@ const QuestionBlock: React.FC = () => {
           firstName={elementsList[indexOfQuestion].firstName}
           show={levelStatus === 'success'}
         />
-        <AudioPlayer audio={elementsList[indexOfQuestion].audio} />
+        <AudioPlayer
+          audio={elementsList[indexOfQuestion].audio}
+          isPause={levelStatus === 'success'}
+        />
       </div>
     </div>
     )

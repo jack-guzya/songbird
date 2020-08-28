@@ -41,7 +41,7 @@ const ElementDescription: React.FC = () => {
                   secondName={elementsList[indexOfSelection].secondName}
                   show
                 />
-                <AudioPlayer audio={elementsList[indexOfSelection].audio} />
+                <AudioPlayer audio={elementsList[indexOfSelection].audio} isPause={false} />
               </div>
             </div>
             <div className="row element-text-block">

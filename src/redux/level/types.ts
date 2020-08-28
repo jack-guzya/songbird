@@ -80,6 +80,7 @@ export interface IState<T = null> {
   indexOfSelect: TIndex | null
   indexOfQuestion: TIndex | null
   levelStatus: TLevelStatus | null
+  isHandled?: () => boolean
 }
 
 export type Action<T = null> = IElementsList<T>

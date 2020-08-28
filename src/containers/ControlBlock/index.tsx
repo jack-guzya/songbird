@@ -1,13 +1,17 @@
 // React / Redux
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as level from '../../redux/level';
 import * as game from '../../redux/game';
 import * as modal from '../../redux/modal';
 // Components
 import Button from '../../components/Button';
+// Utils
+import SoundsPlayer from '../../utils/SoundPlayer';
 // Style
 import './style.scss';
+
+const soundsPlayer = new SoundsPlayer();
 
 const ControlBlock: React.FC = () => {
   const levelStatus = useSelector(level.selectors.getLevelStatus);
@@ -15,6 +19,13 @@ const ControlBlock: React.FC = () => {
   const dispatch = useDispatch();
 
   const isFinish = gameStatus === 'finish';
+
+  useEffect(() => {
+    if (isFinish) {
+      dispatch(modal.thunks.setFinish());
+    }
+  });
+
   const handleClick = () => {
     if (isFinish) { return; }
 
@@ -23,16 +34,13 @@ const ControlBlock: React.FC = () => {
     dispatch(level.thunks.updateLevelData());
   };
 
-  if (isFinish) {
-    dispatch(modal.thunks.setFinish());
-  }
-
   return isFinish
     ? (
       <Button
         className="btn-success"
         data-toggle="modal"
         data-target="#modal"
+        onClick={soundsPlayer.playNotification}
       >
         Закончить игру
       </Button>

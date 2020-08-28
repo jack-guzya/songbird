@@ -39,3 +39,8 @@ export const setSuccessStatus = <T>(
 
   return nextState;
 };
+
+export const isHandled = <T>(state: types.IState<T>, idElement: number) => (
+  state.levelStatus === 'success'
+  || (state.elementsList && state.elementsList[idElement].status !== null)
+);
