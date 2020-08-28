@@ -14,6 +14,7 @@ const AudioPlayer: React.FC<IAudioPlayer> = ({ audio }) => (
     showJumpControls={false}
     customAdditionalControls={[]}
     autoPlayAfterSrcChange={false}
+    layout="horizontal-reverse"
   />
 );
 

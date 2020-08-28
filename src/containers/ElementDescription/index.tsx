@@ -2,12 +2,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getElementsList, getIndexOfSelect } from '../../redux/level/selectors';
-// Types
-import { IElementDescription } from './types';
+// Components
+import ElementName from '../../components/ElementName';
+import ElementImage from '../../components/ElementImage';
+import ElementText from '../../components/ElementText';
+import AudioPlayer from '../../components/AudioPlayer';
 // Style
 import './style.scss';
-
-type TElementsList = ReturnType<typeof getElementsList>
 
 const defaultText = (
   <div>
@@ -16,16 +17,37 @@ const defaultText = (
   </div>
 );
 
-const ElementDescription: React.FC<IElementDescription<TElementsList>> = ({ children }) => {
+const ElementDescription: React.FC = () => {
   const elementsList = useSelector(getElementsList);
   const indexOfSelection = useSelector(getIndexOfSelect);
 
   return (
-    <>
-      {indexOfSelection === null
-        ? defaultText
-        : children({ data: elementsList, indexOfSelection })}
-    </>
+    indexOfSelection === null
+      ? defaultText
+      : (
+        <div className="col">
+          <div className="row">
+            <div className="col-md-4 align-self-center">
+              <ElementImage
+                image={elementsList[indexOfSelection].image}
+                altText={elementsList[indexOfSelection].firstName}
+                show
+              />
+            </div>
+            <div className="col">
+              <ElementName
+                firstName={elementsList[indexOfSelection].firstName}
+                secondName={elementsList[indexOfSelection].secondName}
+                show
+              />
+              <AudioPlayer audio={elementsList[indexOfSelection].audio} />
+            </div>
+          </div>
+          <div className="row element-text-block">
+            <ElementText description={elementsList[indexOfSelection].description} />
+          </div>
+        </div>
+      )
   );
 };
 

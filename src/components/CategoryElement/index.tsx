@@ -17,7 +17,7 @@ const CategoryElement: React.FC<ICategoryElement> = ({ name, isActive, isComplet
     'list-group-item flex-fill',
     { 'd-none d-lg-block': !isActive },
     { completed: isCompleted },
-    { uncompleted: !isCompleted && !isActive},
+    { uncompleted: !isCompleted && !isActive },
     { current: isActive },
   );
 

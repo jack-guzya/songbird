@@ -12,16 +12,24 @@ const CategoryList: React.FC = () => {
   const categoryIndex = useSelector(getCategoryIndex);
 
   return (
-    <>
-      {list && list.map((name, index) => (
-        <CategoryElement
-          key={name}
-          name={name}
-          isActive={categoryIndex === index}
-          isCompleted={categoryIndex > index}
-        />
-      ))}
-    </>
+    <div className="row no-gutters categories">
+      <div className="col">
+        <div
+          className="list-group list-group-horizontal-lg"
+          id="list-tab"
+          role="tablist"
+        >
+          {list && list.map((name, index) => (
+            <CategoryElement
+              key={name}
+              name={name}
+              isActive={categoryIndex === index}
+              isCompleted={categoryIndex > index}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -1,4 +1,6 @@
 import React from 'react';
+// Styles
+import './style.scss';
 
 export interface IElementName {
   firstName: string,
@@ -13,8 +15,8 @@ const HIDE_NAME = '******';
 
 const ElementName: React.FC<IElementNameProps> = ({ firstName, secondName, show = true }) => (
   <>
-    <h2>{show ? firstName : HIDE_NAME}</h2>
-    <h3>{secondName && (show ? secondName : HIDE_NAME)}</h3>
+    <h2 className="first-name">{show ? firstName : HIDE_NAME}</h2>
+    {secondName && (<h3 className="second-name">{show ? secondName : HIDE_NAME}</h3>)}
   </>
 );
 

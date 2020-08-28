@@ -6,3 +6,9 @@
     width: 200px;
   }
 }
+
+#question-image-block {
+  @media screen and (min-width: 960px) {
+    margin-right: 25px;
+  }
+}

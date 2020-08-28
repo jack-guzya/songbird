@@ -1,14 +1,11 @@
-.element-text-block {
-  overflow: auto;
-  max-height: 200px;
-}
-
 .main {
+  font-size: 0.8em;
  & > .row {
     margin-bottom: 20px;
+    padding: 20px;
+    background-color: #132633;
   }
 }
 
-.categories {
-  font-size: 0.9em;
-}
+
+

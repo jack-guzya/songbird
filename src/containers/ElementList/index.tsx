@@ -37,11 +37,11 @@ const ElementsList: React.FC = () => {
   );
 
   return (
-    <>
+    <div className="col-lg-6">
       <ul className="list-group list-group-flush">
         {renderList()}
       </ul>
-    </>
+    </div>
   );
 };
 
