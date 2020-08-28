@@ -1,25 +1,46 @@
+@import '~styles/base/variables.scss';
+
 .element-of-list {
   display: flex;
   align-items: center;
-  padding-left: 40px;
-  height: 30px;
+  justify-content: center;
+  transition-duration: 0.5s;
+  border-bottom: 2px solid $lineColor;
+  height: 40px;
+  cursor: pointer;
 
-  .indicator {
-    border: 1px solid;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
+
+
+  // .indicator {
+  //   border: 1px solid;
+  //   border-radius: 50%;
+  //   width: 15px;
+  //   height: 15px;
 
     &.fail {
-      background-color: #ff0000;
+      border-bottom: 2px solid $failColor;
+      color: $failColor
     }
-
     &.success {
-      background-color: #15ff00;
+      border-bottom: 2px solid $successColor;
+      color: $successColor
     }
+    &:hover {
+      border-bottom: 2px solid $focusColor;
+      color: $focusColor;
+    }
+    &:active {
+      transition-duration: 0s;
+      border-bottom: 2px solid $lineColor;
+      color: #fff;
+    }
+  // }
+
+  p {
+    margin: 0;
   }
 
   .title {
-    margin-left: 15px;
+    margin: 10px;
   }
 }

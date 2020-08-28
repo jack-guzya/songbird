@@ -11,7 +11,7 @@ import AudioPlayer from '../../components/AudioPlayer';
 import './style.scss';
 
 const defaultText = (
-  <div>
+  <div className="col element-description">
     <h3>Послушайте аудиозапись</h3>
     <p>Выберите один из вариантов ответа</p>
   </div>
@@ -25,26 +25,28 @@ const ElementDescription: React.FC = () => {
     indexOfSelection === null
       ? defaultText
       : (
-        <div className="col">
-          <div className="row">
-            <div className="col-md-4 align-self-center">
-              <ElementImage
-                image={elementsList[indexOfSelection].image}
-                altText={elementsList[indexOfSelection].firstName}
-                show
-              />
+        <div className="col element-description">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-4 align-self-center">
+                <ElementImage
+                  image={elementsList[indexOfSelection].image}
+                  altText={elementsList[indexOfSelection].firstName}
+                  show
+                />
+              </div>
+              <div className="col">
+                <ElementName
+                  firstName={elementsList[indexOfSelection].firstName}
+                  secondName={elementsList[indexOfSelection].secondName}
+                  show
+                />
+                <AudioPlayer audio={elementsList[indexOfSelection].audio} />
+              </div>
             </div>
-            <div className="col">
-              <ElementName
-                firstName={elementsList[indexOfSelection].firstName}
-                secondName={elementsList[indexOfSelection].secondName}
-                show
-              />
-              <AudioPlayer audio={elementsList[indexOfSelection].audio} />
+            <div className="row element-text-block">
+              <ElementText description={elementsList[indexOfSelection].description} />
             </div>
-          </div>
-          <div className="row element-text-block">
-            <ElementText description={elementsList[indexOfSelection].description} />
           </div>
         </div>
       )

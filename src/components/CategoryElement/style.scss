@@ -1,18 +1,20 @@
+@import '~styles/base/variables.scss';
+
 .category-element {
   text-align: center;
 
   &.current {
     transition-duration: 1s;
-    border: 1px solid #00a2ff;
+    border: 1px solid $focusColor;
   }
   &.completed {
     transition-duration: 1s;
-    border: 1px solid #00ff22;
+    border: 1px solid $successColor;
   }
 
   &.uncompleted {
     transition-duration: 1s;
-    border: 1px solid #585858;
-    color: #585858;
+    border: 1px solid $inActiveColor;
+    color: $inActiveColor;
   }
 }

@@ -1,6 +1,6 @@
-.element-list {
-  border: 1px solid;
-
+.elements-list {
+  margin-bottom: 20px;
+  
   &__list {
     .list__item {
       &:hover {
@@ -8,5 +8,10 @@
         background-color: rgb(117, 253, 117);
       }
     }
+  }
+
+  @media screen and (min-width: 960px){
+    margin-right: 20px;
+    margin-bottom: none;
   }
 }

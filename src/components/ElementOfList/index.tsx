@@ -10,22 +10,26 @@ import './style.scss';
 export interface IElementOfList {
   name: string
   index: number
+  onClick: (e: React.MouseEvent<HTMLLIElement>) => void
 }
 
-const ElementOfList: React.FC<IElementOfList> = ({ name, index }) => {
+const ElementOfList: React.FC<IElementOfList> = ({ name, index, onClick }) => {
   const status = useSelector(getElementStatus(index));
 
   const classes = classNames(
-    'indicator',
+    'element-of-list',
     { success: status === true },
     { fail: status === false },
   );
 
   return (
-    <div className="element-of-list">
-      <div className={classes} />
+    <li
+      className={classes}
+      data-element={index}
+      onClick={onClick}
+    >
       <p className="title">{name}</p>
-    </div>
+    </li>
   );
 };
 

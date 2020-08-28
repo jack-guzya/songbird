@@ -35,7 +35,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.jsx', '.css', '.scss'],
     alias: {
-      styles: path.resolve(__dirname, 'src/style'),
+      styles: path.resolve(__dirname, 'src/styles'),
     },
   },
   module: {
@@ -59,11 +59,11 @@ module.exports = {
           // {
           //   loader: 'sass-loader',
           //   options: {
-          //    additionalData: (loaderContext) => {
+          //     additionalData: (loaderContext) => {
           //       const { resourcePath } = loaderContext;
 
-          //       if (/components/.test(resourcePath)) {
-          //         return ''//'@import "~styles/base/basicStyle";';
+          //       if (/components|containers/.test(resourcePath)) {
+          //         return '@import "~styles/base/variables.scss";';
           //       }
 
           //       return '';

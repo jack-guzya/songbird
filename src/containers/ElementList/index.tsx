@@ -16,29 +16,25 @@ const ElementsList: React.FC = () => {
 
   const handleClick: HandleClickType = (e) => {
     const id = +e.currentTarget.dataset.element;
+    if (elementsList[id].status !== null) { return; }
     dispatch(level.thunks.handleSelection({ indexOfSelection: id }));
     dispatch(game.thunks.updateGameData());
   };
 
   const renderList = () => elementsList && elementsList.map(
     ({ firstName }, index) => (
-      <li
-        className="list-group-item list-group-item-action"
+      <ElementOfList
         key={firstName}
-        data-element={index}
+        name={firstName}
+        index={index}
         onClick={handleClick}
-      >
-        <ElementOfList
-          name={firstName}
-          index={index}
-        />
-      </li>
+      />
     ),
   );
 
   return (
-    <div className="col-lg-6">
-      <ul className="list-group list-group-flush">
+    <div className="col-lg-4 elements-list">
+      <ul className="elements-list__list">
         {renderList()}
       </ul>
     </div>
