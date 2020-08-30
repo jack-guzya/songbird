@@ -29,11 +29,11 @@ const Sections: React.FC<IProps> = ({ initGame }) => {
   const title = 'Выберите категорию';
   const body = (
     <div className="container">
-      <div className="row">
+      <div className="row justify-content-center">
         {
           Object.keys(data).map((name: TDataName, index) => (
             <div
-              className="col-12 col-lg modal-section-item"
+              className="col col-lg-4 modal-section-item"
               key={name}
               role="button"
               onClick={initGameWithData(name)}
@@ -45,6 +45,9 @@ const Sections: React.FC<IProps> = ({ initGame }) => {
                 src={data[name].details.img}
                 alt={data[name].details.title}
               />
+              <p className="modal-details title">
+                {data[name].details.title}
+              </p>
               <p className="modal-details">
                 {data[name].details.details}
               </p>

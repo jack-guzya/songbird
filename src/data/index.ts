@@ -1,13 +1,13 @@
 // Data
 import birds from './birds';
-import birds2 from './birds2';
+import europeanBirds from './europeanBirds';
 // Constants
 const BIRDS = 'BIRDS';
-const BIRDS2 = 'BIRDS2';
+const EUROPEAN_BIRDS = 'EUROPEAN_BIRDS';
 
 const rootData = {
   [BIRDS]: birds,
-  [BIRDS2]: birds2,
+  [EUROPEAN_BIRDS]: europeanBirds,
 };
 
 export default rootData;

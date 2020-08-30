@@ -9,11 +9,13 @@
   cursor: pointer;
 
 
-    &.fail {
+    &.fail,
+    &.fail:hover{
       border-bottom: 2px solid $failColor;
       color: $failColor
     }
-    &.success {
+    &.success,
+    &.success:hover {
       border-bottom: 2px solid $successColor;
       color: $successColor
     }
@@ -26,7 +28,6 @@
       border-bottom: 2px solid $lineColor;
       color: #fff;
     }
-  // }
 
   p {
     margin: 0;

@@ -3,6 +3,7 @@
 .category-element {
   text-align: center;
   background-color: #00000000 !important;
+  padding: 5px !important;
 
   &.current {
     transition-duration: 1s;

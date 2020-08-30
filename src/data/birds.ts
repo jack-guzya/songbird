@@ -311,9 +311,9 @@ const list = [
 ];
 
 const details = {
-  img: 'assets/section/birds.jpg',
-  title: 'birds',
-  details: 'Какие то курицы',
+  img: 'assets/section/default-birds.jpg',
+  title: 'Птицы мира',
+  details: 'Коллекция птиц всего мира. Окунитесь в богатство и разнообразие голосов наших пернатых друзей',
 };
 
 const data = { categories, list, details };

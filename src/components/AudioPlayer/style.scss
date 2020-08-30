@@ -1,4 +1,4 @@
-$rhap_theme-color: #868686 !default;
+$rhap_theme-color: #00d3f8 !default;
 $rhap_background-color: #fff !default;
 $rhap_bar-color: #dddddd !default;
 $rhap_time-color: rgb(255, 251, 251) !default;
@@ -148,7 +148,8 @@ $rhap_font-family: inherit !default;
 }
 
 .rhap_additional-controls {
-  display: flex;
+  // display: flex;
+  display: none;
   flex: 1 0 auto;
   align-items: center;
 }
