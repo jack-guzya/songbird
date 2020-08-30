@@ -40,9 +40,9 @@ const FailFinish: React.FC<IFailFinish> = ({ score, maxScore, initGame }) => {
       onClick={repeatGame}
       data-dismiss={id}
     >
-      Не хочу кары небесной...
+      Не желаю я кары небесной...
       <br />
-      Дайте мне еще шанс!
+      Хочу искупить свои вину!
     </Button>
   );
 

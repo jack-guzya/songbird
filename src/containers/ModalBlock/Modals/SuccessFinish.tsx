@@ -48,9 +48,9 @@ const SuccessFinish: React.FC<IProps> = ({ initGame }) => {
         onClick={repeatGame}
         data-dismiss={id}
       >
-        Не хочу отправлять SMS
+        Не желаю отправлять SMS...
         <br />
-        Дай еще сыграть!
+        Лучше давай сыграем еще раз
       </Button>
       <Button
         className="btn-outline-primary"
