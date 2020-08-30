@@ -1,5 +1,5 @@
 // React / Redux
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as level from '../../redux/level';
 import * as game from '../../redux/game';
@@ -8,12 +8,20 @@ import * as modal from '../../redux/modal';
 import FailFinish from './Modals/FailFinish';
 import SuccessFinish from './Modals/SuccessFinish';
 import Sections from './Modals/Sections';
+import RestartConfirmation from './Modals/RestartConfirmation';
+// Controller
+import { controller } from './controller';
 // Style
 import './style.scss';
 
 const ModalBlock: React.FC = () => {
   const modalData = useSelector(modal.selectors.getModalData);
   const dispatch = useDispatch();
+  const hideModal = () => dispatch(modal.actions.setModalMode(null));
+
+  useEffect(() => {
+    controller.onHidden(() => hideModal());
+  });
 
   const initGame = () => {
     dispatch(game.thunks.initGame());
@@ -40,6 +48,13 @@ const ModalBlock: React.FC = () => {
     case 'sections':
       return (
         <Sections
+          initGame={initGame}
+        />
+      );
+
+    case 'restartConfirmation':
+      return (
+        <RestartConfirmation
           initGame={initGame}
         />
       );

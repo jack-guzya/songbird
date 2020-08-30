@@ -44,7 +44,7 @@ const SuccessFinish: React.FC<IProps> = ({ initGame }) => {
   const footer = (
     <>
       <Button
-        className="btn-success"
+        className="btn-outline-success"
         onClick={repeatGame}
         data-dismiss={id}
       >
@@ -53,7 +53,7 @@ const SuccessFinish: React.FC<IProps> = ({ initGame }) => {
         Дай еще сыграть!
       </Button>
       <Button
-        className="btn-primary"
+        className="btn-outline-primary"
         onClick={selectSection}
         data-dismiss={id}
       >

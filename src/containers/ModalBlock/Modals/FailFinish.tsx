@@ -36,7 +36,7 @@ const FailFinish: React.FC<IFailFinish> = ({ score, maxScore, initGame }) => {
   );
   const footer = (
     <Button
-      className="btn-primary"
+      className="btn-outline-primary"
       onClick={repeatGame}
       data-dismiss={id}
     >

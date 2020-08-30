@@ -1,5 +1,5 @@
 @import './base/reset';
-// @import './base/typography';
+@import './base/typography';
 @import './base/variables.scss';
 @import './layout/main.scss';
 @import '~bootstrap/scss/bootstrap';
@@ -11,8 +11,7 @@ body {
   color: #fff;
 }
 
-// #root {
-//   margin: 0 auto;
-//   width: 90vw;
-//   max-width: 1200px;
-// }
+ul {
+  margin-bottom: 0;
+}
+

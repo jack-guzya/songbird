@@ -9,8 +9,8 @@ import './style.scss';
 
 export interface IElementOfList {
   name: string
-  index: number
-  onClick: (e: React.MouseEvent<HTMLLIElement>) => void
+  index?: number
+  onClick?: (e?: React.MouseEvent<HTMLLIElement>) => void
 }
 
 const ElementOfList: React.FC<IElementOfList> = ({ name, index, onClick }) => {

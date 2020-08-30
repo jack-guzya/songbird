@@ -15,7 +15,7 @@ export interface IButton {
 const Button: React.FC<IButton> = ({
   className, disabled, onClick, children, ...props
 }) => {
-  const classes = classNames('btn btn-primary', className);
+  const classes = classNames('btn', className);
 
   return (
     <button

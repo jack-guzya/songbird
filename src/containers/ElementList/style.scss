@@ -1,14 +1,14 @@
 .elements-list {
   margin-bottom: 20px;
-  
-  &__list {
-    .list__item {
-      &:hover {
-        cursor: pointer;
-        background-color: rgb(117, 253, 117);
-      }
-    }
-  }
+
+  // &__list {
+  //   .list__item {
+  //     &:hover {
+  //       cursor: pointer;
+  //       background-color: rgb(117, 253, 117);
+  //     }
+  //   }
+  // }
 
   @media screen and (min-width: 960px){
     margin-right: 20px;

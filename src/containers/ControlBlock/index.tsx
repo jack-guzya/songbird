@@ -47,7 +47,7 @@ const ControlBlock: React.FC = () => {
   return isFinish
     ? (
       <Button
-        className="btn-success"
+        className="btn-outline-success"
         data-toggle="modal"
         data-target="#modal"
         onClick={handleClick}
@@ -56,6 +56,7 @@ const ControlBlock: React.FC = () => {
       </Button>
     ) : (
       <Button
+        className="btn-outline-primary"
         onClick={handleClick}
         disabled={levelStatus !== 'success'}
       >

@@ -5,17 +5,9 @@
   align-items: center;
   justify-content: center;
   transition-duration: 0.5s;
-  border-bottom: 2px solid $lineColor;
-  height: 40px;
+  border-bottom: 2px solid $inActiveColor;
   cursor: pointer;
 
-
-
-  // .indicator {
-  //   border: 1px solid;
-  //   border-radius: 50%;
-  //   width: 15px;
-  //   height: 15px;
 
     &.fail {
       border-bottom: 2px solid $failColor;
