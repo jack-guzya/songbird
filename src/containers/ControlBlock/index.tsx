@@ -22,16 +22,26 @@ const ControlBlock: React.FC = () => {
 
   useEffect(() => {
     if (isFinish) {
-      dispatch(modal.thunks.setFinish());
+      dispatch(modal.thunks.initFinishModal());
     }
   });
 
-  const handleClick = () => {
-    if (isFinish) { return; }
-
+  const nextLevel = () => {
     dispatch(game.actions.switchCategory());
     dispatch(game.actions.setGameStatus('game'));
     dispatch(level.thunks.updateLevelData());
+  };
+  const finishGame = () => {
+    dispatch(game.actions.setGameStatus(null));
+    soundsPlayer.playNotification();
+  };
+
+  const handleClick = () => {
+    if (isFinish) {
+      finishGame();
+      return;
+    }
+    nextLevel();
   };
 
   return isFinish
@@ -40,7 +50,7 @@ const ControlBlock: React.FC = () => {
         className="btn-success"
         data-toggle="modal"
         data-target="#modal"
-        onClick={soundsPlayer.playNotification}
+        onClick={handleClick}
       >
         Закончить игру
       </Button>

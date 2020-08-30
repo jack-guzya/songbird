@@ -10,6 +10,7 @@ module.exports = {
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -31,6 +32,9 @@ module.exports = {
       ],
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
   devtool: 'module-source-map',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.jsx', '.css', '.scss'],

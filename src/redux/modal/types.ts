@@ -2,7 +2,7 @@
 export const SET_MODAL_MODE = 'SET_MODAL_MODE';
 export const SET_MODAL_DATA = 'SET_MODAL_DATA';
 
-export type Mode = 'failFinish' | 'successFinish'
+export type Mode = 'failFinish' | 'successFinish' | 'sections'
 
 export interface ISetModalMode {
   type: typeof SET_MODAL_MODE

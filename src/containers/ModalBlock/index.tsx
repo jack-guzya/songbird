@@ -5,8 +5,9 @@ import * as level from '../../redux/level';
 import * as game from '../../redux/game';
 import * as modal from '../../redux/modal';
 // Components
-import FailFinish from './FailFinish';
-import SuccessFinish from './SuccessFinish';
+import FailFinish from './Modals/FailFinish';
+import SuccessFinish from './Modals/SuccessFinish';
+import Sections from './Modals/Sections';
 // Style
 import './style.scss';
 
@@ -14,10 +15,9 @@ const ModalBlock: React.FC = () => {
   const modalData = useSelector(modal.selectors.getModalData);
   const dispatch = useDispatch();
 
-  const repeatGame = () => {
-    dispatch(game.thunks.startGame());
+  const initGame = () => {
+    dispatch(game.thunks.initGame());
     dispatch(level.thunks.updateLevelData());
-    dispatch(modal.actions.setModalMode(null));
   };
 
   switch (modalData.mode) {
@@ -26,14 +26,21 @@ const ModalBlock: React.FC = () => {
         <FailFinish
           score={modalData.data.score}
           maxScore={modalData.data.maxScore}
-          onClick={repeatGame}
+          initGame={initGame}
         />
       );
 
     case 'successFinish':
       return (
         <SuccessFinish
-          onClick={repeatGame}
+          initGame={initGame}
+        />
+      );
+
+    case 'sections':
+      return (
+        <Sections
+          initGame={initGame}
         />
       );
 

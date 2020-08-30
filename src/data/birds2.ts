@@ -1,7 +1,7 @@
 const categories = [
   'Разминка',
-  'Воробьиные',
-  'Лесные птицы',
+  'КУРЫЦАВ',
+  'ЕЩЕ КАКАЯ ТО КУРЫЦА',
   'Певчие птицы',
   'Хищные птицы',
   'Морские птицы',
@@ -311,9 +311,9 @@ const list = [
 ];
 
 const details = {
-  img: 'assets/section/birds.jpg',
-  title: 'birds',
-  details: 'Какие то курицы',
+  img: 'assets/section/birds2.jpg',
+  title: 'birds2',
+  details: 'Какие то курицы2',
 };
 
 const data = { categories, list, details };

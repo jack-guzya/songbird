@@ -13,19 +13,19 @@ const AudioPlayer: React.FC<IAudioPlayer> = ({ audio, isPause }) => {
   const player: RefObject<ReactAudioPlayer> = createRef();
 
   useEffect(() => {
-    if (isPause) {
+    if (!player.current.audio.current.paused) {
       player.current.audio.current.pause();
     }
-  });
+  }, [isPause]);
 
   return (
     <ReactAudioPlayer
       src={audio}
       showJumpControls={false}
       customAdditionalControls={[]}
-      autoPlayAfterSrcChange={false}
       layout="horizontal-reverse"
       ref={player}
+      onAbort={() => player.current.audio.current.pause()}
     />
   );
 };

@@ -2,7 +2,7 @@ import * as actions from './actions';
 import * as types from './types';
 import { TThunk } from '..';
 
-export const setFinish: TThunk = () => (dispatch, getState) => {
+export const initFinishModal: TThunk = () => (dispatch, getState) => {
   const { game } = getState();
   const modalData: types.IModalData = {
     score: game.score,
@@ -16,4 +16,4 @@ export const setFinish: TThunk = () => (dispatch, getState) => {
   }
 };
 
-export default setFinish;
+export default initFinishModal;

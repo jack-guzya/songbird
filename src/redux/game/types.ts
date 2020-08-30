@@ -8,7 +8,7 @@ export const ADD_FAIL_POINTS = 'ADD_FAIL_POINTS';
 export const START_GAME = 'START_GAME';
 
 export type TCategoryIndex = number
-export type TGameStatus = 'game' | 'finish' | 'nextLevel'
+export type TGameStatus = 'game' | 'finish' | 'nextLevel' | null
 export type TScore = number;
 export type TCategories = Array<string>
 

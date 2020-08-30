@@ -27,10 +27,12 @@ export const updateGameData: TThunk = () => (dispatch, getState) => {
   }
 };
 
-export const startGame: TThunk = () => (dispatch, getState) => {
+export const initGame: TThunk = () => (dispatch, getState) => {
   const { data } = getState();
+
   dispatch(actions.setCategories(data.categories));
+  dispatch(actions.setGameStatus('game'));
   dispatch(actions.startGame());
 };
 
-export default startGame;
+export default initGame;

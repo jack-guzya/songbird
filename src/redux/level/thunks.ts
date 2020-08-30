@@ -43,10 +43,13 @@ export const updateLevelData: TThunk = () => (dispatch, getState) => {
   const { game, data } = getState();
   const elementsList = data.list[game.categories.categoryIndex];
   const elementCount = elementsList.length - 1;
+  const indexOfQuestion = random(0, elementCount);
+  const preparedElementsList = utils.prepareElementsList(elementsList);
+  console.log('FOR CROSSCHECK: ', preparedElementsList[indexOfQuestion].firstName); // It's successful answer. For Cross-check
 
   dispatch(actions.setLevelData({
-    elementsList: utils.prepareElementsList(elementsList),
-    indexOfQuestion: random(0, elementCount),
+    elementsList: preparedElementsList,
+    indexOfQuestion,
     indexOfSelect: null,
     levelStatus: null,
   }));

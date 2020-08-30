@@ -11,7 +11,7 @@ const CategoryList: React.FC = () => {
   const list = useSelector(getCategoriesList);
   const categoryIndex = useSelector(getCategoryIndex);
 
-  return (
+  return list && (
     <div className="row no-gutters categories">
       <div className="col">
         <div
@@ -19,7 +19,7 @@ const CategoryList: React.FC = () => {
           id="list-tab"
           role="tablist"
         >
-          {list && list.map((name, index) => (
+          {list.map((name, index) => (
             <CategoryElement
               key={name}
               name={name}

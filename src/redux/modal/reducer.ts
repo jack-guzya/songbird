@@ -5,7 +5,7 @@ import {
 
 // Reducer
 const DEFAULT_MODAL_MODE: IState = {
-  mode: null,
+  mode: 'sections',
   data: null,
 };
 

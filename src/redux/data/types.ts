@@ -13,6 +13,11 @@ export interface IElement {
 export interface IData {
   categories: Array<string>,
   list: Array<Array<IElement>>
+  details: {
+    img: string
+    title: string
+    details: string
+  }
 }
 
 interface ISetData {

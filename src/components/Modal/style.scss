@@ -7,36 +7,3 @@
 .modal-header {
   border-bottom: 2px solid $focusColor !important;
 }
-
-// .modal-block {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-
-
-//   &__overlay {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     width: 100vw;
-//     height: 100vh;
-//     background-color: #00000088;
-//   }
-
-//   &__window {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     width: 50vw;
-//     min-width: 290px;
-//     max-width: 700px;
-
-//     height: 30vh;
-//     min-height: 300px;
-//     max-height: 600px;
-
-//     background-color: #ffffff;
-//   }
-// }
