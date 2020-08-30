@@ -1,0 +1,30 @@
+@import '@import ~styles/base/variables.scss';
+
+.modal-img {
+  width: 100%;
+  border-bottom: 1px solid $lineColor;
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.modal-details {
+  text-align: center;
+  font-size: 0.8em;
+
+  &.title {
+    color: $focusColor;
+  }
+}
+
+.modal-section-item {
+  transition-duration: 0.5s;
+  border: 1px solid #00000000;
+  padding: 15px;
+
+  &:hover {
+    border: 1px solid $focusColor;
+  }
+}

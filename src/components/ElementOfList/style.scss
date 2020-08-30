@@ -1,0 +1,40 @@
+@import '~styles/base/variables.scss';
+
+.element-of-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.5s;
+  border-bottom: 2px solid $inActiveColor;
+  cursor: pointer;
+
+
+    &.fail,
+    &.fail:hover{
+      border-bottom: 2px solid $failColor;
+      color: $failColor
+    }
+    &.success,
+    &.success:hover {
+      border-bottom: 2px solid $successColor;
+      color: $successColor
+    }
+    &:hover {
+      border-bottom: 2px solid $focusColor;
+      color: $focusColor;
+    }
+    &:active {
+      transition-duration: 0s;
+      border-bottom: 2px solid $lineColor;
+      color: #fff;
+    }
+
+  p {
+    margin: 0;
+  }
+
+  .title {
+    margin: 10px;
+    text-align: center;
+  }
+}

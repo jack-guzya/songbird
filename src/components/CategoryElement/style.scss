@@ -1,0 +1,22 @@
+@import '~styles/base/variables.scss';
+
+.category-element {
+  text-align: center;
+  background-color: #00000000 !important;
+  padding: 5px !important;
+
+  &.current {
+    transition-duration: 1s;
+    border-bottom: 1px solid $focusColor;
+  }
+  &.completed {
+    transition-duration: 1s;
+    border-bottom: 1px solid $successColor;
+  }
+
+  &.uncompleted {
+    transition-duration: 1s;
+    border-bottom: 1px solid $inActiveColor;
+    color: $inActiveColor;
+  }
+}

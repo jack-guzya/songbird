@@ -1,0 +1,14 @@
+.question-block {
+  border: 1px solid;
+
+  &__image {
+    border: 1px solid;
+    width: 200px;
+  }
+}
+
+#question-image-block {
+  @media screen and (min-width: 960px) {
+    margin-right: 25px;
+  }
+}

@@ -1,0 +1,9 @@
+@import '~styles/base/variables.scss';
+
+.modal-content {
+  background-color: $bgBlock !important;
+}
+
+.modal-header {
+  border-bottom: 2px solid $focusColor !important;
+}
