@@ -53,7 +53,11 @@ $rhap_font-family: inherit !default;
 }
 
 .rhap_horizontal-reverse {
-  flex-direction: row-reverse;
+  flex-direction: column;
+
+  @media screen and (min-width: 560px) {
+    flex-direction: row-reverse;
+  }
 
   .rhap_controls-section {
     margin-right: 8px;
